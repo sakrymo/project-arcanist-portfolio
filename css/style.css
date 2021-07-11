@@ -19,7 +19,12 @@ body {
 h1 {
   color: white;
   font-family: cursive;
-  position: absolute;
+}
+
+p {
+  color: white;
+  font-family: sans-serif;
+  font-size: 21px;
 }
 
 @keyframes preloader-out {
@@ -32,40 +37,42 @@ h1 {
   min-width: 8%;
   filter: invert()
 }
-
-.wrapper { 
-  height: 10%;
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+#navbar {
+  background: #222;
   width: 100%;
-  left:0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-background-size: 1800% 1800%;
+  height: auto;
+  display: flex;
+  margin: auto;
+}
 
--webkit-animation: rainbow 18s ease infinite;
--z-animation: rainbow 18s ease infinite;
--o-animation: rainbow 18s ease infinite;
-  animation: rainbow 18s ease infinite;}
+#navbar-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+  align-items: center;
+}
 
-@-webkit-keyframes rainbow {
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
+.navbar-items {
+    display: flex;
+    flex-flow: row;
 }
-@-moz-keyframes rainbow {
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
+
+.navbar-item {
+  color: white;
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0px 20px;
 }
-@-o-keyframes rainbow {
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
-}
-@keyframes rainbow { 
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
+
+.navbar-logo {
+  width: 200px;
+  height: 72px;
+  background: red;
 }
