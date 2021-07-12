@@ -15,25 +15,36 @@ html(lang="en")
           alt="Loading..."
         )
 
-    mixin exampleText(firstFont, firstWeight, secondFont, secondWeight)
+    mixin exampleText(firstFont, firstWeight, secondFont, secondWeight, uppercase)
       .container
         .font-test
-          h1(style ="font-family: " + firstFont + ";" + "font-weight: " + firstWeight + ";") Lorem Ipsum Dolor Sit Amet
+          h1(style ="font-family: " + firstFont + ";" + "font-weight: " + firstWeight + ";", class = uppercase ? "toUpper" : "") Lorem Ipsum Dolor Sit Amet
           br
           p(style = "font-family: " + secondFont + ";" + "font-weight: " + secondWeight + ";") Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate aliquid voluptatum ullam iste amet repudiandae dicta, sequi iusto laudantium placeat nostrum commodi! Perferendis fugiat dolor sunt dignissimos pariatur cupiditate quisquam? Sequi veniam, adipisci doloribus rem voluptates dignissimos, blanditiis deserunt cupiditate possimus aperiam impedit veritatis, ullam quidem molestias assumenda esse nisi est ipsa necessitatibus sint error vero quas ratione hic! </br></br>Consectetur cupiditate suscipit illo eveniet necessitatibus mollitia numquam sequi deserunt a, perspiciatis exercitationem adipisci quis ducimus ea animi temporibus tempora. Distinctio, sapiente illo dolor iusto ullam inventore eos vel dolores corrupti reprehenderit suscipit tempore, quae laudantium. Repellendus provident, quae perspiciatis ipsam dolorem doloremque sit delectus quidem dolore, ducimus voluptate aspernatur? A repudiandae tempore quasi nisi sapiente magnam vero ad fugit nihil!
-          
-          
+          br
+          br
+          br
+          hr      
 
     small Font pairing 1 - Colus / Futura PT
     +exampleText("Colus", "normal", "futura-pt", "normal")
     
     small Font pairing 2 - Trajan Sans Pro / Gaultier
-    +exampleText("trajan-sans-pro", "1200", "gaultier", "normal")
+    +exampleText("trajan-sans-pro", "1200", "gaultier", "normal", true)
 
     small Font pairing 3 - Trajan Sans Pro / PT Sans Pro
     +exampleText("nocturne-serif", "1200", "pt-sans-pro", "lighter")
 
-    .whitespace
+    small Font pairing 4 - Hypatia Sans Pro / Cronos Pro
+    +exampleText("hypatia-sans-pro", "bold", "cronos-pro", "lighter", true)
+
+    small Font pairing 5 - Modesto / Proxima Nova
+    +exampleText("modestolite", "regular", "proxima-nova", "lighter", true)
+
+    br
+    br
+    br
+    br
 
     include components/footer.pug
     script(src="js/main.js")

@@ -124,3 +124,12 @@ small {
   line-height: 1.5;
   max-width: 60%;
 }
+
+.toUpper {
+  text-transform: uppercase;
+}
+
+hr {
+  width: 10%;
+  opacity: 0.3;
+}
