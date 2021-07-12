@@ -75,13 +75,41 @@ p {
 .navbar-item {
   color: white;
   text-decoration: none;
-  padding: 0px 20px;
+  padding: 20px;
+  position: relative;
+  display: block;
+  transition: 0.5s;
+}
+
+.navbar-item::after {
+  background: white;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  content: "";
+  transition: transform 0.5s;
+  transform: scaleX(0);
+  transform-origin: right;
+  opacity: 0.3;
+}
+
+.navbar-item.active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.navbar-item:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 #navbar-logo {
   width: 200px;
   height: 72px;
   background: red;
+  cursor: pointer;
 }
 
 .navbar-item.active {
