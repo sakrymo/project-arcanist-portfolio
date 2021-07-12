@@ -3,12 +3,11 @@ mixin navbar(activeItem)
     #navbar-content
       #navbar-logo
 
-      -var links = ["Home", "Work", "About Us", "Contact"]
-      -var urls = [""]
-
+      include page-links.pug
       ul#navbar-items
-        each val in links
-          unless val === activeItem
-            li.navbar-item= val
-          else
-            li.navbar-item.active= val
+        each val, index in links
+          a(href= "https://arcanist.art/" + url[index])
+            unless val === activeItem
+              li.navbar-item= val
+            else
+              li.navbar-item.active= val
