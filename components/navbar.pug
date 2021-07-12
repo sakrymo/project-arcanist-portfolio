@@ -1,0 +1,14 @@
+mixin navbar(activeItem)
+  #navbar
+    #navbar-content
+      #navbar-logo
+
+      -var links = ["Home", "Work", "About Us", "Contact"]
+      -var urls = [""]
+
+      ul#navbar-items
+        each val in links
+          unless val === activeItem
+            li.navbar-item= val
+          else
+            li.navbar-item.active= val
