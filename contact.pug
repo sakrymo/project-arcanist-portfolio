@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+
+  head
+    include components/head-data.pug
+    +head-data("Project Arcanist - Contact")
+
+  body
+    include components/navbar.pug
+    +navbar("Work")
+
+    .whitespace
+
+    include components/footer.pug
+    script(src="js/main.js")
