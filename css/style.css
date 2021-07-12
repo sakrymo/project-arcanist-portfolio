@@ -34,8 +34,8 @@ p {
 }
 
 @keyframes preloader-out {
-  0% {opacity: 1; display: inherit;}
-  100% {opacity: 0; display: none;}
+  0% {opacity: 1; pointer-events: fill;}
+  100% {opacity: 0; pointer-events: none;}
 }
 
 .preloader-animation {

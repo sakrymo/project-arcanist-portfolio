@@ -4,10 +4,11 @@ mixin navbar(activeItem)
       #navbar-logo
 
       include page-links.pug
+      -var domain = "https://arcanist.art/"
       ul#navbar-items
-        each val, index in links
-          a(href= "https://arcanist.art/" + url[index])
+        each val, index in pageNames
+          li
             unless val === activeItem
-              li.navbar-item= val
+                a.navbar-item(href=domain + pageURLs[index]) #{val}
             else
-              li.navbar-item.active= val
+                a.navbar-item.active(href=domain + pageURLs[index]) #{val}
