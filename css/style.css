@@ -69,12 +69,12 @@ p {
 #navbar-items {
     display: flex;
     flex-flow: row;
+    list-style-type: none;
 }
 
 .navbar-item {
   color: white;
   text-decoration: none;
-  list-style-type: none;
   padding: 0px 20px;
 }
 
