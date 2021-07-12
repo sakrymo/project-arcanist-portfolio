@@ -1,11 +1,12 @@
 mixin navbar(activeItem)
+  -var domain = "https://arcanist.art/"
   #navbar
     #navbar-content
-      #navbar-logo
+      a(href=domain)
+        #navbar-logo
 
       include page-links.pug
-      -var domain = "https://arcanist.art/"
-      
+
       ul#navbar-items
         each val, index in pageNames
           li
