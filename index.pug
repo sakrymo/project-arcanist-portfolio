@@ -46,9 +46,61 @@ html(lang="en")
     br
     br
 
+    .container
+      .font-select
+        h2 Font Preview
+        .font-select-split
+          div
+            h1.fs-heading Heading
+            p.fs-paragraph Paragraph
+          div.two
+            h3.fs-h Heading
+            p.fs-h-font Font:
+            button.fs-h-font-left <
+            button.fs-h-font-right >
+            p.fs-h-size Size:
+            button.fs-h-size-down -
+            button.fs-h-size-up +
+            p.fs-h-weight Weight:
+            button.fs-h-weight-down -
+            button.fs-h-weight-up +
+            p.fs-h-track Tracking:
+            button.fs-h-track-down -
+            button.fs-h-track-up +
+            p.fs-h-upper Uppercase:
+            .checkbox
+            p.fs-h-sample Sample Text:
+            button.fs-h-sample-left <
+            button.fs-h-sample-right >
+            br
+            br
+
+            h3 Paragraph
+            p.fs-p-font Font:
+            button.fs-p-font-left <
+            button.fs-p-font-right >
+            p.fs-p-size Size:
+            button.fs-p-size-down -
+            button.fs-p-size-up +
+            p.fs-p-weight Weight:
+            button.fs-p-weight-down -
+            button.fs-p-weight-up +
+            p.fs-p-track Tracking:
+            button.fs-p-track-down -
+            button.fs-p-track-up +
+            p.fs-p-line Line Height:
+            button.fs-p-line-down -
+            button.fs-p-line-up +
+            p.fs-p-sample Sample Text:
+            button.fs-p-sample-left <
+            button.fs-p-sample-right >
+
+
+
     include components/footer.pug
     script(src="js/main.js")
-    
+
+
   //-
     TODO
     [ ] CSS to SASS

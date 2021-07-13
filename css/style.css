@@ -161,3 +161,58 @@ hr {
   width: 10%;
   opacity: 0.3;
 }
+
+.font-select * {
+  margin: 3px 0;
+}
+
+.font-select {
+  background: #222;
+  min-height: 500px;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  padding: 50px;
+  color: gray;
+}
+
+.font-select h2 {
+  font-family: monospace;
+  font-size: 40px;
+  font-weight: normal;
+}
+
+.font-select-split {
+  display: flex;
+  flex-flow: row;
+  justify-content: left;
+}
+
+.font-select-split > div {
+  max-width: 50%;
+}
+.two {
+  margin-left: 20%;
+}
+
+.font-select button {
+  background: #111;
+  color: white;
+  border: none;
+  padding: 5px 20px;
+  cursor: pointer;
+  transition: 0.2s; 
+}
+
+.font-select button:hover {
+  background: white;
+  color: black;
+}
+
+.checkbox {
+  background: red;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
