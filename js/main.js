@@ -2,7 +2,7 @@ const heading = document.querySelector('.fs-heading'),
       paragraph = document.querySelector('.fs-paragraph')
 
 const fontsHeading = ['proxima-nova','Colus', 'trajan-sans-pro','nocturne-serif','hypatia-sans-pro','modestolite','cronos-pro','modesto-poster'],
-      fontsParagraph = ['proxima-nova', 'futura-pt', 'gaultier', 'pt-sans-pro', 'cronos-pro','hypatia-sans-pro', 'nocturne-serif']
+      fontsParagraph = ['proxima-nova', 'futura-pt', 'gaultier', 'pt-sans-pro', 'cronos-pro','hypatia-sans-pro', 'nocturne-serif-lights']
 
 const hSamples = ['Lorem Ipsum Dolor Sit Amet', 'About Us', 'The Quick Brown Fox']
 const pSamples = [`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis vel arcu eleifend sagittis. Nullam finibus vulputate pharetra. Suspendisse eu bibendum tellus.
