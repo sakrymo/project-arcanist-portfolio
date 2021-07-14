@@ -306,8 +306,8 @@ hr {
   text-transform: uppercase;
   font-size: 70px;
   margin-bottom: 30px;
-  font-weight: lighter;
-  letter-spacing: 0.1ch;
+  font-weight: normal;
+  letter-spacing: 0.06ch;
 }
 
 .cta button {
