@@ -1,9 +1,11 @@
 mixin navbar(activeItem)
   -var domain = "https://arcanist.art/"
+  include navbar-logo
   #navbar
     #navbar-content
       a(href=domain)
         #navbar-logo
+          +navbar-logo
 
       include page-links.pug
 
@@ -14,3 +16,4 @@ mixin navbar(activeItem)
                 a.navbar-item(href=domain + pageURLs[index]) #{val}
             else
                 a.navbar-item.active(href=domain + pageURLs[index]) #{val}
+  #navbar-gradient
