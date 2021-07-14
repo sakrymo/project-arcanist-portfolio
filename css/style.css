@@ -244,3 +244,97 @@ hr {
   height: 100vh;
   width: 100%;
 }
+
+.hero-text {
+  max-width: 50ch;
+  font-family: 'brother-1816';
+  font-weight: 200;
+}
+
+#hero .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-flow: column;
+  height: 100%;
+}
+
+.scroll-indicator {
+  position: absolute;
+  background: transparent;
+  width: 24px;
+  height: 24px;
+  transform: rotate(45deg);
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  bottom: 5%;
+  animation: scroll-indicator 1s ease infinite alternate, fade-scroll-indicator 1s 5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes scroll-indicator {
+  0% { bottom: 5%; }
+  100% { bottom: 7%; }
+}
+
+.scroll-indicator-label {
+  position: absolute;
+  animation: scroll-indicator 1s ease infinite alternate, 
+  fade-scroll-indicator 1s 5s ease forwards;
+  text-align: center;
+  font-family: 'brother-1816';
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.2ch;
+  font-size: 12px;
+  opacity: 0;
+}
+
+@keyframes fade-scroll-indicator {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cta {
+  margin-bottom: 12%;
+  margin-top: 50px;
+}
+
+.hero-heading {
+  font-family: 'modesto';
+  text-transform: uppercase;
+  font-size: 70px;
+  margin-bottom: 30px;
+  font-weight: lighter;
+  letter-spacing: 0.1ch;
+}
+
+.cta button {
+  background: transparent;
+  padding: 20px 30px;
+  width: 240px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'brother-1816';
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05ch;
+  font-size: 14px;
+  margin: 0 10px;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: .3s ease-out;
+}
+
+.cta button:hover {
+  background: white;
+  color: black;
+}
+
+
+.larger {
+  font-size: 26px;
+  font-family: 'brother-1816';
+}
