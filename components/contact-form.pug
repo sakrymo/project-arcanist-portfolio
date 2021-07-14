@@ -1,0 +1,10 @@
+-var formspreeURL = 'https://formspree.io/f/myyldeon'
+form(action=formspreeURL method='POST')
+  label
+    | Your email:
+    input(type='email' name='_replyto')
+  label
+    | Your message:
+    textarea(name='message')
+  // your other form fields go here
+  button(type='submit') Send

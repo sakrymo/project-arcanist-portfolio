@@ -10,8 +10,9 @@ html(lang="en")
     +navbar("Home")
 
     .preloader
+      .preloader-frame
       img.preloader-animation(
-          src="img/Funnel.gif"
+          src="img/loader-nocircle.gif"
           alt="Loading..."
         )
 
@@ -96,7 +97,7 @@ html(lang="en")
             button.fs-p-sample-right >
 
 
-
+    include components/contact-form.pug
     include components/footer.pug
     script(src="js/main.js")
 

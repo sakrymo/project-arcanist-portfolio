@@ -41,8 +41,8 @@ p {
 .preloader-animation {
   margin: auto;
   min-width: 8%;
-  filter: invert()
 }
+
 .container {
   max-width: 1200px;
   margin: auto;
