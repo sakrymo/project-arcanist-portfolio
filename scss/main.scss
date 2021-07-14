@@ -1,0 +1,16 @@
+// CSS Reset
+@use 'base/_reset';
+@use 'base/_layout';
+@import 'base/typography';
+
+// Utility
+@import 'utility/_variables';
+@import 'utility/_functions';
+@import 'utility/_mixins';
+
+body {
+  background-color: $dark-gray;
+  color: white;
+}
+
+@import 'components/_preloader';

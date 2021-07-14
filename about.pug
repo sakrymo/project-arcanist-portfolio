@@ -2,14 +2,15 @@ doctype html
 html(lang="en")
 
   head
-    include components/head-data.pug
+    include components/_head-data
     +head-data("Project Arcanist - About Us")
 
   body
-    include components/navbar.pug
+    include components/_navbar
     +navbar("About Us")
 
     .whitespace
 
-    include components/footer.pug
+    include components/_footer
     script(src="js/main.js")
+  h1 test

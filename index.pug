@@ -2,13 +2,13 @@ doctype html
 html(lang="en")
 
   head
-    include components/head-data.pug
+    include components/_head-data
     +head-data("Project Arcanist")
 
   body
-    include components/navbar.pug
+    include components/_navbar
     +navbar("Home")
-
+    
     .preloader
       .preloader-frame
       img.preloader-animation(
@@ -35,7 +35,7 @@ html(lang="en")
     
     .whitespace
     //- include components/contact-form.pug
-    include components/footer.pug
+    include components/_footer
     script(src="js/main.js")
 
   //-
@@ -63,5 +63,7 @@ html(lang="en")
     [ ] Footer flexbox
     [ ] Contact Form FORMSPREE
     [ ] Font import
-    [ ] Make border around the loader represent the actual loading time somehow with a radial gradient maybe and js
+    [ ] Make border around the loader represent the actual loading time somehow with a radial gradient or clip-path maybe and js
   //
+
+//- Today SASS + Light theme + contact form

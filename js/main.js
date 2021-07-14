@@ -17,5 +17,18 @@ const thingsWeCreate = [
   'Flyers',
   'Social Media Ads',
   'Illustrations',
-  ''
+  'Invitations',
+  'Visual Identities',
+  'Businesss Cards',
+  'Animations',
+  'Websites',
+  'Banners',
+  'Book Covers',
+  'Presentations',
+  'Social Media Posts',
+  'Brochures',
+  'Photo Manipulations',
+  'Concept Art',
+  'Game Assets',
+  'Magic'
 ]
