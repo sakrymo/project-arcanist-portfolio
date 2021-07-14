@@ -16,91 +16,9 @@ html(lang="en")
           alt="Loading..."
         )
 
-    mixin exampleText(firstFont, firstWeight, secondFont, secondWeight, uppercase)
-      .container
-        .font-test
-          h1(style ="font-family: " + firstFont + ";" + "font-weight: " + firstWeight + ";", class = uppercase ? "toUpper" : "") Lorem Ipsum Dolor Sit Amet
-          br
-          p(style = "font-family: " + secondFont + ";" + "font-weight: " + secondWeight + ";") Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate aliquid voluptatum ullam iste amet repudiandae dicta, sequi iusto laudantium placeat nostrum commodi! Perferendis fugiat dolor sunt dignissimos pariatur cupiditate quisquam? Sequi veniam, adipisci doloribus rem voluptates dignissimos, blanditiis deserunt cupiditate possimus aperiam impedit veritatis, ullam quidem molestias assumenda esse nisi est ipsa necessitatibus sint error vero quas ratione hic! </br></br>Consectetur cupiditate suscipit illo eveniet necessitatibus mollitia numquam sequi deserunt a, perspiciatis exercitationem adipisci quis ducimus ea animi temporibus tempora. Distinctio, sapiente illo dolor iusto ullam inventore eos vel dolores corrupti reprehenderit suscipit tempore, quae laudantium. Repellendus provident, quae perspiciatis ipsam dolorem doloremque sit delectus quidem dolore, ducimus voluptate aspernatur? A repudiandae tempore quasi nisi sapiente magnam vero ad fugit nihil!
-          br
-          br
-          br
-          hr      
-
-    small Font pairing 1 - Colus / Futura PT
-    +exampleText("Colus", "normal", "futura-pt", "normal")
-    
-    small Font pairing 2 - Trajan Sans Pro / Gaultier
-    +exampleText("trajan-sans-pro", "1200", "gaultier", "normal", true)
-
-    small Font pairing 3 - Trajan Sans Pro / PT Sans Pro
-    +exampleText("nocturne-serif", "1200", "pt-sans-pro", "lighter")
-
-    small Font pairing 4 - Hypatia Sans Pro / Cronos Pro
-    +exampleText("hypatia-sans-pro", "bold", "cronos-pro", "lighter", true)
-
-    small Font pairing 5 - Modesto / Proxima Nova
-    +exampleText("modestolite", "regular", "proxima-nova", "lighter", true)
-
-    br
-    br
-    br
-    br
-
-    .container
-      .font-select
-        h2 Font Preview
-        .font-select-split
-          div
-            h1.fs-heading Heading
-            p.fs-paragraph Paragraph
-          div.two
-            h3.fs-h Heading
-            p.fs-h-font Font:
-            button.fs-h-font-left <
-            button.fs-h-font-right >
-            p.fs-h-size Size:
-            button.fs-h-size-down -
-            button.fs-h-size-up +
-            p.fs-h-weight Weight:
-            button.fs-h-weight-down -
-            button.fs-h-weight-up +
-            p.fs-h-track Tracking:
-            button.fs-h-track-down -
-            button.fs-h-track-up +
-            p.fs-h-upper Uppercase:
-            .checkbox
-            p.fs-h-sample Sample Text:
-            button.fs-h-sample-left <
-            button.fs-h-sample-right >
-            br
-            br
-
-            h3 Paragraph
-            p.fs-p-font Font:
-            button.fs-p-font-left <
-            button.fs-p-font-right >
-            p.fs-p-size Size:
-            button.fs-p-size-down -
-            button.fs-p-size-up +
-            p.fs-p-weight Weight:
-            button.fs-p-weight-down -
-            button.fs-p-weight-up +
-            p.fs-p-track Tracking:
-            button.fs-p-track-down -
-            button.fs-p-track-up +
-            p.fs-p-line Line Height:
-            button.fs-p-line-down -
-            button.fs-p-line-up +
-            p.fs-p-sample Sample Text:
-            button.fs-p-sample-left <
-            button.fs-p-sample-right >
-
-
     include components/contact-form.pug
     include components/footer.pug
     script(src="js/main.js")
-
 
   //-
     TODO
