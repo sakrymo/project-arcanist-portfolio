@@ -75,7 +75,7 @@ p {
 .navbar-item {
   color: white;
   text-decoration: none;
-  padding: 20px;
+  padding: 15px 20px;
   position: relative;
   display: block;
   transition: 0.5s;
@@ -84,10 +84,10 @@ p {
 .navbar-item::after {
   background: gray;
   position: absolute;
-  height: 3px;
-  width: 100%;
+  height: 2px;
+  width: 60%;
   top: 100%;
-  left: 0;
+  left: 20%;
   content: "";
   transition: transform 0.5s ease;
   transform: scaleX(0);
@@ -97,7 +97,8 @@ p {
 .navbar-item.active::after {
   transform: scaleX(1);
   opacity: 1;
-  background: red;
+  background: #15b8fc;
+  height: 2px;
 }
 
 .navbar-item:hover::after {
@@ -112,16 +113,21 @@ p {
   padding: 16px;
   cursor: pointer;
   opacity: 0.9;
-  transition: opacity 0.15s;
+  transition: opacity 0.15s, transform 0.2s;
 }
 
 #navbar-logo:hover {
   opacity: 1;
 }
 
+#navbar-logo:active {
+  transform: scale(0.95);
+}
+
 .navbar-item.active {
   font-weight: bold;
 }
+
 #navbar-gradient {
   width: 100%;
   height: 5px;
