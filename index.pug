@@ -27,7 +27,8 @@ html(lang="en")
 
         .cta
           button SEE OUR WORK
-          button HIRE US
+          button
+            a(href="#scroll-test") HIRE US
 
         small.scroll-indicator-label Learn more
         .scroll-indicator
@@ -40,9 +41,11 @@ html(lang="en")
       Lorem ipsum dolor sit amet consectetur adepiscing sit elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
     
     .whitespace
+    section#scroll-test
     //- include components/contact-form
     include components/_footer
     script(src="js/main.js")
+    script 
   //-
     TODO
     -- NAVBAR
