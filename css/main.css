@@ -179,6 +179,7 @@ body {
   display: flex;
   flex-flow: row;
   list-style-type: none;
+  margin-right: 2ch;
 }
 
 .navbar-item {
