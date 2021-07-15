@@ -8,9 +8,19 @@
 @import 'utility/_functions';
 @import 'utility/_mixins';
 
+// Components
+@import 'components/_preloader';
+@import 'components/_navbar';
+@import 'components/hero';
+
+// Other
 body {
   background-color: $dark-gray;
-  color: white;
-}
+  color: #eee;
+  @include transition-theme;
 
-@import 'components/_preloader';
+  &.light {
+    background: $white;
+    color: $gray;
+  }
+}

@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, .navbar-item, .hero-text, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video, button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -24,6 +24,11 @@ ol, ul {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 blockquote, q {
   quotes: none;
 }
@@ -43,7 +48,7 @@ input {
   border-radius: 0;
 }
 
-root {
+:root {
   font-size: 62.5%;
 }
 
@@ -58,17 +63,53 @@ root {
   background: transparent;
 }
 
-h1 {
-  font-family: "modesto";
-  font-size: 5rem;
+.bold {
+  font-weight: bold;
+}
+
+.large {
+  font-size: 7.2rem;
+}
+
+.uppercase {
   text-transform: uppercase;
-  font-weight: normal;
+}
+
+h1, h2 {
+  font-family: "modesto-condensed", "modestolite", serif;
+  font-size: 6.4rem;
+  text-transform: uppercase;
+  font-weight: 300;
   letter-spacing: 0.06ch;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: 4.5rem;
+}
+
+h3, small {
+  font-family: "brother-1816", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  letter-spacing: 0.03ch;
+  text-rendering: geometricPrecision;
+  font-weight: bold;
+}
+
+small {
+  font-size: 1.4rem;
+  letter-spacing: 0.1ch;
+  opacity: 0.5;
+  text-rendering: geometricPrecision;
+  font-weight: normal;
 }
 
 body {
-  background-color: #171717;
-  color: white;
+  font-family: "brother-1816", sans-serif;
+  font-size: 1.62rem;
+  font-weight: 400;
+  line-height: 1.37;
 }
 
 .preloader {
@@ -83,6 +124,9 @@ body {
   z-index: 999;
   background: black;
   animation: preloader-out 1s 1.5s forwards;
+}
+.preloader.light {
+  filter: invert(0.85);
 }
 
 .preloader-animation {
@@ -99,6 +143,226 @@ body {
     opacity: 0;
     pointer-events: none;
   }
+}
+#navbar {
+  background: #111;
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin: auto;
+}
+#navbar.light {
+  background: #eee;
+}
+
+#navbar-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+  align-items: center;
+}
+
+#navbar-items {
+  display: flex;
+  flex-flow: row;
+  list-style-type: none;
+}
+
+.navbar-item {
+  padding: 10px 15px;
+  position: relative;
+  display: block;
+  transition: 0.5s;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.navbar-item::after {
+  background: gray;
+  position: absolute;
+  height: 2px;
+  width: 60%;
+  top: 100%;
+  left: 20%;
+  content: "";
+  transition: transform 0.5s ease;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+.navbar-item:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.navbar-item.active {
+  font-weight: bold;
+}
+.navbar-item.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+  background: yellow;
+}
+
+.nav-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  transform: scale(1);
+  margin-left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-icon:active {
+  transform: scale(1.3);
+}
+
+#navbar-logo {
+  width: 240px;
+  height: 72px;
+  background: transparent;
+  margin: 16px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.15s, transform 0.2s;
+}
+#navbar-logo::hover {
+  opacity: 1;
+}
+#navbar-logo:active {
+  transform: scale(0.95);
+}
+
+.navbar-gradient {
+  width: 100%;
+  height: 5px;
+  background: gray linear-gradient(90deg, red, yellow);
+}
+
+.cls-1.light:not(.logo-circle) {
+  fill: #222;
+}
+
+#hero {
+  background: linear-gradient(0deg, #141414, #262626);
+  height: 100vh;
+  width: 100%;
+}
+#hero .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-flow: column;
+  height: 100%;
+}
+#hero.light {
+  background: linear-gradient(0deg, #eee, #ccc);
+}
+
+.hero-heading {
+  font-family: modesto-condensed, serif;
+  text-transform: uppercase;
+  font-size: 72px;
+  margin-bottom: 30px;
+  font-weight: 500;
+  letter-spacing: 0.07ch;
+}
+
+.hero-text {
+  max-width: 50ch;
+  font-family: brother-1816;
+  font-weight: 200;
+  font-size: 2rem;
+  line-height: 1.4;
+}
+
+.scroll-indicator {
+  position: absolute;
+  background: transparent;
+  width: 24px;
+  height: 24px;
+  transform: rotate(45deg);
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  bottom: 5%;
+  animation: scroll-indicator 1s ease infinite alternate, fade-scroll-indicator 1s 5s ease forwards;
+  opacity: 0;
+}
+
+.scroll-indicator-label {
+  position: absolute;
+  animation: scroll-indicator 1s ease infinite alternate, fade-scroll-indicator 1s 5s ease forwards;
+  text-align: center;
+  font-family: brother-1816;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.2ch;
+  font-size: 1.2rem;
+  opacity: 0;
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+@keyframes scroll-indicator {
+  from {
+    bottom: 5%;
+  }
+  to {
+    bottom: 7%;
+  }
+}
+@keyframes fade-scroll-indicator {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.cta {
+  margin-bottom: 12%;
+  margin-top: 50px;
+}
+
+.cta button {
+  background: transparent;
+  padding: 20px 30px;
+  width: 240px;
+  border: none;
+  border-radius: 5px;
+  font-family: brother-1816;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05ch;
+  font-size: 14px;
+  margin: 0 10px;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+
+.cta button:hover {
+  background: white;
+  color: black;
+}
+
+.larger {
+  font-size: 2.6rem;
+  font-family: brother-1816;
+}
+
+body {
+  background-color: #171717;
+  color: #eee;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.light {
+  background: #eee;
+  color: #292929;
 }
 
 /*# sourceMappingURL=main.css.map */

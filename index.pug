@@ -18,7 +18,7 @@ html(lang="en")
 
     section#hero
       .container
-        h1.hero-heading Something catchy here
+        h1.hero-heading Welcome to Project Arcanist
         p.hero-text
           | Hello we are something something from somewhere because we love something and enjoy doing something sometimes thats why sample text lorem ipsum etc
           br
@@ -29,25 +29,30 @@ html(lang="en")
           button SEE OUR WORK
           button HIRE US
 
-        small.scroll-indicator-label.
-         Learn more
+        small.scroll-indicator-label Learn more
         .scroll-indicator
+
+    h1 Heading One
+    h2 Heading Two
+    h3 Heading Three
+    small Small Text
+    p.
+      Lorem ipsum dolor sit amet consectetur adepiscing sit elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
     
     .whitespace
-    //- include components/contact-form.pug
+    //- include components/contact-form
     include components/_footer
     script(src="js/main.js")
-
   //-
     TODO
     -- NAVBAR
     [X] Logo as SVG paths
-    [ ] Gradient variable on logo
-    [ ] Gradient variable under menu
-    [ ] Color variable on active item underline
+    [X] Gradient variable on logo
+    [x] Gradient variable under menu
+    [x] Color variable on active item underline
     [X] Text styling on menu items
     [ ] Mobile menu
-    [ ] Add theme toggle/language toggle
+    [x] Add theme toggle/language toggle
     
     -- OTHER
     [ ] CSS to SASS
@@ -64,6 +69,4 @@ html(lang="en")
     [ ] Contact Form FORMSPREE
     [ ] Font import
     [ ] Make border around the loader represent the actual loading time somehow with a radial gradient or clip-path maybe and js
-  //
-
-//- Today SASS + Light theme + contact form
+    [ ] Dynamic animated favicon with gradient from navbar

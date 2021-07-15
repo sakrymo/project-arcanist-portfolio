@@ -8,6 +8,10 @@
   z-index: 999;
   background: black;
   animation: preloader-out 1s 1.5s forwards;
+  
+  &.light {
+    filter: invert(0.85);
+  }
 }
 
 .preloader-animation {
