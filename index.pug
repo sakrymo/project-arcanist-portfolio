@@ -22,16 +22,20 @@ html(lang="en")
         p.hero-text
           | Hello we are something something from somewhere because we love something and enjoy doing something sometimes thats why sample text lorem ipsum etc
           br
-          br
-          span.larger We create _______ (i).
+          span#we-create
+            | We create
+            span#we-create-underline
+              span#we-create-text [Text]
 
         .cta
           button SEE OUR WORK
           button
             a(href="#scroll-test") HIRE US
 
-        small.scroll-indicator-label Learn more
-        .scroll-indicator
+        a(href="#scroll-test")
+          .scroll-indicator-wrapper
+            small.scroll-indicator-label Learn more
+            .scroll-indicator
 
     h1 Heading One
     h2 Heading Two
@@ -39,13 +43,15 @@ html(lang="en")
     small Small Text
     p.
       Lorem ipsum dolor sit amet consectetur adepiscing sit elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+    button.
     
     .whitespace
     section#scroll-test
     //- include components/contact-form
     include components/_footer
-    script(src="js/main.js")
-    script 
+  script(src="js/main.js")
+  script(src='https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js')
+ 
   //-
     TODO
     -- NAVBAR

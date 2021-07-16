@@ -46,5 +46,5 @@ function(){for(var e=0,t=["ms","moz","webkit","o"],n=0;n<t.length&&!window.reque
 
 var scroll = new SmoothScroll('a[href*="#"]', {
   easing: 'easeInOutQuad',
-  speed: 300
+  speed: 500
 });

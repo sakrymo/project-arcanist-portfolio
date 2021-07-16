@@ -4,6 +4,13 @@
   align-items: center;
 }
 
+@mixin flex-center-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow: column;
+}
+
 @mixin transition-theme {
   transition: background-color .3s ease, color .3s ease;
 }

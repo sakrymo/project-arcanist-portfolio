@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, .navbar-item, .hero-text, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video, button {
+html, body, div, span, object, iframe, figure, h1, .hero-heading, h2, h3, h4, h5, h6, p, .navbar-item, .hero-text, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video, button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -85,7 +85,7 @@ section {
   text-transform: uppercase;
 }
 
-h1, h2 {
+h1, .hero-heading, h2 {
   font-family: "modesto-condensed", "modestolite", serif;
   font-size: 6.4rem;
   text-transform: uppercase;
@@ -211,7 +211,7 @@ body {
 .navbar-item.active::after {
   transform: scaleX(1);
   transform-origin: left;
-  background: yellow;
+  background: white;
 }
 
 .nav-icon {
@@ -226,6 +226,9 @@ body {
 }
 .nav-icon:active {
   transform: scale(1.3);
+}
+.nav-icon:hover {
+  opacity: 0.8;
 }
 
 #navbar-logo {
@@ -259,6 +262,9 @@ body {
   height: 100vh;
   width: 100%;
 }
+#hero.light {
+  background: linear-gradient(0deg, #eee, #ccc);
+}
 #hero .container {
   display: flex;
   justify-content: center;
@@ -267,54 +273,89 @@ body {
   flex-flow: column;
   height: 100%;
 }
-#hero.light {
-  background: linear-gradient(0deg, #eee, #ccc);
-}
 
 .hero-heading {
-  font-family: modesto-condensed, serif;
-  text-transform: uppercase;
   font-size: 72px;
-  margin-bottom: 30px;
   font-weight: 500;
   letter-spacing: 0.07ch;
+  margin-bottom: 30px;
 }
 
 .hero-text {
   max-width: 50ch;
-  font-family: brother-1816;
   font-weight: 200;
   font-size: 2rem;
   line-height: 1.4;
 }
 
-.scroll-indicator {
+#we-create {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.6rem;
+  margin-top: 25px;
+  white-space: nowrap;
+}
+
+#we-create-underline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow: column;
+  width: 60%;
+  min-width: 20ch;
+  height: 3.5rem;
+  border-bottom: 1px solid white;
+  padding-bottom: 0.4rem;
+  margin-left: 1ch;
+}
+
+#we-create-text {
+  transition: translate 1s ease, opacity 1s ease;
+  transform: translateY(0);
+}
+
+#we-create-text.hidden {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+.scroll-indicator-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
   position: absolute;
-  background: transparent;
+  left: 0;
+  right: 0;
+  width: 128px;
+  margin: auto;
+  padding: 10px;
+  opacity: 0;
+  animation: scroll-indicator 1s ease infinite alternate, fade-scroll-indicator 1s 5s ease forwards;
+}
+.scroll-indicator-wrapper * {
+  transition: opacity 0.2s;
+}
+.scroll-indicator-wrapper:hover * {
+  opacity: 0.5;
+}
+
+.scroll-indicator {
   width: 24px;
   height: 24px;
   transform: rotate(45deg);
   border: solid white;
   border-width: 0 2px 2px 0;
-  bottom: 5%;
-  animation: scroll-indicator 1s ease infinite alternate, fade-scroll-indicator 1s 5s ease forwards;
-  opacity: 0;
 }
 
 .scroll-indicator-label {
-  position: absolute;
-  animation: scroll-indicator 1s ease infinite alternate, fade-scroll-indicator 1s 5s ease forwards;
   text-align: center;
-  font-family: brother-1816;
   color: white;
-  text-transform: uppercase;
   letter-spacing: 0.2ch;
   font-size: 1.2rem;
-  opacity: 0;
-  display: block;
-  width: 100%;
-  max-width: 1200px;
-  margin: 50px auto;
+  margin-bottom: 20px;
+  opacity: 1;
 }
 
 @keyframes scroll-indicator {
@@ -359,11 +400,6 @@ body {
 .cta button:hover {
   background: white;
   color: black;
-}
-
-.larger {
-  font-size: 2.6rem;
-  font-family: brother-1816;
 }
 
 body {
