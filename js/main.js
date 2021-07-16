@@ -1,37 +1,39 @@
-// Hero section scaling
-const heroSection = document.getElementById('hero')
-const menuHeight = document.querySelector('#navbar').offsetHeight + document.querySelector('.navbar-gradient').offsetHeight
+if (window.location.pathname === '/index.html') {
+    // Hero section scaling
+  const heroSection = document.getElementById('hero')
+  const menuHeight = document.querySelector('#navbar').offsetHeight + document.querySelector('.navbar-gradient').offsetHeight
 
-heroSection.style.height = `${window.innerHeight - menuHeight}px`
+  heroSection.style.height = `${window.innerHeight - menuHeight}px`
 
-window.addEventListener('resize', e => {
-  heroSection.style.height = `${window.innerHeight - menuHeight}px`;
-})
+  window.addEventListener('resize', e => {
+    heroSection.style.height = `${window.innerHeight - menuHeight}px`;
+  })
 
-// We create _______
-const thingsWeCreate = [
-  'Logos',
-  'Posters',
-  'Illustrations',
-  'Leaflets',
-  'Flyers',
-  'Social Media Ads',
-  'Illustrations',
-  'Invitations',
-  'Visual Identities',
-  'Businesss Cards',
-  'Animations',
-  'Websites',
-  'Banners',
-  'Book Covers',
-  'Presentations',
-  'Social Media Posts',
-  'Brochures',
-  'Photo Manipulations',
-  'Concept Art',
-  'Game Assets',
-  'Magic'
-]
+  // We create _______
+  const thingsWeCreate = [
+    'Logos',
+    'Posters',
+    'Illustrations',
+    'Leaflets',
+    'Flyers',
+    'Social Media Ads',
+    'Illustrations',
+    'Invitations',
+    'Visual Identities',
+    'Businesss Cards',
+    'Animations',
+    'Websites',
+    'Banners',
+    'Book Covers',
+    'Presentations',
+    'Social Media Posts',
+    'Brochures',
+    'Photo Manipulations',
+    'Concept Art',
+    'Game Assets',
+    'Magic'
+  ]
+}
 
 /*! SmoothScroll v16.1.4 | (c) 2020 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/smooth-scroll */
 !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e=e||self).SmoothScroll=t()}(this,(function(){"use strict";window.Element&&!Element.prototype.closest&&(Element.prototype.closest=function(e){var t,n=(this.document||this.ownerDocument).querySelectorAll(e),o=this;do{for(t=n.length;--t>=0&&n.item(t)!==o;);}while(t<0&&(o=o.parentElement));return o}),function(){if("function"==typeof window.CustomEvent)return!1;function e(e,t){t=t||{bubbles:!1,cancelable:!1,detail:void 0};var n=document.createEvent("CustomEvent");return n.initCustomEvent(e,t.bubbles,t.cancelable,t.detail),n}e.prototype=window.Event.prototype,window.CustomEvent=e}(),
@@ -50,12 +52,49 @@ var scroll = new SmoothScroll('a[href*="#"]', {
 });
 
 // Dynamic favicon
-window.onload = () => {
-  const canvas = document.querySelector('#favicon-canvas');
-  const ctx = canvas.getContext('2d');
-  ctx.fillStyle = 'green';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  const favicon = document.getElementById('favicon')
-  favicon.href = canvas.toDataURL('image/png');
- }
+// NONE OF THIS S***T WORKS
+// function drawInlineSVG(svgElement, ctx) {
+//   var svgURL = new XMLSerializer().serializeToString(svgElement);
+//   var img = new Image();
+//   img.src = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgURL);
+//   img.onload = function() {
+//     ctx.drawImage(this, 0, 0);
+//   }
+//   console.log(img)
+// }
 
+// window.onload = () => {
+//   const canvas = document.querySelector('#favicon-canvas');
+//   const ctx = canvas.getContext('2d');
+//   ctx.fillStyle = "green";
+//   ctx.fillRect(0, 0, canvas.width, canvas.height);
+//   // ctx.drawImage(document.querySelector('#test-image'),0,0,canvas.width,canvas.height)
+//   const favicon = document.getElementById('favicon');
+//   drawInlineSVG(document.getElementById('favicon-svg'), ctx);
+//   console.log(canvas.toDataURL())
+//   favicon.href = canvas.toDataURL();
+// }
+
+/*! dom-to-image 10-06-2017 */
+
+const node = document.getElementById('favicon-svg');
+const faviconCanvas = document.querySelector('#favicon-canvas');
+const ctx = faviconCanvas.getContext('2d');
+
+let favicon;
+
+domtoimage.toPng(node, {bgcolor: "#222"})
+    .then(function (dataUrl) {
+        favicon = new Image();
+        favicon.src = dataUrl;
+        favicon.id = "favicon-png"
+        document.body.append(favicon);
+        node.style = "display: none;"
+        setTimeout(() => {
+          ctx.drawImage(document.getElementById('favicon-png'), 0, 0, faviconCanvas.width,faviconCanvas.height)
+          document.getElementById('favicon').href = faviconCanvas.toDataURL()
+        }, 500);
+    })
+    .catch(function (error) {
+        console.error('Error: ', error);
+    });

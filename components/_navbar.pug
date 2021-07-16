@@ -2,6 +2,7 @@ mixin navbar(activeItem, color1='#db0027', color2='#15b8fc', activeColor = color
   -var domain = "https://arcanist.art/"
   
   include _navbar-logo
+  include _favicon
   include _page-links
 
   #navbar
@@ -24,3 +25,4 @@ mixin navbar(activeItem, color1='#db0027', color2='#15b8fc', activeColor = color
         style .navbar-item.active::after { background-color: #{activeColor}; }
 
   .navbar-gradient(style="background: linear-gradient(90deg," + color1 + "," + color2 + ");")
+  +favicon(color1, color2)

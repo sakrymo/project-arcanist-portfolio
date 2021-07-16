@@ -416,4 +416,9 @@ body.light {
   color: #292929;
 }
 
+#favicon-svg {
+  width: 64px;
+  height: 64px;
+}
+
 /*# sourceMappingURL=main.css.map */
