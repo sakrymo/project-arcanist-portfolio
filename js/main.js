@@ -57,18 +57,5 @@ window.onload = () => {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   const favicon = document.getElementById('favicon')
   favicon.href = canvas.toDataURL('image/png');
-  
-  setInterval(() => {
-    ctx.fillStyle = 'red';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    favicon.href = canvas.toDataURL('image/png');
-  }, 7);
-
-  setInterval(() => {
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    favicon.href = canvas.toDataURL('image/png');
-  }, 4);
-  
-}
+ }
 
