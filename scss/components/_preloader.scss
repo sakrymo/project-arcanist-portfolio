@@ -9,9 +9,7 @@
   background: black;
   animation: preloader-out 1s 1.5s forwards;
   
-  &.light {
-    filter: invert(0.85);
-  }
+  &.light { filter: invert(0.85); }
 }
 
 .preloader-animation {

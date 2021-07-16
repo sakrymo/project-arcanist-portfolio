@@ -335,7 +335,7 @@ body {
   animation: scroll-indicator 1s ease infinite alternate, fade-scroll-indicator 1s 5s ease forwards;
 }
 .scroll-indicator-wrapper * {
-  transition: opacity 0.2s;
+  transition: opacity 0.2s ease-in;
 }
 .scroll-indicator-wrapper:hover * {
   opacity: 0.5;

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "sass --watch scss:css",
-    "pug": "pug -w ./ -o ./",
+    "pug": "pug -w ./ -o ./ -P",
     "dev": "start npm run scss && start npm run pug"
   },
   "author": "",
