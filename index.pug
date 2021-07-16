@@ -7,7 +7,7 @@ html(lang="en")
 
   body
     include components/_navbar
-    +navbar("Home", "red", "yellow")
+    +navbar("Home")
     
     .preloader
       .preloader-frame
@@ -49,7 +49,6 @@ html(lang="en")
 
     section#scroll-test
     //- include components/contact-form
-    img#test-image(src='img/test-img.jpg' style="display: none;")
     include components/_footer
  
   //-
@@ -67,8 +66,8 @@ html(lang="en")
     [x] CSS to SASS
     [x] CSS Reset
     [x] Color variables
-    [ ] Favicon / metadata
-    [ ] Hero section + CTA
+    [ ] Meta tags
+    [x] Hero section + CTA
     [ ] Social icons
     [ ] Mobile navigation
     [ ] Hover effects
@@ -76,7 +75,7 @@ html(lang="en")
     [ ] Noscript message
     [ ] Footer flexbox
     [ ] Contact Form FORMSPREE
-    [ ] Font import
+    [x] Font import
     [ ] Make border around the loader represent the actual loading time somehow with a radial gradient or clip-path maybe and js
-    [ ] Dynamic animated favicon with gradient from navbar
+    [x] Dynamic animated favicon with gradient from navbar
     [] Page transitions with barba.js and GSAP?
