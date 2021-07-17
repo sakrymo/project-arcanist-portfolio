@@ -1,5 +1,13 @@
-if (window.location.pathname === '/index.html') {
-    // Hero section scaling
+/*
+8   8 8888 888b. .d88b.    .d88b. 8888 .d88b 88888 888 .d88b. 8b  8
+8www8 8www 8  .8 8P  Y8    YPwww. 8www 8P      8    8  8P  Y8 8Ybm8
+8   8 8    8wwK' 8b  d8        d8 8    8b      8    8  8b  d8 8  "8
+8   8 8888 8  Yb `Y88P'    `Y88P' 8888 `Y88P   8   888 `Y88P' 8   8
+*/
+let onHomePage = window.location.pathname === '/index.html' || '/'
+if (onHomePage) {
+  
+  // Hero section scaling
   const heroSection = document.getElementById('hero')
   const menuHeight = document.querySelector('#navbar').offsetHeight + document.querySelector('.navbar-gradient').offsetHeight
 
@@ -10,14 +18,12 @@ if (window.location.pathname === '/index.html') {
   })
 
   // We create _______
-  const thingsWeCreate = [
+  let thingsWeCreate = [
     'Logos',
     'Posters',
     'Illustrations',
     'Leaflets',
-    'Flyers',
     'Social Media Ads',
-    'Illustrations',
     'Invitations',
     'Visual Identities',
     'Businesss Cards',
@@ -33,8 +39,38 @@ if (window.location.pathname === '/index.html') {
     'Game Assets',
     'Magic'
   ]
+  
+  weCreate = document.getElementById('we-create-text')
+  let index = 0;
+  const delay = 1000;
+  const speed = 20;
+  let timer = delay;
+
+  const updateWeCreate = () => {
+    setTimeout(() => {
+      weCreate.textContent = thingsWeCreate[index];
+      
+      let letterCount = thingsWeCreate[index].length;
+      timer = delay + letterCount * speed;
+
+      let reachedMaxIndex = (index == thingsWeCreate.length-1);
+      index = reachedMaxIndex ? 0 : index + 1;
+
+      updateWeCreate();
+    }, timer);
+  }
+
+  updateWeCreate();  
 }
 
+/*
+.d88b  8    .d88b. 888b.    db    8
+8P www 8    8P  Y8 8wwwP   dPYb   8
+8b  d8 8    8b  d8 8   b  dPwwYb  8
+`Y88P' 8888 `Y88P' 888P' dP    Yb 8888
+*/
+
+// Smooth scrolling
 /*! SmoothScroll v16.1.4 | (c) 2020 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/smooth-scroll */
 !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e=e||self).SmoothScroll=t()}(this,(function(){"use strict";window.Element&&!Element.prototype.closest&&(Element.prototype.closest=function(e){var t,n=(this.document||this.ownerDocument).querySelectorAll(e),o=this;do{for(t=n.length;--t>=0&&n.item(t)!==o;);}while(t<0&&(o=o.parentElement));return o}),function(){if("function"==typeof window.CustomEvent)return!1;function e(e,t){t=t||{bubbles:!1,cancelable:!1,detail:void 0};var n=document.createEvent("CustomEvent");return n.initCustomEvent(e,t.bubbles,t.cancelable,t.detail),n}e.prototype=window.Event.prototype,window.CustomEvent=e}(),
 /**
@@ -51,36 +87,12 @@ var scroll = new SmoothScroll('a[href*="#"]', {
   speed: 500
 });
 
-// Dynamic favicon
-// NONE OF THIS S***T WORKS
-// function drawInlineSVG(svgElement, ctx) {
-//   var svgURL = new XMLSerializer().serializeToString(svgElement);
-//   var img = new Image();
-//   img.src = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgURL);
-//   img.onload = function() {
-//     ctx.drawImage(this, 0, 0);
-//   }
-//   console.log(img)
-// }
-
-// window.onload = () => {
-//   const canvas = document.querySelector('#favicon-canvas');
-//   const ctx = canvas.getContext('2d');
-//   ctx.fillStyle = "green";
-//   ctx.fillRect(0, 0, canvas.width, canvas.height);
-//   // ctx.drawImage(document.querySelector('#test-image'),0,0,canvas.width,canvas.height)
-//   const favicon = document.getElementById('favicon');
-//   drawInlineSVG(document.getElementById('favicon-svg'), ctx);
-//   console.log(canvas.toDataURL())
-//   favicon.href = canvas.toDataURL();
-// }
-
+// Dynamic Favicon
 /*! dom-to-image 10-06-2017 */
 
 const node = document.getElementById('favicon-svg');
 const faviconCanvas = document.querySelector('#favicon-canvas');
 const ctx = faviconCanvas.getContext('2d');
-
 let favicon;
 
 domtoimage.toPng(node, {bgcolor: "#222"})
@@ -97,4 +109,4 @@ domtoimage.toPng(node, {bgcolor: "#222"})
     })
     .catch(function (error) {
         console.error('Error: ', error);
-    });
+    })

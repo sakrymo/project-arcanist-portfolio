@@ -1,3 +1,54 @@
-@mixin btn($text: "Button", $type, $size: "") {
+.btn {
+  background: $white;
+  color: $dark-gray;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-rendering: geometricPrecision;
+  letter-spacing: 0.05ch;
+  font-size: 1.25rem;
+  margin: 1rem .5rem;
+  padding: 15px 30px;
+  transition: 0.3s ease-out;
 
+  &:hover {
+    box-shadow: inset 0 0 20px #000000;
+    transform: translate(2px,2px);
+  }
+
+  &:active {
+    background: white;
+    color: gray;
+    box-shadow: inset 0 0 20px #000000;
+    transform: translate(2px,2px);
+  }
+
+  &.light {
+    background: $gray;
+    color: $white;
+  }
+
+  &.sm {
+
+  }
+
+  &.lg {
+    padding: 20px 30px;
+    font-size: 1.4rem;
+  }
+
+  &.outline {
+    background: transparent;
+    color: $white;
+    border: 1px solid $white;
+
+    &.light {
+      color: $black;
+      border-color: $black;
+    }
+  }
+
+  &.inactive {
+    opacity: 0.5;
+  }
 }

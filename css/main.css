@@ -73,6 +73,10 @@ section {
   background: transparent;
 }
 
+.fullwidth {
+  width: 100%;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -404,6 +408,58 @@ body {
 .cta button:hover {
   background: white;
   color: black;
+}
+
+footer {
+  width: 100%;
+  background: #111;
+}
+footer.light {
+  background: white;
+}
+
+.btn {
+  background: #eee;
+  color: #171717;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-rendering: geometricPrecision;
+  letter-spacing: 0.05ch;
+  font-size: 1.25rem;
+  margin: 1rem 0.5rem;
+  padding: 15px 30px;
+  transition: 0.3s ease-out;
+}
+.btn:hover {
+  box-shadow: inset 0 0 20px #000000;
+  transform: translate(2px, 2px);
+}
+.btn:active {
+  background: white;
+  color: gray;
+  box-shadow: inset 0 0 20px #000000;
+  transform: translate(2px, 2px);
+}
+.btn.light {
+  background: #292929;
+  color: #eee;
+}
+.btn.lg {
+  padding: 20px 30px;
+  font-size: 1.4rem;
+}
+.btn.outline {
+  background: transparent;
+  color: #eee;
+  border: 1px solid #eee;
+}
+.btn.outline.light {
+  color: #111;
+  border-color: #111;
+}
+.btn.inactive {
+  opacity: 0.5;
 }
 
 body {

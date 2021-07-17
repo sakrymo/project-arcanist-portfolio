@@ -1,0 +1,8 @@
+footer {
+  width: 100%;
+  background: $black;
+  
+  &.light {
+    background: $fullwhite;
+  }
+}

@@ -1,4 +1,4 @@
-// CSS Reset
+// Base
 @use 'base/_reset';
 @use 'base/_layout';
 @import 'base/typography';
@@ -11,7 +11,9 @@
 // Components
 @import 'components/_preloader';
 @import 'components/_navbar';
-@import 'components/hero';
+@import 'components/_hero';
+@import 'components/_footer';
+@import 'components/buttons';
 
 // Other
 body {
