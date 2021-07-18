@@ -116,29 +116,7 @@ $temp-bg-2: #262626;
   margin-top: 50px;
 }
 
-.cta > button:first-of-type {
-  background: white !important;
-  color: black !important;
-}
-
-.cta button {
-  background: transparent;
-  padding: 20px 30px;
-  width: 240px;
-  border: none;
-  font-family: brother-1816;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.05ch;
-  font-size: 14px;
+.cta .btn  {
+  width: 250px;
   margin: 0 10px;
-  color: white;
-  border: 1px solid white;
-  cursor: pointer;
-  transition: 0.3s ease-out;
-}
-
-.cta button:hover {
-  background: white;
-  color: black;
 }

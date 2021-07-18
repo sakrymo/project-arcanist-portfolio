@@ -10,3 +10,17 @@ $dark-white: #ccc;
 
 $arcanist-red: #db0027;
 $arcanist-blue: #15b8fc;
+
+// Media queries
+$mobile-max: 480px;
+
+$tablet-min: $mobile-max + 1;
+$tablet-max: 768px;
+
+$laptop-min: $tablet-max + 1;
+$laptop-max: 1024px;
+
+$desktop-min: $laptop-max + 1;
+$desktop-max: 1200px;
+
+$desktop-big-min: $desktop-max + 1;

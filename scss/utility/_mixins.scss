@@ -1,3 +1,4 @@
+// Flexbox
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -11,6 +12,28 @@
   flex-flow: column;
 }
 
+// Light/dark theme
 @mixin transition-theme {
   transition: background-color .3s ease, color .3s ease;
+}
+
+// Media queries
+@mixin for-phone {
+  @media (max-width: 599px) { @content; }
+}
+
+@mixin for-tablet {
+  @media (min-width: $tablet-min) { @content; }
+}
+
+@mixin for-laptop {
+  @media (min-width: $laptop-min) { @content; }
+}
+
+@mixin for-desktop {
+  @media (min-width: $desktop-min) { @content; }
+}
+
+@mixin for-big-desktop {
+  @media (min-width: $desktop-big-min) { @content; }
 }
