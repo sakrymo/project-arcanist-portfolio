@@ -55,6 +55,9 @@
   &.inactive {
     opacity: 0.5;
   }
+  &[type="submit"] {
+    
+  }
 }
 
 .back-to-top {

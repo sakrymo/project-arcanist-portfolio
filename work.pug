@@ -7,9 +7,14 @@ html(lang="en")
 
   body
     include components/_navbar
-    +navbar("Work")
+    +navbar({
+      activeItem: "Work",
+      color1: undefined,
+      color2: undefined,
+      activeColor: undefined,
+      repeat: undefined 
+    })
 
     .whitespace
 
     include components/_footer
-    script(src="js/main.js")

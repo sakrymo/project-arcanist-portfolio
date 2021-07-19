@@ -1,10 +1,4 @@
-/*
-8   8 8888 888b. .d88b.    .d88b. 8888 .d88b 88888 888 .d88b. 8b  8
-8www8 8www 8  .8 8P  Y8    YPwww. 8www 8P      8    8  8P  Y8 8Ybm8
-8   8 8    8wwK' 8b  d8        d8 8    8b      8    8  8b  d8 8  "8
-8   8 8888 8  Yb `Y88P'    `Y88P' 8888 `Y88P   8   888 `Y88P' 8   8
-*/
-let onHomePage = window.location.pathname === '/index.html' || '/'
+const onHomePage = window.location.pathname === '/';
 if (onHomePage) {
   
   // Hero section scaling
