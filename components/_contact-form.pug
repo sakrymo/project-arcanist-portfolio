@@ -1,11 +1,10 @@
 -var formspreeURL = 'https://formspree.io/f/myyldeon'
-mixin contact-form()
-  form#contact-form(action=formspreeURL method='POST')
-    label.contact-form-label Name:
-      input(type='text' name='name')
-    
-    label.contact-form-label E-mail:
-      input(type='email' name='_replyto')
-    
-    label.contact-form-label Message:
-      textarea(name='message')
+form#contact-form(action=formspreeURL method='POST')
+  label.contact-form-label Name:
+    input(type='text' name='name')
+  
+  label.contact-form-label E-mail:
+    input(type='email' name='_replyto')
+  
+  label.contact-form-label Message:
+    textarea(name='message')

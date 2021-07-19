@@ -9,13 +9,13 @@ html(lang="en")
     include components/_navbar
     +navbar({
       activeItem: "Contact",
-      color1: undefined,
-      color2: undefined,
+      color1: 'teal',
+      color2: 'green',
       activeColor: undefined,
       repeat: undefined 
     })
 
     .container
-    +contact-form
+    include components/_contact-form
 
     include components/_footer

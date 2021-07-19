@@ -17,8 +17,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1460.45 420.09">
                       <defs>
                         <lineargradient id="gradient" spreadmethod="pad" x1="0%" y1="70%" x2="70%" y2="0%" gradientTransform="scale(1.2)">
-                          <stop offset="0%" style="stop-color:#db0027;stop-opacity:1;"></stop>
-                          <stop offset="100%" style="stop-color:#15b8fc;stop-opacity:1;"></stop>
+                          <stop offset="0%" style="stop-color:teal;stop-opacity:1;"></stop>
+                          <stop offset="100%" style="stop-color:green;stop-opacity:1;"></stop>
                         </lineargradient>
                         <style>
                           .cls-1 {
@@ -67,16 +67,16 @@
               <li><a class="navbar-item active" href="https://arcanist.art/contact">Contact</a>
               </li>
               <li class="nav-icon" id="theme-toggle"><i class="fas fa-adjust"></i></li>
-              <style>.navbar-item.active::after { background-color: #15b8fc; }</style>
+              <style>.navbar-item.active::after { background-color: green; }</style>
             </ul>
           </div>
         </div>
-        <div class="navbar-gradient" style="background: linear-gradient(90deg,#db0027,#15b8fc);"></div>
+        <div class="navbar-gradient" style="background: linear-gradient(90deg,teal,green);"></div>
             <svg id="favicon-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 420.09 420.09">
               <defs>
                 <lineargradient id="gradient" spreadmethod="pad" x1="0%" y1="70%" x2="70%" y2="0%" gradientTransform="scale(1.2)">
-                  <stop offset="0%" style="stop-color:#db0027;stop-opacity:1;"></stop>
-                  <stop offset="100%" style="stop-color:#15b8fc;stop-opacity:1;"></stop>
+                  <stop offset="0%" style="stop-color:teal;stop-opacity:1;"></stop>
+                  <stop offset="100%" style="stop-color:green;stop-opacity:1;"></stop>
                 </lineargradient>
                 <style>
                   .cls-1 {
@@ -99,20 +99,18 @@
                 </g>
               </g>
             </svg>
-    <div class="container">
-      <form id="contact-form" action="https://formspree.io/f/myyldeon" method="POST">
-        <label>Name:
-          <input type="text" name="name">
-        </label>
-        <label>E-mail:
-          <input type="email" name="_replyto">
-        </label>
-        <label>Message:
-          <textarea name="message"></textarea>
-        </label>
-        <button class="btn" id="contact-form-submit" type="submit">Send</button>
-      </form>
-    </div>
+    <div class="container"></div>
+    <form id="contact-form" action="https://formspree.io/f/myyldeon" method="POST">
+      <label class="contact-form-label">Name:
+        <input type="text" name="name">
+      </label>
+      <label class="contact-form-label">E-mail:
+        <input type="email" name="_replyto">
+      </label>
+      <label class="contact-form-label">Message:
+        <textarea name="message"></textarea>
+      </label>
+    </form>
     <div class="back-to-top-label hidden"></div><a class="back-to-top hidden" href="#navbar"><i class="fas fa-arrow-up fa-2x"></i></a>
     <div class="breakpoint" id="back-to-top-breakpoint"></div>
     <footer>
