@@ -78,6 +78,14 @@
 }
 
 #navbar-logo {
+  @include for-phone {
+    .logo-svg-text { display: none; }
+  }
+
+  @include for-laptop {
+    .logo-svg-text { display: inline-block; }
+  }
+  
   width: 240px;
   height: 72px;
   background: transparent;

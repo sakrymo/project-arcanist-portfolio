@@ -244,6 +244,16 @@ body {
   opacity: 0.9;
   transition: opacity 0.15s, transform 0.2s;
 }
+@media (max-width: 599px) {
+  #navbar-logo .logo-svg-text {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  #navbar-logo .logo-svg-text {
+    display: inline-block;
+  }
+}
 #navbar-logo::hover {
   opacity: 1;
 }

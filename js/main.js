@@ -129,3 +129,19 @@ const observerBackToTop = new IntersectionObserver(entries => {
 })
 
 observerBackToTop.observe(document.getElementById('back-to-top-breakpoint'));
+
+/*
+.d88b .d88b. 8b  8 88888    db    .d88b 88888
+8P    8P  Y8 8Ybm8   8     dPYb   8P      8
+8b    8b  d8 8  "8   8    dPwwYb  8b      8
+`Y88P `Y88P' 8   8   8   dP    Yb `Y88P   8
+*/
+
+emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+/*
+Yb        dP .d88b. 888b. 8  dP
+ Yb  db  dP  8P  Y8 8  .8 8wdP
+  YbdPYbdP   8b  d8 8wwK' 88Yb
+   YP  YP    `Y88P' 8  Yb 8  Yb
+*/
