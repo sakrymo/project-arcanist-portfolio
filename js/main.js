@@ -1,6 +1,14 @@
-const onHomePage = window.location.pathname === '/';
+/*
+8   8 8888 888b. .d88b.    .d88b. 8888 .d88b 88888 888 .d88b. 8b  8
+8www8 8www 8  .8 8P  Y8    YPwww. 8www 8P      8    8  8P  Y8 8Ybm8
+8   8 8    8wwK' 8b  d8        d8 8    8b      8    8  8b  d8 8  "8
+8   8 8888 8  Yb `Y88P'    `Y88P' 8888 `Y88P   8   888 `Y88P' 8   8
+*/
+
+const onHomePage =  window.location.pathname === '/' ||
+                    window.location.pathname === '/index.html';
 if (onHomePage) {
-  
+
   // Hero section scaling
   const heroSection = document.getElementById('hero')
   const menuHeight = document.querySelector('#navbar').offsetHeight + document.querySelector('.navbar-gradient').offsetHeight
@@ -34,7 +42,7 @@ if (onHomePage) {
     'Magic'
   ]
   
-  weCreate = document.getElementById('we-create-text')
+  const weCreate = document.getElementById('we-create-text')
   let index = 0;
   const delay = 1000;
   const speed = 20;
@@ -78,7 +86,8 @@ function(){for(var e=0,t=["ms","moz","webkit","o"],n=0;n<t.length&&!window.reque
 
 var scroll = new SmoothScroll('a[href*="#"]', {
   easing: 'easeInOutQuad',
-  speed: 500
+  speed: 500,
+  speedAsDuration: true
 });
 
 // Dynamic Favicon
@@ -104,3 +113,15 @@ domtoimage.toPng(node, {bgcolor: "#222"})
     .catch(function (error) {
         console.error('Error: ', error);
     })
+
+// Back to top
+const observerBackToTop = new IntersectionObserver(entries => {
+  const entry = entries[0];
+  const isAboveView = entry.boundingClientRect.y < 0;
+  const backToTopButton = document.querySelector('.back-to-top')
+
+  if (isAboveView)  backToTopButton.classList.remove('hidden');
+  else              backToTopButton.classList.add('hidden');
+})
+
+observerBackToTop.observe(document.getElementById('back-to-top-breakpoint'));

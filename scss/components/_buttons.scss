@@ -55,11 +55,80 @@
   &.inactive {
     opacity: 0.5;
   }
+  
   &[type="submit"] {
-    
   }
 }
 
+$back-to-top-size: 64px;
+
 .back-to-top {
+  @include flex-center;
+  width: $back-to-top-size;
+  height: $back-to-top-size;
   
+  background: $black;
+  border-radius: 50%;
+  opacity: 0.75;
+  
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+
+  cursor: pointer;
+  pointer-events: all;
+
+  transition: .3s, transform 1s;
+
+  &:hover {
+    background: $white;
+    color: $dark-gray;
+    opacity: 1;
+    // border-radius: 0;
+  }
+
+  &.light {
+    background: lightgray;
+  }
+
+  &.light:hover {
+    background: $dark-gray;
+    color: $white;
+  }
+
+  &.hidden {
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0);
+    transition: 1s;
+  }
+}
+
+.back-to-top-label {
+  width: 200px;
+  height: $back-to-top-size;
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+  background: white;
+  transform: scale(1);
+  transition: transform 1s ease;
+  transform-origin: right;
+  
+  &.hidden {
+    transform:scaleX(0);
+    transition: transform 1s ease;
+  }
+}
+
+.breakpoint {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  position: absolute;
+  left: 0;
+}
+
+#back-to-top-breakpoint.breakpoint {
+  top: 100vh;
 }

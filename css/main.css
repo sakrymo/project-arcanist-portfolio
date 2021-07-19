@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-html, body, div, span, object, iframe, figure, h1, .hero-heading, h2, h3, h4, h5, h6, p, .navbar-item, .hero-text, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video, button {
+html, body, div, span, object, iframe, figure, h1, .hero-heading, h2, h3, .screensize:after, h4, h5, h6, p, .navbar-item, .hero-text, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video, button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -102,7 +102,7 @@ h2 {
   font-size: 4.5rem;
 }
 
-h3, small {
+h3, .screensize:after, small {
   font-family: "brother-1816", sans-serif;
   text-transform: uppercase;
   font-size: 1.8rem;
@@ -443,6 +443,69 @@ footer.light {
 .btn.inactive {
   opacity: 0.5;
 }
+.back-to-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  background: #111;
+  border-radius: 50%;
+  opacity: 0.75;
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+  cursor: pointer;
+  pointer-events: all;
+  transition: 0.3s, transform 1s;
+}
+.back-to-top:hover {
+  background: #eee;
+  color: #171717;
+  opacity: 1;
+}
+.back-to-top.light {
+  background: lightgray;
+}
+.back-to-top.light:hover {
+  background: #171717;
+  color: #eee;
+}
+.back-to-top.hidden {
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0);
+  transition: 1s;
+}
+
+.back-to-top-label {
+  width: 200px;
+  height: 64px;
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+  background: white;
+  transform: scale(1);
+  transition: transform 1s ease;
+  transform-origin: right;
+}
+.back-to-top-label.hidden {
+  transform: scaleX(0);
+  transition: transform 1s ease;
+}
+
+.breakpoint {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  position: absolute;
+  left: 0;
+}
+
+#back-to-top-breakpoint.breakpoint {
+  top: 100vh;
+}
+
 body {
   background-color: #171717;
   color: #eee;
@@ -456,6 +519,56 @@ body.light {
 #favicon-svg {
   width: 64px;
   height: 64px;
+}
+
+.screensize {
+  width: 100%;
+  height: 60px;
+  background: gray;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  top: 500px;
+}
+.screensize:after {
+  content: "TEST";
+  background: red;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 599px) {
+  .screensize:after {
+    background: blue;
+    content: "PHONE";
+  }
+}
+@media (min-width: 481px) {
+  .screensize:after {
+    background: maroon;
+    content: "TABLET";
+  }
+}
+@media (min-width: 769px) {
+  .screensize:after {
+    background: green;
+    content: "LAPTOP";
+  }
+}
+@media (min-width: 1025px) {
+  .screensize:after {
+    background: purple;
+    content: "DESKTOP";
+  }
+}
+@media (min-width: 1201px) {
+  .screensize:after {
+    background: orangered;
+    content: "DESKTOP LARGE";
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
