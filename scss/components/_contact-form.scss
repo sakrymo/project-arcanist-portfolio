@@ -1,5 +1,22 @@
 #contact-form {
-  background: red;
-  width: 100%;
+  background: $gray;
+  width: 600px;
+  height: 800px;
+  margin: 50px auto;
   @include flex-center-col;
+  border-radius: 2rem;
+
+  &.light {
+    background: $white;
+    box-shadow: 0 0 5px gray;
+  }
+}
+
+#contact-form-submit {
+  width: 60%;
+  align-self: center;
+}
+
+.contact-form-label {
+  display: block;
 }

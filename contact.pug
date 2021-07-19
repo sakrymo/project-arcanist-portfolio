@@ -16,14 +16,6 @@ html(lang="en")
     })
 
     .container
-      form#contact-form(action='https://formspree.io/f/myyldeon' method='POST')
-        
-        label Your email:
-          input(type='email' name='_replyto')
-        
-        label Your message:
-          textarea(name='message')
-        
-        button(type='submit') Send
+    +contact-form
 
     include components/_footer

@@ -443,6 +443,7 @@ footer.light {
 .btn.inactive {
   opacity: 0.5;
 }
+
 .back-to-top {
   display: flex;
   justify-content: center;
@@ -507,12 +508,28 @@ footer.light {
 }
 
 #contact-form {
-  background: red;
-  width: 100%;
+  background: #292929;
+  width: 600px;
+  height: 800px;
+  margin: 50px auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-flow: column;
+  border-radius: 2rem;
+}
+#contact-form.light {
+  background: #eee;
+  box-shadow: 0 0 5px gray;
+}
+
+#contact-form-submit {
+  width: 60%;
+  align-self: center;
+}
+
+.contact-form-label {
+  display: block;
 }
 
 body {

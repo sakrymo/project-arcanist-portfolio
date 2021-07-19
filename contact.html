@@ -101,13 +101,16 @@
             </svg>
     <div class="container">
       <form id="contact-form" action="https://formspree.io/f/myyldeon" method="POST">
-        <label>Your email:
+        <label>Name:
+          <input type="text" name="name">
+        </label>
+        <label>E-mail:
           <input type="email" name="_replyto">
         </label>
-        <label>Your message:
+        <label>Message:
           <textarea name="message"></textarea>
         </label>
-        <button type="submit">Send</button>
+        <button class="btn" id="contact-form-submit" type="submit">Send</button>
       </form>
     </div>
     <div class="back-to-top-label hidden"></div><a class="back-to-top hidden" href="#navbar"><i class="fas fa-arrow-up fa-2x"></i></a>

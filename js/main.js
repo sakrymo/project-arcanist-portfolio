@@ -90,7 +90,8 @@ var scroll = new SmoothScroll('a[href*="#"]', {
   speedAsDuration: true
 });
 
-for (link of document.querySelectorAll('a[href*="#"]')) { link.onclick = removeHash; } 
+const hashLinks = document.querySelectorAll('a[href*="#"]'); 
+for (link of hashLinks) link.onclick = removeHash; 
 function removeHash() { setTimeout(() => history.replaceState({}, document.title, "."), 10); }
 
 // Dynamic Favicon
