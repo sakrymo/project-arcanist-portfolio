@@ -90,6 +90,13 @@ var scroll = new SmoothScroll('a[href*="#"]', {
   speedAsDuration: true
 });
 
+for (link of document.querySelectorAll('a[href*="#"]')) {
+  link.onclick = removeHash();
+} 
+
+function removeHash() {
+  history.replaceState({}, document.title, ".");
+}
 // Dynamic Favicon
 /*! dom-to-image 10-06-2017 */
 

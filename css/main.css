@@ -506,6 +506,15 @@ footer.light {
   top: 100vh;
 }
 
+#contact-form {
+  background: red;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow: column;
+}
+
 body {
   background-color: #171717;
   color: #eee;
