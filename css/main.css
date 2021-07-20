@@ -248,6 +248,7 @@ body {
   cursor: pointer;
   opacity: 0.9;
   transition: opacity 0.15s, transform 0.2s;
+  clip-path: inset(0 70% 0 0);
 }
 @media (max-width: 768px) {
   #navbar-logo .logo-svg-text {
@@ -263,6 +264,12 @@ body {
 
 .cls-1.light:not(.logo-circle) {
   fill: #222;
+}
+
+.navbar-gradient {
+  width: 100%;
+  height: 5px;
+  background: gray linear-gradient(90deg, red, yellow);
 }
 
 #hamburger {
@@ -316,12 +323,6 @@ body {
 
 #hamburger-toggle:checked ~ #hamburger-bot {
   transform: translate(-1rem) rotateZ(45deg) scaleX(0.99);
-}
-
-.navbar-gradient {
-  width: 100%;
-  height: 5px;
-  background: gray linear-gradient(90deg, red, yellow);
 }
 
 #mobile-menu {
