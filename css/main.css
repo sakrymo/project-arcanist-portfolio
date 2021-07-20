@@ -412,7 +412,9 @@ body {
 }
 
 #we-create-text {
-  transition: translate 1s ease, opacity 1s ease;
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
   transform: translateY(0);
 }
 

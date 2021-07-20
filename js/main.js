@@ -44,13 +44,24 @@ if (onHomePage) {
   
   const weCreate = document.getElementById('we-create-text')
   let index = 0;
-  const delay = 1000;
+  const delay = 1500;
   const speed = 20;
   let timer = delay;
+  const transitionDuration = 500; 
+
+  const replaceWeCreateText = () => weCreate.textContent = thingsWeCreate[index]
+  const outWeCreate = () => weCreate.classList.add('hidden')
+  const inWeCreate = () => weCreate.classList.remove('hidden')
+
 
   const updateWeCreate = () => {
     setTimeout(() => {
-      weCreate.textContent = thingsWeCreate[index];
+      outWeCreate()
+      
+      setTimeout(() => {
+        replaceWeCreateText();
+        inWeCreate();
+      }, transitionDuration);
       
       let letterCount = thingsWeCreate[index].length;
       timer = delay + letterCount * speed;

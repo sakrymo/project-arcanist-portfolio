@@ -52,11 +52,12 @@ $temp-bg-2: #262626;
 }
 
 #we-create-text {
-  $duration: 1s;
+  $duration: .5s;
   $easing: ease;
 
-  transition: translate $duration $easing,
-              opacity $duration $easing;
+  transition-property: transform, opacity;
+  transition-duration: .5s;
+  transition-timing-function: $easing;
 
   transform: translateY(0);
 }
