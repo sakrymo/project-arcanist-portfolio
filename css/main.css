@@ -487,6 +487,10 @@ body {
   margin: 0 10px;
 }
 
+.fa-info-circle {
+  cursor: help;
+}
+
 footer {
   width: 100%;
   background: #111;

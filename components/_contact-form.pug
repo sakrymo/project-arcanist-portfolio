@@ -1,12 +1,12 @@
 -var formspreeURL = 'https://formspree.io/f/myyldeon'
 form#contact-form(action=formspreeURL method='POST' autocomplete="off")
   label.contact-form-label Name:
-    input(type='text' name='name')
+    input(type='text', name='name', autocomplete="off")
   
   label.contact-form-label E-mail:
-    input(type='email' name='_replyto')
+    input(type='email', name='_replyto', autocomplete="off")
   
   label.contact-form-label Message:
-    textarea(name='message')
+    textarea(name='message', autocomplete="off")
   
   button.btn#contact-form-submit(type='submit') Send
