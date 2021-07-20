@@ -26,9 +26,10 @@
   list-style-type: none;
   margin-right: 2ch;
 
-  @include for-tablet {
+  @include for-phone {
    display: none; 
   }
+  
   @include for-laptop {
     display: inherit;
   }
@@ -131,7 +132,6 @@ $mobile-menu-scale: 0.99;
 
   @include for-phone { display: inherit; }
   @include for-laptop { display: none;}
-  
 }
 
 #hamburger-toggle {

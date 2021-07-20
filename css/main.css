@@ -185,12 +185,12 @@ body {
   list-style-type: none;
   margin-right: 2ch;
 }
-@media screen and (min-width: 481px) {
+@media (max-width: 768px) {
   #navbar-items {
     display: none;
   }
 }
-@media screen and (min-width: 769px) {
+@media (min-width: 1024px) {
   #navbar-items {
     display: inherit;
   }
@@ -254,12 +254,12 @@ body {
   opacity: 0.9;
   transition: opacity 0.15s, transform 0.2s;
 }
-@media screen and (max-width: 599px) {
+@media (max-width: 768px) {
   #navbar-logo .logo-svg-text {
     display: none;
   }
 }
-@media screen and (min-width: 769px) {
+@media (min-width: 1024px) {
   #navbar-logo .logo-svg-text {
     display: inherit;
   }
@@ -285,12 +285,12 @@ body {
   row-gap: 1.3rem;
   position: relative;
 }
-@media screen and (max-width: 599px) {
+@media (max-width: 768px) {
   #hamburger {
     display: inherit;
   }
 }
-@media screen and (min-width: 769px) {
+@media (min-width: 1024px) {
   #hamburger {
     display: none;
   }
@@ -651,31 +651,31 @@ body.light {
   justify-content: center;
   align-items: center;
 }
-@media screen and (max-width: 599px) {
+@media (max-width: 768px) {
   .screensize:after {
     background: blue;
     content: "PHONE";
   }
 }
-@media screen and (min-width: 481px) {
+@media (min-width: 768px) {
   .screensize:after {
     background: maroon;
     content: "TABLET";
   }
 }
-@media screen and (min-width: 769px) {
+@media (min-width: 1024px) {
   .screensize:after {
     background: green;
     content: "LAPTOP";
   }
 }
-@media screen and (min-width: 1025px) {
+@media (min-width: 1200px) {
   .screensize:after {
     background: purple;
     content: "DESKTOP";
   }
 }
-@media screen and (min-width: 1201px) {
+@media (min-width: 1201px) {
   .screensize:after {
     background: orangered;
     content: "DESKTOP LARGE";
