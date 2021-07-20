@@ -187,7 +187,7 @@ $mobile-menu-offset: 1rem;
   z-index: 500;
   overflow: hidden;
   clip-path: circle(0% at 94% 0%);
-  transition: clip-path .6s, opacity .4s;
+  transition: clip-path .4s cubic-bezier(0.95, 0.05, 0.795, 0.035), opacity .4s;
   opacity: 0;
 }
 
