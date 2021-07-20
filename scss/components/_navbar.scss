@@ -97,7 +97,7 @@
   }
 
   @include for-laptop {
-    .logo-svg-text { display: initial; }
+    .logo-svg-text { display: inherit; }
   }
 
   &::hover {
@@ -129,7 +129,7 @@ $mobile-menu-scale: 0.99;
   row-gap: $mobile-menu-gap;
   position: relative;
 
-  @include for-phone { display: initial; }
+  @include for-phone { display: inherit; }
   @include for-laptop { display: none;}
   
 }
