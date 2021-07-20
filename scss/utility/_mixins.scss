@@ -19,21 +19,21 @@
 
 // Media queries
 @mixin for-phone {
-  @media (max-width: 599px) { @content; }
+  @media screen and (max-width: 599px) { @content; }
 }
 
 @mixin for-tablet {
-  @media (min-width: $tablet-min) { @content; }
+  @media screen and (min-width: $tablet-min) { @content; }
 }
 
 @mixin for-laptop {
-  @media (min-width: $laptop-min) { @content; }
+  @media screen and (min-width: $laptop-min) { @content; }
 }
 
 @mixin for-desktop {
-  @media (min-width: $desktop-min) { @content; }
+  @media screen and (min-width: $desktop-min) { @content; }
 }
 
 @mixin for-big-desktop {
-  @media (min-width: $desktop-big-min) { @content; }
+  @media screen and (min-width: $desktop-big-min) { @content; }
 }
