@@ -4,12 +4,15 @@ mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeCo
   include _favicon
   include _page-links
 
-  #navbar
+  nav#navbar
     #navbar-content
+      
+      //- Logo
       a(href=domain)
         #navbar-logo
           +navbar-logo(color1, color2)
-
+      
+      //- Page links
       ul#navbar-items
         each val, index in pageNames
           li
@@ -18,8 +21,25 @@ mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeCo
             else
                 a.navbar-item.active(href=domain + pageURLs[index]) #{val}
         
+        //- Theme toggle
         li.nav-icon#theme-toggle
           i.fas.fa-adjust
+        
+      //- Mobile menu
+      #hamburger
+        input#hamburger-toggle(type="checkbox")
+        .hamburger-line#hamburger-top
+        .hamburger-line#hamburger-mid
+        .hamburger-line#hamburger-bot
+
+        nav#mobile-menu
+          ul#mobile-menu-items
+            each val, index in pageNames
+              li
+                unless val === activeItem
+                    a.navbar-item(href=domain + pageURLs[index]) #{val}
+                else
+                    a.navbar-item.active(href=domain + pageURLs[index]) #{val}
 
         style .navbar-item.active::after { background-color: #{activeColor}; }
 
