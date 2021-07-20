@@ -80,6 +80,14 @@
   &:hover { opacity: 0.8; }
 }
 
+#navbar-wrapper {
+  overflow: hidden;
+  display: inline-block;
+  width: auto;
+  
+  @include for-phone { width: 95px;  }
+}
+
 #navbar-logo {
   width: 240px;
   height: 72px;
@@ -88,7 +96,6 @@
   cursor: pointer;
   opacity: 0.9;
   transition: opacity 0.15s, transform 0.2s;
-  clip-path: inset(0 70% 0 0);;
 
   @include for-phone {
     .logo-svg-text { display: none; }

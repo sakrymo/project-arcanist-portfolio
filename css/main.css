@@ -240,6 +240,17 @@ body {
   opacity: 0.8;
 }
 
+#navbar-wrapper {
+  overflow: hidden;
+  display: inline-block;
+  width: auto;
+}
+@media (max-width: 768px) {
+  #navbar-wrapper {
+    width: 95px;
+  }
+}
+
 #navbar-logo {
   width: 240px;
   height: 72px;
@@ -248,7 +259,6 @@ body {
   cursor: pointer;
   opacity: 0.9;
   transition: opacity 0.15s, transform 0.2s;
-  clip-path: inset(0 70% 0 0);
 }
 @media (max-width: 768px) {
   #navbar-logo .logo-svg-text {
