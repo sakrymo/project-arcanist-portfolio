@@ -85,7 +85,7 @@
   display: inline-block;
   width: auto;
   
-  @include for-phone { width: 95px;  }
+  @include for-phone { width: 120px;  }
 }
 
 #navbar-logo {
