@@ -158,6 +158,7 @@ $mobile-menu-scale: 0.99;
   background: white;
   transition: transform 0.5s ease;
   transform-origin: right;
+  pointer-events: none;
 }
 
 #hamburger-toggle:checked ~ #hamburger-top {
