@@ -84,14 +84,6 @@
 }
 
 #navbar-logo {
-  @include for-phone {
-    .logo-svg-text { display: none; }
-  }
-
-  @include for-laptop {
-    .logo-svg-text { display: inherit; }
-  }
-  
   width: 240px;
   height: 72px;
   background: transparent;
@@ -99,6 +91,14 @@
   cursor: pointer;
   opacity: 0.9;
   transition: opacity 0.15s, transform 0.2s;
+
+  @include for-phone {
+    .logo-svg-text { display: none; }
+  }
+
+  @include for-laptop {
+    .logo-svg-text { display: initial; }
+  }
 
   &::hover {
     opacity: 1;
@@ -119,8 +119,6 @@ $mobile-menu-angle: 45deg;
 $mobile-menu-scale: 0.99;
 
 #hamburger {
-  @include for-phone { display: inherit; }
-  @include for-laptop { display: none;}
   $size: 80px;
   width: $size;
   height: $size;
@@ -130,6 +128,9 @@ $mobile-menu-scale: 0.99;
   flex-flow: column;
   row-gap: $mobile-menu-gap;
   position: relative;
+
+  @include for-phone { display: initial; }
+  @include for-laptop { display: none;}
   
 }
 
