@@ -131,7 +131,7 @@ $mobile-menu-scale: 0.99;
   position: relative;
 
   @include for-phone { display: inherit; }
-  @include for-laptop { display: none;}
+  @include for-tablet { display: none;}
 }
 
 #hamburger-toggle {
