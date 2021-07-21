@@ -28,7 +28,7 @@ if (onHomePage) {
     'Social Media Ads',
     'Invitations',
     'Visual Identities',
-    'Businesss Cards',
+    'Business Cards',
     'Animations',
     'Websites',
     'Banners',
