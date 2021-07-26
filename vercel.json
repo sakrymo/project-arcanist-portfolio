@@ -15,5 +15,6 @@
 
     { "source": "/contact", "destination": "/contact.html", "permanent": false},
     { "source": "/contactus", "destination": "/contact.html", "permanent": false}
-  ]
+  ],
+  "cleanUrls": true
 }
