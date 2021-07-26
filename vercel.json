@@ -8,7 +8,6 @@
     { "source": "/whoweare", "destination": "/about"},
     { "source": "/ourteam", "destination": "/about"},
 
-    { "source": "/work", "destination": "/work"},
     { "source": "/gallery", "destination": "/work"},
     { "source": "/portfolio", "destination": "/work"},
     { "source": "/ourwork", "destination": "/work"},
