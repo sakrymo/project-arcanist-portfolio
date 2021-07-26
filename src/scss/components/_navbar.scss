@@ -1,0 +1,210 @@
+#navbar {
+  background: $black;
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin: auto;
+
+  &.light {
+    background: $white;
+  }
+}
+
+#navbar-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+  align-items: center;
+}
+
+#navbar-items {
+  display: flex;
+  flex-flow: row;
+  list-style-type: none;
+  margin-right: 2ch;
+
+  @include for-phone {
+   display: none; 
+  }
+}
+
+.navbar-item {
+  @extend p;
+  padding: 10px 15px;
+  position: relative;
+  display: block;
+  transition: 0.5s;
+  transition: transform 0.2s, opacity 0.2s;
+
+  &::after {
+    background: gray;
+    position: absolute;
+    height: 2px;
+    width: 60%;
+    top: 100%;
+    left: 20%;
+    content: "";
+    transition: transform 0.5s ease;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  &.active {
+    font-weight: bold;
+  }
+
+  &.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    background: white;
+  }
+}
+
+.nav-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  transform: scale(1);
+  margin-left: 40px;
+  @include flex-center;
+
+  &:active { transform: scale(1.3); }
+  &:hover { opacity: 0.8; }
+}
+
+#navbar-wrapper {
+  overflow: hidden;
+  display: inline-block;
+  width: auto;
+  
+  @include for-phone { width: 120px;  }
+}
+
+#navbar-logo {
+  width: 240px;
+  height: 72px;
+  background: transparent;
+  margin: 16px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.15s, transform 0.2s;
+
+  @include for-phone {
+    .logo-svg-text { display: none; }
+  }
+
+  &::hover {
+    opacity: 1;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.cls-1.light:not(.logo-circle) {
+  fill: #222;
+}
+
+.navbar-gradient {
+  width: 100%;
+  height: 5px;
+  background: gray linear-gradient(90deg, red, yellow);
+}
+
+// Mobile menu
+$mobile-menu-line-width: 4px;
+$mobile-menu-gap: 1.3rem;
+$mobile-menu-angle: 45deg;
+$mobile-menu-scale: 0.99;
+$mobile-menu-offset: 1rem;
+
+#hamburger {
+  $size: 80px;
+  width: $size;
+  height: $size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  row-gap: $mobile-menu-gap;
+  position: relative;
+  z-index: 501;
+
+  @include for-tablet { display: none;}
+}
+
+#hamburger-toggle {
+  flex: none;
+  $size: 100%;
+  width: $size;
+  height: $size;
+  cursor: pointer;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+
+  background: red;
+  opacity: 0;
+
+  &:checked {
+    background: green;
+  }
+}
+
+.hamburger-line {
+  width: 60%;
+  height: $mobile-menu-line-width;
+  background: white;
+  transition: transform 0.3s ease;
+  transform-origin: right;
+  pointer-events: none;
+}
+
+#hamburger-toggle:checked ~ #hamburger-top {
+  transform: translate(-$mobile-menu-offset) rotateZ(-$mobile-menu-angle) scaleX($mobile-menu-scale);
+}
+
+#hamburger-toggle:checked ~ #hamburger-mid {
+  transform: scaleX(0);
+}
+
+#hamburger-toggle:checked ~ #hamburger-bot {
+  transform: translate(-$mobile-menu-offset) rotateZ($mobile-menu-angle) scaleX($mobile-menu-scale);
+}
+
+#mobile-menu {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  // background: $black;
+  background: $black;
+  z-index: 500;
+  overflow: hidden;
+  clip-path: circle(0% at 94% 0%);
+  transition: clip-path .4s cubic-bezier(0.95, 0.05, 0.795, 0.035), opacity .4s;
+  opacity: 0;
+}
+
+#mobile-menu.on {
+  clip-path: circle(90% at 50% 50%);
+  transition: clip-path .3s ease-in;
+  opacity: 1;
+}
+
+// #mobile-menu-items {
+//   display: none;
+// }

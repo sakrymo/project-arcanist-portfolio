@@ -1,0 +1,127 @@
+$temp-bg-1: #141414;
+$temp-bg-2: #262626;
+
+#hero {
+  background: linear-gradient(0deg, $temp-bg-1, $temp-bg-2);
+  height: 100vh;
+  width: 100%;
+
+  &.light {
+    background: linear-gradient(0deg, $white, $dark-white);
+  }
+
+  .container {
+    @include flex-center;
+    text-align: center;
+    flex-flow: column;
+    height: 100%;
+  }
+}
+
+.hero-heading {
+  @extend h1;
+  font-size: 72px;
+  font-weight: 500;
+  letter-spacing: 0.07ch;
+  margin-bottom: 30px;
+}
+
+.hero-text {
+  @extend p;
+  max-width: 50ch;
+  font-weight: 200;
+  font-size: 2rem;
+  line-height: 1.4;
+}
+
+#we-create {
+  @include flex-center;
+  font-size: 2.6rem;
+  margin-top: 25px;
+  white-space: nowrap;
+}
+
+#we-create-underline {
+  @include flex-center-col;
+  width: 60%;
+  min-width: 20ch;
+  height: 3.5rem;
+  border-bottom: 1px solid white;
+  padding-bottom: 0.4rem;
+  margin-left: 1ch;
+}
+
+#we-create-text {
+  $duration: .5s;
+  $easing: ease;
+
+  transition-property: transform, opacity;
+  transition-duration: .5s;
+  transition-timing-function: $easing;
+
+  transform: translateY(0);
+}
+
+#we-create-text.hidden {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+.scroll-indicator-wrapper {
+  @include flex-center;
+  flex-flow: column;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 128px;
+  margin: auto;
+  padding: 10px;
+  opacity: 0;
+  animation:  scroll-indicator 1s ease infinite alternate,
+              fade-scroll-indicator 1s 5s ease forwards;
+
+  & * { transition: opacity 0.2s ease-in; }
+  &:hover * { opacity: 0.5; }
+}
+
+.scroll-indicator {
+  $size: 24px;
+  width: $size;
+  height: $size;
+  transform: rotate(45deg);
+  border: solid white;
+  border-width: 0 2px 2px 0;
+}
+
+.scroll-indicator-label {
+  text-align: center;
+  color: white;
+  letter-spacing: 0.2ch;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  opacity: 1;
+}
+
+@keyframes scroll-indicator {
+  from { bottom: 5%; }
+  to { bottom: 7%; }
+}
+
+@keyframes fade-scroll-indicator {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cta {
+  margin-bottom: 12%;
+  margin-top: 50px;
+}
+
+.cta .btn  {
+  width: 250px;
+  margin: 0 10px;
+}
+
+.fa-info-circle {
+  cursor: help;
+}

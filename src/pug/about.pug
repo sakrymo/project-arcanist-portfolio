@@ -1,0 +1,21 @@
+include components/_head-data
+include components/_navbar
+include components/_picture
+
+doctype html
+html(lang="en")
+
+  head
+    +head-data("Project Arcanist - About Us")
+
+  body
+    +navbar({
+      activeItem: "About Us",
+      color1: undefined,
+      color2: undefined,
+      activeColor: undefined,
+      repeat: undefined 
+    })
+    .whitespace
+
+    include components/_footer

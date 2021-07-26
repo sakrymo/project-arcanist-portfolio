@@ -1,0 +1,23 @@
+include components/_head-data
+include components/_navbar
+include components/_picture
+
+doctype html
+html(lang="en")
+
+  head
+    +head-data("Project Arcanist - Contact")
+
+  body
+    +navbar({
+      activeItem: "Contact",
+      color1: 'teal',
+      color2: 'green',
+      activeColor: undefined,
+      repeat: undefined 
+    })
+
+    .container
+    include components/_contact-form
+
+    include components/_footer

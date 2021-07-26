@@ -1,0 +1,50 @@
+include _responsive-breakpoints
+-const autoImgPath = 'img/auto/'
+-const imgPath = 'img/'
+
+mixin picture({ src = 'placeholder.jpg', xsCustom = '', smCustom = '', mdCustom = '', lgCustom='' } = {})
+  -const extension = src.split('.').pop()
+  -const name = src.split(extension).shift().slice(0,-1)
+
+  -const lgMedia = '(min-width: ' + lgBreakpoint + 'px)'
+  -const mdMedia = '(min-width: ' + mdBreakpoint + 'px)'
+  -const smMedia = '(min-width: ' + smBreakpoint + 'px)'
+  -const xsMedia = '(min-width: ' + xsBreakpoint + 'px)'
+
+  if extension === 'jpg'
+    picture
+      source(media=lgMedia srcset=(( lgCustom ? (imgPath + lgCustom) : (autoImgPath + name + '-lg')) + '.webp') type='image/webp')
+      source(media=lgMedia srcset=(( lgCustom ? (imgPath + lgCustom) : (autoImgPath + name + '-lg')) + '.jpg') type='image/jpg')
+
+      source(media=mdMedia srcset=(( mdCustom ? (imgPath + mdCustom) : (autoImgPath + name + '-md')) + '.webp') type='image/webp')
+      source(media=mdMedia srcset=(( mdCustom ? (imgPath + mdCustom) : (autoImgPath + name + '-md')) + '.jpg') type='image/jpg')
+
+      source(media=smMedia srcset=(( smCustom ? (imgPath + smCustom) : (autoImgPath + name + '-sm')) + '.webp') type='image/webp')
+      source(media=smMedia srcset=(( smCustom ? (imgPath + smCustom) : (autoImgPath + name + '-sm')) + '.jpg') type='image/jpg')
+
+      source(media=xsMedia srcset=(( xsCustom ? (imgPath + xsCustom) : (autoImgPath + name + '-xs')) + '.webp') type='image/webp')
+      source(media=xsMedia srcset=(( xsCustom ? (imgPath + xsCustom) : (autoImgPath + name + '-xs')) + '.jpg') type='image/jpg')
+
+      source(media='(min-width: 0px)' srcset=(( xsCustom ? (imgPath + xsCustom) : (autoImgPath + name + '-xs')) + '.webp') type='image/webp')
+      source(media='(min-width: 0px)' srcset=(( xsCustom ? (imgPath + xsCustom) : (autoImgPath + name + '-xs')) + '.jpg') type='image/jpg')
+
+      img(src=(( lgCustom ? (imgPath + lgCustom) : (autoImgPath + name + '-lg')) + '.jpg'))
+
+  if extension === 'png'
+    picture
+      source(media=lgMedia srcset=(( lgCustom ? (imgPath + lgCustom) : (autoImgPath + name + '-lg')) + '.webp') type='image/webp')
+      source(media=lgMedia srcset=(( lgCustom ? (imgPath + lgCustom) : (autoImgPath + name + '-lg')) + '.png') type='image/png')
+
+      source(media=mdMedia srcset=(( mdCustom ? (imgPath + mdCustom) : (autoImgPath + name + '-md')) + '.webp') type='image/webp')
+      source(media=mdMedia srcset=(( mdCustom ? (imgPath + mdCustom) : (autoImgPath + name + '-md')) + '.png') type='image/png')
+
+      source(media=smMedia srcset=(( smCustom ? (imgPath + smCustom) : (autoImgPath + name + '-sm')) + '.webp') type='image/webp')
+      source(media=smMedia srcset=(( smCustom ? (imgPath + smCustom) : (autoImgPath + name + '-sm')) + '.png') type='image/png')
+
+      source(media=xsMedia srcset=(( xsCustom ? (imgPath + xsCustom) : (autoImgPath + name + '-xs')) + '.webp') type='image/webp')
+      source(media=xsMedia srcset=(( xsCustom ? (imgPath + xsCustom) : (autoImgPath + name + '-xs')) + '.png') type='image/png')
+
+      source(media='(min-width: 0px)' srcset=(( xsCustom ? (imgPath + xsCustom) : (autoImgPath + name + '-xs')) + '.webp') type='image/webp')
+      source(media='(min-width: 0px)' srcset=(( xsCustom ? (imgPath + xsCustom) : (autoImgPath + name + '-xs')) + '.png') type='image/png')
+
+      img(src=(( lgCustom ? (imgPath + lgCustom) : (autoImgPath + name + '-lg')) + '.png'))

@@ -1,0 +1,16 @@
+.back-to-top-label.hidden
+a.back-to-top.hidden(href="#navbar")
+  i.fas.fa-arrow-up.fa-2x
+
+#back-to-top-breakpoint.breakpoint
+
+footer
+  include _page-links
+  .container
+    ul
+      each val, index in pageNames
+        li= val
+canvas#favicon-canvas(width="64px" height="64px")
+script(src="https://unpkg.com/aos@2.3.1/dist/aos.js")
+script(src="js/main.min.js")
+script AOS.init();

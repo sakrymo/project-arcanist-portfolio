@@ -1,0 +1,143 @@
+.btn {
+  background: $white;
+  color: $dark-gray;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-rendering: geometricPrecision;
+  letter-spacing: 0.05ch;
+  font-size: 1.25rem;
+  margin: 1rem .5rem;
+  padding: 15px 30px;
+  transition-property: background-color, color;
+  transition: 0.3s ease;
+  display: inline-block;
+
+  &:hover {
+    background: darken($white, 20);
+    color: black;
+  }
+
+  &.outline:hover {
+    background: transparentize($white, 0.9);
+  }
+
+  &:active {
+    background: white;
+    color: gray;
+    box-shadow: inset 0 0 20px #000000;
+    transform: translate(2px,2px);
+  }
+
+  &.light {
+    background: $gray;
+    color: $white;
+
+    &:hover {
+      background: lighten($gray, 10);
+      color: white;
+    }
+  }
+
+  &.sm {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  &.lg {
+    padding: 20px 30px;
+    font-size: 1.4rem;
+  }
+
+  &.outline {
+    background: transparent;
+    color: $white;
+    border: 1px solid $white;
+
+    &.light {
+      color: $black;
+      border-color: $gray;
+
+      &:hover {
+        background: transparentize($gray, 0.95);
+      }
+    }
+  }
+
+  &.inactive {
+    opacity: 0.5;
+  }
+}
+
+$back-to-top-size: 64px;
+
+.back-to-top {
+  @include flex-center;
+  width: $back-to-top-size;
+  height: $back-to-top-size;
+  
+  background: $black;
+  border-radius: 50%;
+  opacity: 0.75;
+  
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+
+  cursor: pointer;
+  pointer-events: all;
+
+  transition: .3s, transform 1s;
+
+  &:hover {
+    background: $white;
+    color: $dark-gray;
+    opacity: 1;
+    // border-radius: 0;
+  }
+
+  &.light {
+    background: lightgray;
+  }
+
+  &.light:hover {
+    background: $dark-gray;
+    color: $white;
+  }
+
+  &.hidden {
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0);
+    transition: 1s;
+  }
+}
+
+.back-to-top-label {
+  width: 200px;
+  height: $back-to-top-size;
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+  background: white;
+  transform: scale(1);
+  transition: transform 1s ease;
+  transform-origin: right;
+  
+  &.hidden {
+    transform:scaleX(0);
+    transition: transform 1s ease;
+  }
+}
+
+.breakpoint {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  position: absolute;
+  left: 0;
+}
+
+#back-to-top-breakpoint.breakpoint {
+  top: 100vh;
+}

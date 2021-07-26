@@ -1,0 +1,102 @@
+include components/_head-data
+include components/_navbar
+include components/_picture
+
+doctype html
+html(lang="en")
+
+  head
+    +head-data("Project Arcanist")
+
+  body
+    +navbar({
+      activeItem: "Home",
+      color1: undefined,
+      color2: undefined,
+      activeColor: undefined,
+      repeat: undefined 
+    })
+    
+    .preloader
+      .preloader-frame
+      img.preloader-animation(
+          src="img/loader-nocircle.gif"
+          alt="Loading..."
+        )
+
+    section#hero
+      .container
+        h1.hero-heading Welcome to Project Arcanist
+        p.hero-text
+          | Hello we are something something from somewhere because we love something and enjoy doing something sometimes thats why sample text lorem ipsum etc
+          br
+          span#we-create
+            | We create
+            span#we-create-underline
+              span#we-create-text [Placeholder]
+            i#we-create-info.fas.fa-info-circle.fa-xs
+
+        .cta
+          a.btn.lg.h-glow-inset(href="/work") SEE OUR WORK
+          a.btn.lg.outline.h-glow-inset(href="/contact") LET'S TALK
+            
+
+        a(href="#scroll-test")
+          .scroll-indicator-wrapper
+            small.scroll-indicator-label Learn more
+            .scroll-indicator
+
+    h1 Heading One
+    h2 Heading Two
+    h3 Heading Three
+    small Small Text
+    p.
+      Lorem ipsum dolor sit amet consectetur adepiscing sit elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+    button.btn.lg Button Large
+    button.btn.lg.outline Button Outline Large
+    button.btn Button Medium
+    button.btn.outline Button Outline Medium
+    button.btn.sm Button Small
+    button.btn.sm.outline Button Outline Small
+    br
+    br
+    hr
+    .container
+      button.btn.hover-test Hover Test
+
+    .screensize
+
+    .whitespace
+    +picture({ src: 'crow.jpg', lgCustom: 'auto/autumn-cottage-lg' })
+    .whitespace
+    +picture({ src:'whitecat.jpg'})
+    h1.code-line(data-line-start='0' data-line-end='1')
+      a#TEST_0
+      | TEST
+    p.has-line-data(data-line-start='1' data-line-end='2') Lorem ipsum dolor sit amet
+    h2.code-line(data-line-start='3' data-line-end='5')
+      a#HEADING_3
+      | HEADING
+    p.has-line-data(data-line-start='5' data-line-end='8')
+      | Lorem ipsum dolor sit ameet.
+      br
+      | Lorem ipsum dolor sit amet
+      br
+      | Enter
+    h3.code-line(data-line-start='8' data-line-end='9')
+      a#HEADING_3_8
+      | HEADING 3
+    h5.code-line(data-line-start='9' data-line-end='10')
+      a#HEADING_5_9
+      | HEADING 5
+    h5.code-line(data-line-start='10' data-line-end='11')
+      a#HEADING_5_10
+      | HEADING 5
+    h5.code-line(data-line-start='11' data-line-end='12')
+      a#HEADING_5_11
+      | HEADING 5
+
+
+    section#scroll-test
+    //- include components/contact-form
+    include components/_footer
