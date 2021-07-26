@@ -1,19 +1,19 @@
 {
   "redirects": [
-    { "source": "/home", "destination": "/" },
+    { "source": "/home", "destination": "/", "permanent": true},
 
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/aboutus", "destination": "/about.html" },
-    { "source": "/info", "destination": "/about.html" },
-    { "source": "/whoweare", "destination": "/about.html" },
-    { "source": "/ourteam", "destination": "/about.html" },
+    { "source": "/about", "destination": "/about.html", "permanent": true},
+    { "source": "/aboutus", "destination": "/about.html", "permanent": true},
+    { "source": "/info", "destination": "/about.html", "permanent": true},
+    { "source": "/whoweare", "destination": "/about.html", "permanent": true},
+    { "source": "/ourteam", "destination": "/about.html", "permanent": true},
 
-    { "source": "/work", "destination": "/work.html" },
-    { "source": "/gallery", "destination": "/work.html" },
-    { "source": "/portfolio", "destination": "/work.html" },
-    { "source": "/ourwork", "destination": "/work.html" },
+    { "source": "/work", "destination": "/work.html", "permanent": true},
+    { "source": "/gallery", "destination": "/work.html", "permanent": true},
+    { "source": "/portfolio", "destination": "/work.html", "permanent": true},
+    { "source": "/ourwork", "destination": "/work.html", "permanent": true},
 
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/contactus", "destination": "/contact.html" }
+    { "source": "/contact", "destination": "/contact.html", "permanent": true},
+    { "source": "/contactus", "destination": "/contact.html", "permanent": true}
   ]
 }
