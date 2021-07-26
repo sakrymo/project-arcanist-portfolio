@@ -37,6 +37,9 @@ function watch () {
   gulp.watch('src/scss/**/*.scss', css)
   gulp.watch('src/pug/**/*.pug', html)
   gulp.watch('src/js/**/*.js', js)
+  gulp.watch(['src/img/**/*', '!src/img/sharp/**/*', '!src/img/sharp'], otherImages)
+  gulp.watch('src/img/sharp/**/*.jpg', jpg)
+  gulp.watch('src/img/sharp/**/*.png', png)
 }
 /*
 .d88b .d88b. .d88b.
