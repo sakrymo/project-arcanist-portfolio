@@ -41,6 +41,7 @@ function watch () {
   gulp.watch('src/img/sharp/**/*.jpg', jpg)
   gulp.watch('src/img/sharp/**/*.png', png)
 }
+
 /*
 .d88b .d88b. .d88b.
 8P    YPwww. YPwww.
