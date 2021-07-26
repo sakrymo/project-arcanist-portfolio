@@ -8,8 +8,11 @@ const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 // js -> js-min
+const browserify = require('browserify')
+const source = require('vinyl-source-stream')
 const terser = require('gulp-terser')
 const concat = require('gulp-concat')
+
 // img -> png/jpg/ -> webp/png/jpg
 const sharpResponsive = require('gulp-sharp-responsive')
 const imagemin = require('gulp-imagemin')
@@ -279,6 +282,7 @@ function img () { gulp.parallel([jpg, png]) }
 exports.css = css
 exports.html = html
 exports.js = js
+exports.js2 = js2
 
 exports.jpg = jpg
 exports.png = png
