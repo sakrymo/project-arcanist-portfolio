@@ -1,20 +1,18 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/home", "destination": "/" },
+    { "source": "/home", "destination": "/"},
 
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/aboutus", "destination": "/about.html" },
-    { "source": "/info", "destination": "/about.html" },
-    { "source": "/whoweare", "destination": "/about.html" },
-    { "source": "/ourteam", "destination": "/about.html" },
+    { "source": "/aboutus", "destination": "/about"},
+    { "source": "/info", "destination": "/about"},
+    { "source": "/whoweare", "destination": "/about"},
+    { "source": "/ourteam", "destination": "/about"},
 
-    { "source": "/work", "destination": "/work.html" },
-    { "source": "/gallery", "destination": "/work.html" },
-    { "source": "/portfolio", "destination": "/work.html" },
-    { "source": "/ourwork", "destination": "/work.html" },
+    { "source": "/work", "destination": "/work"},
+    { "source": "/gallery", "destination": "/work"},
+    { "source": "/portfolio", "destination": "/work"},
+    { "source": "/ourwork", "destination": "/work"},
 
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/contactus", "destination": "/contact.html" }
+    { "source": "/contactus", "destination": "/contact"}
   ]
 }
