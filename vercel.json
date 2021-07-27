@@ -9,6 +9,7 @@
     { "source": "/ourteam", "destination": "/about"},
 
     { "source": "/gallery", "destination": "/work"},
+    { "source": "/works", "destination": "/work"},
     { "source": "/portfolio", "destination": "/work"},
     { "source": "/ourwork", "destination": "/work"},
 
