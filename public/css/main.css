@@ -463,6 +463,9 @@ p, .hero-text, .navbar-item {
     transition-delay: 0.91s;
   }
 }
+#mobile-menu .active {
+  font-size: 2.9rem;
+}
 
 #mobile-menu.on {
   clip-path: circle(90% at 50% 50%);
