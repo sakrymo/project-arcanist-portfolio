@@ -401,10 +401,13 @@ p, .hero-text, .navbar-item {
 .hamburger-line {
   width: 60%;
   height: 4px;
-  background: white;
+  background: #eee;
   transition: transform 0.3s ease;
   transform-origin: right;
   pointer-events: none;
+}
+.hamburger-line.light {
+  background: #111;
 }
 
 #hamburger-toggle:checked ~ #hamburger-top {
@@ -472,6 +475,10 @@ p, .hero-text, .navbar-item {
 }
 #mobile-menu .active {
   font-size: 2.9rem;
+}
+#mobile-menu.light {
+  background-color: #eee;
+  color: #111;
 }
 
 #mobile-menu.on {
