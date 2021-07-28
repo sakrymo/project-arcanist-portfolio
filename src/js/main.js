@@ -35,7 +35,9 @@ window.addEventListener('resize', e => mobileMenu.style.height = window.innerHei
 
 mobileMenuToggle.addEventListener('change', () => {
   mobileMenuToggle.checked ? mobileMenu.classList.add('on') : mobileMenu.classList.remove('on');
-  mobileMenuToggle.checked ? document.body.bind('touchmove', e => e.preventDefault()) : document.body.unbind('touchmove') 
+  
+  if  (mobileMenu.checked) { document.body.bind('touchmove', (e) => { e.preventDefault() }) }
+  else { document.body.unbind('touchmove') }
 })
 
 const hashLinks = document.querySelectorAll('a[href*="#"]'); 
