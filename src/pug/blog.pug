@@ -1,9 +1,22 @@
+include components/_head-data
+include components/_navbar
+include components/_picture
+
 doctype html
 html(lang="en")
   head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
+    +head-data('Blog')
   body
-    h1 Blog
+    :markdown-it(linkify langPrefix='highlight-')
+      ## Contact form layout concept
+      1. Name: TEXT FIELD
+      2. Email: EMAIL FIELD (VERIFICATION)
+      3. How can we help you?: DROPDOWN
+        - PLACEHOLDER TEXT FOR NOW
+      4. Category: DROPDOWN 
+        - PLACEHOLDER TEXT FOR NOW
+
+      4. MESSAGE: TEXTAREA FIELD
+
+      icons?
+      ! CUSTOM DROPDOWN

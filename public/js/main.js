@@ -123,40 +123,41 @@ const hashLinks = document.querySelectorAll('a[href*="#"]');
 for (link of hashLinks) link.onclick = removeHash; 
 function removeHash() { setTimeout(() => history.replaceState({}, document.title, "."), 10); }
 
-// Dynamic Favicon
+// ? Dynamic Favicon
+// ? FEATURE CURRENTLY WITHDRAWN [TO BE REVISED]
 
-const node = document.getElementById('favicon-svg');
-const faviconCanvas = document.querySelector('#favicon-canvas');
-const ctx = faviconCanvas.getContext('2d');
-let favicon;
+// const node = document.getElementById('favicon-svg');
+// const faviconCanvas = document.querySelector('#favicon-canvas');
+// const ctx = faviconCanvas.getContext('2d');
+// let favicon;
 
-domtoimage.toPng(node, {bgcolor: "#222"})
-    .then(function (dataUrl) {
-        favicon = new Image();
-        favicon.src = dataUrl;
-        favicon.id = "favicon-png"
-        document.body.append(favicon);
-        node.style = "display: none;"
-        setTimeout(() => {
-          ctx.drawImage(document.getElementById('favicon-png'), 0, 0, faviconCanvas.width,faviconCanvas.height)
-          document.getElementById('favicon').href = faviconCanvas.toDataURL()
-        }, 500);
-    })
-    .catch(function (error) {
-        console.error('Error: ', error);
-    })
+// domtoimage.toPng(node, {bgcolor: "#222"})
+//     .then(function (dataUrl) {
+//         favicon = new Image();
+//         favicon.src = dataUrl;
+//         favicon.id = "favicon-png"
+//         document.body.append(favicon);
+//         node.style = "display: none;"
+//         setTimeout(() => {
+//           ctx.drawImage(document.getElementById('favicon-png'), 0, 0, faviconCanvas.width,faviconCanvas.height)
+//           document.getElementById('favicon').href = faviconCanvas.toDataURL()
+//         }, 500);
+//     })
+//     .catch(function (error) {
+//         console.error('Error: ', error);
+//     })
 
-// Back to top
-const observerBackToTop = new IntersectionObserver(entries => {
-  const entry = entries[0];
-  const isAboveView = entry.boundingClientRect.y < 0;
-  const backToTopButton = document.querySelector('.back-to-top')
+// // Back to top
+// const observerBackToTop = new IntersectionObserver(entries => {
+//   const entry = entries[0];
+//   const isAboveView = entry.boundingClientRect.y < 0;
+//   const backToTopButton = document.querySelector('.back-to-top')
 
-  if (isAboveView)  backToTopButton.classList.remove('hidden');
-  else              backToTopButton.classList.add('hidden');
-})
+//   if (isAboveView)  backToTopButton.classList.remove('hidden');
+//   else              backToTopButton.classList.add('hidden');
+// })
 
-observerBackToTop.observe(document.getElementById('back-to-top-breakpoint'));
+// observerBackToTop.observe(document.getElementById('back-to-top-breakpoint'));
 
 /*
 .d88b .d88b. 8b  8 88888    db    .d88b 88888

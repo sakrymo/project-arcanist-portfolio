@@ -1,3 +1,4 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 /*
 8   8 8888 888b. .d88b.    .d88b. 8888 .d88b 88888 888 .d88b. 8b  8
 8www8 8www 8  .8 8P  Y8    YPwww. 8www 8P      8    8  8P  Y8 8Ybm8
@@ -94,41 +95,40 @@ const hashLinks = document.querySelectorAll('a[href*="#"]');
 for (link of hashLinks) link.onclick = removeHash; 
 function removeHash() { setTimeout(() => history.replaceState({}, document.title, "."), 10); }
 
-// ? Dynamic Favicon
-// ? FEATURE CURRENTLY WITHDRAWN [TO BE REVISED]
+// Dynamic Favicon
 
-// const node = document.getElementById('favicon-svg');
-// const faviconCanvas = document.querySelector('#favicon-canvas');
-// const ctx = faviconCanvas.getContext('2d');
-// let favicon;
+const node = document.getElementById('favicon-svg');
+const faviconCanvas = document.querySelector('#favicon-canvas');
+const ctx = faviconCanvas.getContext('2d');
+let favicon;
 
-// domtoimage.toPng(node, {bgcolor: "#222"})
-//     .then(function (dataUrl) {
-//         favicon = new Image();
-//         favicon.src = dataUrl;
-//         favicon.id = "favicon-png"
-//         document.body.append(favicon);
-//         node.style = "display: none;"
-//         setTimeout(() => {
-//           ctx.drawImage(document.getElementById('favicon-png'), 0, 0, faviconCanvas.width,faviconCanvas.height)
-//           document.getElementById('favicon').href = faviconCanvas.toDataURL()
-//         }, 500);
-//     })
-//     .catch(function (error) {
-//         console.error('Error: ', error);
-//     })
+domtoimage.toPng(node, {bgcolor: "#222"})
+    .then(function (dataUrl) {
+        favicon = new Image();
+        favicon.src = dataUrl;
+        favicon.id = "favicon-png"
+        document.body.append(favicon);
+        node.style = "display: none;"
+        setTimeout(() => {
+          ctx.drawImage(document.getElementById('favicon-png'), 0, 0, faviconCanvas.width,faviconCanvas.height)
+          document.getElementById('favicon').href = faviconCanvas.toDataURL()
+        }, 500);
+    })
+    .catch(function (error) {
+        console.error('Error: ', error);
+    })
 
-// // Back to top
-// const observerBackToTop = new IntersectionObserver(entries => {
-//   const entry = entries[0];
-//   const isAboveView = entry.boundingClientRect.y < 0;
-//   const backToTopButton = document.querySelector('.back-to-top')
+// Back to top
+const observerBackToTop = new IntersectionObserver(entries => {
+  const entry = entries[0];
+  const isAboveView = entry.boundingClientRect.y < 0;
+  const backToTopButton = document.querySelector('.back-to-top')
 
-//   if (isAboveView)  backToTopButton.classList.remove('hidden');
-//   else              backToTopButton.classList.add('hidden');
-// })
+  if (isAboveView)  backToTopButton.classList.remove('hidden');
+  else              backToTopButton.classList.add('hidden');
+})
 
-// observerBackToTop.observe(document.getElementById('back-to-top-breakpoint'));
+observerBackToTop.observe(document.getElementById('back-to-top-breakpoint'));
 
 /*
 .d88b .d88b. 8b  8 88888    db    .d88b 88888
@@ -145,3 +145,5 @@ Yb        dP .d88b. 888b. 8  dP
   YbdPYbdP   8b  d8 8wwK' 88Yb
    YP  YP    `Y88P' 8  Yb 8  Yb
 */
+
+},{}]},{},[1]);

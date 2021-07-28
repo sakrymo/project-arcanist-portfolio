@@ -13,6 +13,8 @@
     { "source": "/portfolio", "destination": "/work"},
     { "source": "/ourwork", "destination": "/work"},
 
-    { "source": "/contactus", "destination": "/contact"}
+    { "source": "/contactus", "destination": "/contact"},
+
+    { "source": "news", "destination": "/blog" }
   ]
 }

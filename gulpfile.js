@@ -282,7 +282,7 @@ function img () { gulp.parallel([jpg, png]) }
 exports.css = css
 exports.html = html
 exports.js = js
-exports.js2 = js2
+// exports.js2 = js2
 
 exports.jpg = jpg
 exports.png = png
