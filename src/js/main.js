@@ -38,11 +38,11 @@ mobileMenuToggle.addEventListener("change", () => {
     ? mobileMenu.classList.add("on")
     : mobileMenu.classList.remove("on");
 
-  const preventScrolling = e => e.preventDefault()
+  const preventScrolling = (e) => {
+    mobileMenu.checked ? e.preventDefault() : "";
+  };
 
-  mobileMenu.checked
-    ? document.body.addEventListener("touchmove", preventScrolling)
-    : document.body.removeEventListener("touchmove", preventScrolling)
+  document.body.addEventListener("touchmove", preventScrolling);
 });
 
 const hashLinks = document.querySelectorAll('a[href*="#"]'); 
