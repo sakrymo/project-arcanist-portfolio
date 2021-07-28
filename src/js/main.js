@@ -38,13 +38,11 @@ mobileMenuToggle.addEventListener("change", () => {
     ? mobileMenu.classList.add("on")
     : mobileMenu.classList.remove("on");
 
-  if (mobileMenu.checked) {
-    document.body.addEventListener("touchmove", (e) => {
-      e.preventDefault();
-    });
-  } else {
-    document.body.removeEventListener("touchmove");
-  }
+  const preventScrolling = e => e.preventDefault()
+
+  mobileMenu.checked
+    ? document.body.addEventListener("touchmove", preventScrolling)
+    : document.body.removeEventListener("touchmove", preventScrolling)
 });
 
 const hashLinks = document.querySelectorAll('a[href*="#"]'); 
