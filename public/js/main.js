@@ -57,22 +57,27 @@ if (onHomePage) {
 */
 
 // Mobile navigation
+
 const mobileMenuToggle = document.getElementById('hamburger-toggle');
 const mobileMenu       = document.getElementById('mobile-menu')
 
 window.addEventListener('resize', e => mobileMenu.style.height = window.innerHeight)
+document.body.addEventListener('touchmove', e => { if (mobileMenuToggle.checked) e.preventDefault() }, { passive: false })
 
-mobileMenuToggle.addEventListener("change", () => {
-  const preventScrolling = e => e.preventDefault()
+mobileMenuToggle.addEventListener("change", e => {
+  e.target.style.pointerEvents = 'none'
+  setTimeout(() => { e.target.style.pointerEvents = ''; }, 300);
 
   mobileMenuToggle.checked
   ? mobileMenu.classList.add("on")
   : mobileMenu.classList.remove("on");
 
-  const preventScrolling = e => { if (mobileMenuToggle.checked) e.preventDefault() }
-  document.body.addEventListener('touchmove', preventScrolling)
+  mobileMenuToggle.checked
+    ? document.body.classList.add('noscroll')
+    : document.body.classList.remove('noscroll')
 });
 
+// Prevent hashes on anchor links
 const hashLinks = document.querySelectorAll('a[href*="#"]'); 
 for (link of hashLinks) link.onclick = removeHash; 
 function removeHash() { setTimeout(() => history.replaceState({}, document.title, "."), 10); }
@@ -124,9 +129,9 @@ emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[
 
 /*
 Yb        dP .d88b. 888b. 8  dP
- Yb  db  dP  8P  Y8 8  .8 8wdP
-  YbdPYbdP   8b  d8 8wwK' 88Yb
-   YP  YP    `Y88P' 8  Yb 8  Yb
+Yb  db  dP  8P  Y8 8  .8 8wdP
+YbdPYbdP   8b  d8 8wwK' 88Yb
+YP  YP    `Y88P' 8  Yb 8  Yb
 */
 
 // Smooth scrolling

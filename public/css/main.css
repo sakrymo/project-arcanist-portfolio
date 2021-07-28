@@ -86,6 +86,10 @@ section {
   width: 100%;
 }
 
+.noscroll {
+  overflow: hidden;
+}
+
 #project-cover {
   padding: 1% 2%;
   padding-bottom: 56.25%;
