@@ -36,73 +36,17 @@ function setTheme() {
 
 const onHomePage =  window.location.pathname === '/' ||
                     window.location.pathname === '/index.html';
-if (onHomePage) {
 
+if (onHomePage) {
   // Hero section scaling
   const heroSection = document.getElementById('hero')
-  const menuHeight = document.querySelector('#navbar').offsetHeight + document.querySelector('.navbar-gradient').offsetHeight
+  const menuHeight  = document.querySelector('#navbar').offsetHeight + document.querySelector('.navbar-gradient').offsetHeight
 
   heroSection.style.height = `${window.innerHeight - menuHeight}px`
 
   window.addEventListener('resize', e => {
     heroSection.style.height = `${window.innerHeight - menuHeight}px`;
   })
-
-  // We create _______
-  let thingsWeCreate = [
-    'Logos',
-    'Posters',
-    'Illustrations',
-    'Leaflets',
-    'Social Media Ads',
-    'Invitations',
-    'Visual Identities',
-    'Business Cards',
-    'Animations',
-    'Websites',
-    'Banners',
-    'Book Covers',
-    'Presentations',
-    'Social Media Posts',
-    'Brochures',
-    'Photo Manipulations',
-    'Concept Art',
-    'Game Assets',
-    'Magic'
-  ]
-  
-  const weCreate = document.getElementById('we-create-text')
-  let index = 0;
-  const delay = 1500;
-  const speed = 20;
-  let timer = delay;
-  const transitionDuration = 500; 
-
-  const replaceWeCreateText = () => weCreate.textContent = thingsWeCreate[index]
-  const outWeCreate = () => weCreate.classList.add('hidden')
-  const inWeCreate = () => weCreate.classList.remove('hidden')
-
-
-  const updateWeCreate = () => {
-    setTimeout(() => {
-      outWeCreate()
-      
-      setTimeout(() => {
-        replaceWeCreateText();
-        inWeCreate();
-      }, transitionDuration);
-      
-      let letterCount = thingsWeCreate[index].length;
-      timer = delay + letterCount * speed;
-
-      let reachedMaxIndex = (index == thingsWeCreate.length-1);
-      index = reachedMaxIndex ? 0 : index + 1;
-
-      updateWeCreate();
-    }, timer);
-  }
-
-  updateWeCreate();  
 }
 
 /*
@@ -114,9 +58,13 @@ if (onHomePage) {
 
 // Mobile navigation
 const mobileMenuToggle = document.getElementById('hamburger-toggle');
-const mobileMenu = document.getElementById('mobile-menu')
+const mobileMenu       = document.getElementById('mobile-menu')
+
+window.addEventListener('resize', e => mobileMenu.style.height = window.innerHeight)
+
 mobileMenuToggle.addEventListener('change', () => {
   mobileMenuToggle.checked ? mobileMenu.classList.add('on') : mobileMenu.classList.remove('on');
+  document.body.style.position = mobileMenuToggle.checked ? 'fixed' : ''
 })
 
 const hashLinks = document.querySelectorAll('a[href*="#"]'); 
@@ -159,7 +107,7 @@ function removeHash() { setTimeout(() => history.replaceState({}, document.title
 
 // observerBackToTop.observe(document.getElementById('back-to-top-breakpoint'));
 
-/*
+/* 
 .d88b .d88b. 8b  8 88888    db    .d88b 88888
 8P    8P  Y8 8Ybm8   8     dPYb   8P      8
 8b    8b  d8 8  "8   8    dPwwYb  8b      8
