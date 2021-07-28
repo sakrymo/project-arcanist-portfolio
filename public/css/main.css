@@ -463,9 +463,6 @@ p, .hero-text, .navbar-item {
     transition-delay: 0.91s;
   }
 }
-#mobile-menu .navbar-item {
-  padding-left: 0;
-}
 #mobile-menu .active {
   font-size: 2.9rem;
 }
