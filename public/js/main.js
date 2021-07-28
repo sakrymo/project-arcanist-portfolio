@@ -63,15 +63,14 @@ const mobileMenu       = document.getElementById('mobile-menu')
 window.addEventListener('resize', e => mobileMenu.style.height = window.innerHeight)
 
 mobileMenuToggle.addEventListener("change", () => {
+  const preventScrolling = e => e.preventDefault()
+
   mobileMenuToggle.checked
-    ? mobileMenu.classList.add("on")
-    : mobileMenu.classList.remove("on");
+  ? mobileMenu.classList.add("on")
+  : mobileMenu.classList.remove("on");
 
-  const preventScrolling = (e) => {
-    mobileMenu.checked ? e.preventDefault() : "";
-  };
-
-  document.body.addEventListener("touchmove", preventScrolling);
+  const preventScrolling = e => { if (mobileMenuToggle.checked) e.preventDefault() }
+  document.body.addEventListener('touchmove', preventScrolling)
 });
 
 const hashLinks = document.querySelectorAll('a[href*="#"]'); 
