@@ -62,12 +62,19 @@ const mobileMenu       = document.getElementById('mobile-menu')
 
 window.addEventListener('resize', e => mobileMenu.style.height = window.innerHeight)
 
-mobileMenuToggle.addEventListener('change', () => {
-  mobileMenuToggle.checked ? mobileMenu.classList.add('on') : mobileMenu.classList.remove('on');
-  
-  if  (mobileMenu.checked) { document.body.bind('touchmove', (e) => { e.preventDefault() }) }
-  else { document.body.unbind('touchmove') }
-})
+mobileMenuToggle.addEventListener("change", () => {
+  mobileMenuToggle.checked
+    ? mobileMenu.classList.add("on")
+    : mobileMenu.classList.remove("on");
+
+  if (mobileMenu.checked) {
+    document.body.bind("touchmove", (e) => {
+      e.preventDefault();
+    });
+  } else {
+    document.body.unbind("touchmove");
+  }
+});
 
 const hashLinks = document.querySelectorAll('a[href*="#"]'); 
 for (link of hashLinks) link.onclick = removeHash; 
