@@ -39,11 +39,11 @@ mobileMenuToggle.addEventListener("change", () => {
     : mobileMenu.classList.remove("on");
 
   if (mobileMenu.checked) {
-    document.body.bind("touchmove", (e) => {
+    document.body.addEventListener("touchmove", (e) => {
       e.preventDefault();
     });
   } else {
-    document.body.unbind("touchmove");
+    document.body.removeEventListener("touchmove");
   }
 });
 
