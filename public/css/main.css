@@ -350,6 +350,18 @@ p, .hero-text, .navbar-item {
   background: gray linear-gradient(90deg, red, yellow);
 }
 
+@media screen and (max-width: 768px) {
+  .navbar-item {
+    font-size: 2.8rem;
+    transition: opacity 0.1s ease, transform 0.2s ease;
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  .navbar-item::after {
+    display: none;
+  }
+}
+
 #hamburger {
   width: 80px;
   height: 80px;
@@ -404,7 +416,7 @@ p, .hero-text, .navbar-item {
 }
 
 #mobile-menu {
-  display: flex;
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
@@ -419,11 +431,75 @@ p, .hero-text, .navbar-item {
   transition: clip-path 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035), opacity 0.4s;
   opacity: 0;
 }
+@media screen and (max-width: 768px) {
+  #mobile-menu {
+    display: flex;
+  }
+  #mobile-menu li:nth-of-type(1) .navbar-item {
+    transition-delay: 0.08s;
+  }
+  #mobile-menu li:nth-of-type(2) .navbar-item {
+    transition-delay: 0.16s;
+  }
+  #mobile-menu li:nth-of-type(3) .navbar-item {
+    transition-delay: 0.24s;
+  }
+  #mobile-menu li:nth-of-type(4) .navbar-item {
+    transition-delay: 0.32s;
+  }
+  #mobile-menu li:nth-of-type(5) .navbar-item {
+    transition-delay: 0.4s;
+  }
+  #mobile-menu li:nth-of-type(6) .navbar-item {
+    transition-delay: 0.48s;
+  }
+  #mobile-menu li:nth-of-type(7) .navbar-item {
+    transition-delay: 0.56s;
+  }
+  #mobile-menu li:nth-of-type(8) .navbar-item {
+    transition-delay: 0.64s;
+  }
+  #mobile-menu li:nth-of-type(9) .navbar-item {
+    transition-delay: 0.72s;
+  }
+}
 
 #mobile-menu.on {
   clip-path: circle(90% at 50% 50%);
   transition: clip-path 0.3s ease-in;
   opacity: 1;
+}
+#mobile-menu.on .navbar-item {
+  opacity: 1;
+  transition-duration: 0;
+  transform: translateY(0);
+}
+#mobile-menu.on li:nth-of-type(1) .navbar-item {
+  transition-delay: 0;
+}
+#mobile-menu.on li:nth-of-type(2) .navbar-item {
+  transition-delay: 0;
+}
+#mobile-menu.on li:nth-of-type(3) .navbar-item {
+  transition-delay: 0;
+}
+#mobile-menu.on li:nth-of-type(4) .navbar-item {
+  transition-delay: 0;
+}
+#mobile-menu.on li:nth-of-type(5) .navbar-item {
+  transition-delay: 0;
+}
+#mobile-menu.on li:nth-of-type(6) .navbar-item {
+  transition-delay: 0;
+}
+#mobile-menu.on li:nth-of-type(7) .navbar-item {
+  transition-delay: 0;
+}
+#mobile-menu.on li:nth-of-type(8) .navbar-item {
+  transition-delay: 0;
+}
+#mobile-menu.on li:nth-of-type(9) .navbar-item {
+  transition-delay: 0;
 }
 
 #hero {

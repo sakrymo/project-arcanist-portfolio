@@ -127,6 +127,16 @@ $mobile-menu-angle: 45deg;
 $mobile-menu-scale: 0.99;
 $mobile-menu-offset: 1rem;
 
+.navbar-item {
+  @media screen and (max-width: $tablet-max) {
+    font-size: 2.8rem;
+    &::after { display: none; }
+    transition: opacity 0.1s ease, transform 0.2s ease;
+    opacity: 0;
+    transform: translateY(3rem)
+  }
+}
+
 #hamburger {
   $size: 80px;
   width: $size;
@@ -182,7 +192,7 @@ $mobile-menu-offset: 1rem;
 }
 
 #mobile-menu {
-  display: flex;
+  display: none;
   position: fixed;
   top: 0;
   right:0;
@@ -197,12 +207,29 @@ $mobile-menu-offset: 1rem;
   clip-path: circle(0% at 94% 0%);
   transition: clip-path .4s cubic-bezier(0.95, 0.05, 0.795, 0.035), opacity .4s;
   opacity: 0;
+  
+  @media screen and (max-width: $tablet-max) {
+    display: flex;
+    @for $i from 1 to 10 {
+      li:nth-of-type(#{$i}) .navbar-item { transition-delay: 0.08s * $i; }
+    }
+  }
 }
 
 #mobile-menu.on {
   clip-path: circle(90% at 50% 50%);
   transition: clip-path .3s ease-in;
   opacity: 1;
+
+  .navbar-item {
+    opacity: 1;
+    transition-duration: 0;
+    transform: translateY(0)
+  }
+
+  @for $i from 1 to 10 {
+    li:nth-of-type(#{$i}) .navbar-item { transition-delay: 0; }
+  }
 }
 
 // #mobile-menu-items {
