@@ -211,7 +211,7 @@ $mobile-menu-offset: 1rem;
   @media screen and (max-width: $tablet-max) {
     display: flex;
     @for $i from 1 to 10 {
-      li:nth-of-type(#{$i}) .navbar-item { transition-delay: 0.08s * $i; }
+      li:nth-of-type(#{$i}) .navbar-item { transition-delay: 0.07s * $i; }
     }
   }
 }
