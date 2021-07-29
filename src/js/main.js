@@ -2,6 +2,7 @@ const tippy = require('tippy.js')
 const aos = require('aos')
 import Swup from 'swup'
 import SwupPreloadPlugin from '@swup/preload-plugin'
+const smoothScroll = require('smooth-scroll')
 import SmoothScroll from 'smooth-scroll'
 
 /*
