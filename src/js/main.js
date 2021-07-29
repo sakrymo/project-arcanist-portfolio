@@ -1,7 +1,5 @@
 const tippy = require('tippy.js')
 const aos = require('aos')
-import Swup from 'swup'
-import SwupPreloadPlugin from '@swup/preload-plugin'
 
 /*
 8   8 8888 888b. .d88b.    .d88b. 8888 .d88b 88888 888 .d88b. 8b  8
@@ -34,9 +32,6 @@ if (onHomePage) {
 
 // Animate on scroll
 aos.init();
-
-// Page transitions
-const pageTransitions = new Swup()
 
 // Back to top
 const observerBackToTop = new IntersectionObserver(entries => {
