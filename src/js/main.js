@@ -1,6 +1,5 @@
 const tippy = require('tippy.js')
 const aos = require('aos')
-const smoothScroll = require('smooth-scroll')
 import Swup from 'swup'
 import SwupPreloadPlugin from '@swup/preload-plugin'
 
@@ -40,6 +39,18 @@ aos.init();
 const pageTransitions = new Swup({
   plugins: [new SwupPreloadPlugin()]
 });
+
+// Back to top
+const observerBackToTop = new IntersectionObserver(entries => {
+  const entry = entries[0];
+  const isAboveView = entry.boundingClientRect.y < 0;
+  const backToTopButton = document.querySelector('.back-to-top')
+
+  if (isAboveView)  backToTopButton.classList.remove('hidden');
+  else              backToTopButton.classList.add('hidden');
+})
+
+observerBackToTop.observe(document.getElementById('back-to-top-breakpoint'));
 
 // Mobile navigation
 

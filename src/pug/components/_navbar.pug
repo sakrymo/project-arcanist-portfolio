@@ -8,7 +8,7 @@ mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeCo
     #navbar-content
       
       //- Logo
-      a#navbar-wrapper(href=domain)
+      a#navbar-wrapper(href='/')
         #navbar-logo
           +navbar-logo(color1, color2)
       
@@ -17,9 +17,9 @@ mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeCo
         each val, index in pageNames
           li
             unless val === activeItem
-                a.navbar-item(href=domain + pageURLs[index]) #{val}
+                a.navbar-item(href='/' + pageURLs[index]) #{val}
             else
-                a.navbar-item.active(href=domain + pageURLs[index]) #{val}
+                a.navbar-item.active(href='/' + pageURLs[index]) #{val}
         
         //- Theme toggle
         li.nav-icon#theme-toggle
@@ -30,9 +30,9 @@ mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeCo
           each val, index in pageNames
             li
               unless val === activeItem
-                  a.navbar-item(href=domain + pageURLs[index]) #{val}
+                  a.navbar-item(href='/' + pageURLs[index]) #{val}
               else
-                  a.navbar-item.active(href=domain + pageURLs[index]) #{val}
+                  a.navbar-item.active(href='/' + pageURLs[index]) #{val}
           #mobile-menu-social-icons-container
             #mobile-menu-social-icon
               a.fab.fa-instagram

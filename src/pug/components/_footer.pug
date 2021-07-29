@@ -15,11 +15,10 @@ footer
 //- script(src="js/main.min.js")
 //- script AOS.init();
 script(src='js/parcel/bundle.js')
+script(src='https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js')
 script
-  | // Smooth scrolling on anchors
-  | let scroll = new SmoothScroll('a[href*="#"]', {
+  | const scroll = new SmoothScroll('a[href*="#"]', {
   |   easing: 'easeInOutQuad',
   |   speed: 500,
   |   speedAsDuration: true
   | });
-  | 
