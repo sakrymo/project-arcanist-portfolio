@@ -1,3 +1,9 @@
+const tippy = require('tippy.js')
+const aos = require('aos')
+import Swup from 'swup'
+import SwupPreloadPlugin from '@swup/preload-plugin'
+import SmoothScroll from 'smooth-scroll'
+
 /*
 8   8 8888 888b. .d88b.    .d88b. 8888 .d88b 88888 888 .d88b. 8b  8
 8www8 8www 8  .8 8P  Y8    YPwww. 8www 8P      8    8  8P  Y8 8Ybm8
@@ -27,6 +33,14 @@ if (onHomePage) {
 `Y88P' 8888 `Y88P' 888P' dP    Yb 8888
 */
 
+// Animate on scroll
+aos.init();
+
+// Page transitions
+const pageTransitions = new Swup({
+  plugins: [new SwupPreloadPlugin()]
+});
+
 // Mobile navigation
 
 const mobileMenuToggle = document.getElementById('hamburger-toggle');
@@ -48,9 +62,16 @@ mobileMenuToggle.addEventListener("change", e => {
     : document.body.classList.remove('noscroll')
 });
 
+// Smooth scrolling on anchors
+const scroll = new SmoothScroll('a[href*="#"]', {
+  easing: 'easeInOutQuad',
+  speed: 500,
+  speedAsDuration: true
+});
+
 // Prevent hashes on anchor links
 const hashLinks = document.querySelectorAll('a[href*="#"]'); 
-for (link of hashLinks) link.onclick = removeHash; 
+for (const link of hashLinks) link.onclick = removeHash; 
 function removeHash() { setTimeout(() => history.replaceState({}, document.title, "."), 10); }
 
 // ? Dynamic Favicon
@@ -96,7 +117,7 @@ function removeHash() { setTimeout(() => history.replaceState({}, document.title
 `Y88P `Y88P' 8   8   8   dP    Yb `Y88P   8
 */
 
-emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 /*
 Yb        dP .d88b. 888b. 8  dP

@@ -12,6 +12,8 @@ const browserify = require('browserify')
 const source = require('vinyl-source-stream')
 const terser = require('gulp-terser')
 const concat = require('gulp-concat')
+const webpack = require('webpack-stream');
+const babelify = require('babelify')
 
 // img -> png/jpg/ -> webp/png/jpg
 const sharpResponsive = require('gulp-sharp-responsive')
@@ -94,27 +96,27 @@ w  8   dPwwYb    YbdP    dPwwYb      d8 8b    8wwK'  8  8wwP'   8
 `Yw"  dP    Yb    YP    dP    Yb `Y88P' `Y88P 8  Yb 888 8       8
 */
 
-function js () {
-  return gulp
-    .src([
-      "src/js/themes.js",
-      "src/js/dom-to-image.min.js",
-      "src/js/main.js",
-      "src/js/smooth-scroll.js",
-      "src/js/transitions.js"
-    ])
-    .pipe(concat("main.js"))
-    .pipe(gulp.dest("public/js"))
-    .pipe(terser({ format: { comments: false } }))
-    .pipe(
-      rename((path) => {
-        path.extname = ".min.js";
-      })
-    )
-    .pipe(gulp.dest("public/js"))
-    .pipe(browserSync.stream());
+function js(cb) {
+  const exec = require('child_process').exec;
+  exec('parcel build src/js/*.js -d public/js/parcel --no-source-maps --no-minify', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+    
+    return gulp
+      .src([
+        'public/js/parcel/themes.js',
+        'public/js/parcel/main.js'
+      ])
+      .pipe(concat('bundle.js'))
+      .pipe(gulp.dest('public/js/parcel'))
+      .pipe(terser({ format: { comments: false } }))
+      .pipe(
+        rename((path) => { path.extname = ".min.js"; })
+      )
+      .pipe(gulp.dest('public/js/parcel'))
+  })
 }
-
 /*
 888 8b   d8    db    .d88b  8888 .d88b.
  8  8YbmdP8   dPYb   8P www 8www YPwww.
@@ -283,7 +285,6 @@ function img () { gulp.parallel([jpg, png]) }
 exports.css = css
 exports.html = html
 exports.js = js
-// exports.js2 = js2
 
 exports.jpg = jpg
 exports.png = png
