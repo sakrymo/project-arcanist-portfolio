@@ -15,3 +15,11 @@ footer
 //- script(src="js/main.min.js")
 //- script AOS.init();
 script(src='js/parcel/bundle.js')
+script
+  | // Smooth scrolling on anchors
+  | let scroll = new SmoothScroll('a[href*="#"]', {
+  |   easing: 'easeInOutQuad',
+  |   speed: 500,
+  |   speedAsDuration: true
+  | });
+  | 

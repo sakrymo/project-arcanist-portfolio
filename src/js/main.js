@@ -1,9 +1,8 @@
 const tippy = require('tippy.js')
 const aos = require('aos')
+const smoothScroll = require('smooth-scroll')
 import Swup from 'swup'
 import SwupPreloadPlugin from '@swup/preload-plugin'
-const smoothScroll = require('smooth-scroll')
-import SmoothScroll from 'smooth-scroll'
 
 /*
 8   8 8888 888b. .d88b.    .d88b. 8888 .d88b 88888 888 .d88b. 8b  8
@@ -61,13 +60,6 @@ mobileMenuToggle.addEventListener("change", e => {
   mobileMenuToggle.checked
     ? document.body.classList.add('noscroll')
     : document.body.classList.remove('noscroll')
-});
-
-// Smooth scrolling on anchors
-const scroll = new SmoothScroll('a[href*="#"]', {
-  easing: 'easeInOutQuad',
-  speed: 500,
-  speedAsDuration: true
 });
 
 // Prevent hashes on anchor links
