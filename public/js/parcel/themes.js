@@ -119,36 +119,32 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"CgE3":[function(require,module,exports) {
 // Theme toggle
-var storage = window.localStorage;
-var bodyElements = document.querySelectorAll('body *');
-var themeToggle = document.getElementById('theme-toggle');
-var themeToggleMobile = document.getElementById('mobile-theme-toggle');
+const storage = window.localStorage;
+const bodyElements = document.querySelectorAll('body *');
+const themeToggle = document.getElementById('theme-toggle');
+const themeToggleMobile = document.getElementById('mobile-theme-toggle');
 setTheme();
 
 if (storage.getItem('lightTheme') === null) {
   storage.setItem('lightTheme', false);
 }
 
-[themeToggle, themeToggleMobile].forEach(function (element) {
-  element.addEventListener("click", function (e) {
-    var isLight = storage.getItem("lightTheme") == "true";
+[themeToggle, themeToggleMobile].forEach(element => {
+  element.addEventListener("click", e => {
+    const isLight = storage.getItem("lightTheme") == "true";
     storage.setItem("lightTheme", !isLight);
     setTheme();
   });
 });
 
 function setTheme() {
-  var isLight = storage.getItem('lightTheme') == 'true';
+  const isLight = storage.getItem('lightTheme') == 'true';
 
   if (isLight) {
-    bodyElements.forEach(function (element) {
-      return element.classList.add('light');
-    });
+    bodyElements.forEach(element => element.classList.add('light'));
     document.body.classList.add('light');
   } else {
-    bodyElements.forEach(function (element) {
-      return element.classList.remove('light');
-    });
+    bodyElements.forEach(element => element.classList.remove('light'));
     document.body.classList.remove('light');
   }
 }

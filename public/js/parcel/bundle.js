@@ -119,36 +119,32 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"CgE3":[function(require,module,exports) {
 // Theme toggle
-var storage = window.localStorage;
-var bodyElements = document.querySelectorAll('body *');
-var themeToggle = document.getElementById('theme-toggle');
-var themeToggleMobile = document.getElementById('mobile-theme-toggle');
+const storage = window.localStorage;
+const bodyElements = document.querySelectorAll('body *');
+const themeToggle = document.getElementById('theme-toggle');
+const themeToggleMobile = document.getElementById('mobile-theme-toggle');
 setTheme();
 
 if (storage.getItem('lightTheme') === null) {
   storage.setItem('lightTheme', false);
 }
 
-[themeToggle, themeToggleMobile].forEach(function (element) {
-  element.addEventListener("click", function (e) {
-    var isLight = storage.getItem("lightTheme") == "true";
+[themeToggle, themeToggleMobile].forEach(element => {
+  element.addEventListener("click", e => {
+    const isLight = storage.getItem("lightTheme") == "true";
     storage.setItem("lightTheme", !isLight);
     setTheme();
   });
 });
 
 function setTheme() {
-  var isLight = storage.getItem('lightTheme') == 'true';
+  const isLight = storage.getItem('lightTheme') == 'true';
 
   if (isLight) {
-    bodyElements.forEach(function (element) {
-      return element.classList.add('light');
-    });
+    bodyElements.forEach(element => element.classList.add('light'));
     document.body.classList.add('light');
   } else {
-    bodyElements.forEach(function (element) {
-      return element.classList.remove('light');
-    });
+    bodyElements.forEach(element => element.classList.remove('light'));
     document.body.classList.remove('light');
   }
 }
@@ -7130,15 +7126,11 @@ var _smoothScroll = _interopRequireDefault(require("smooth-scroll"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+const tippy = require('tippy.js');
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+const aos = require('aos');
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-var tippy = require('tippy.js');
-
-var aos = require('aos');
+const smoothScroll = require('smooth-scroll');
 
 /*
 8   8 8888 888b. .d88b.    .d88b. 8888 .d88b 88888 888 .d88b. 8b  8
@@ -7146,15 +7138,15 @@ var aos = require('aos');
 8   8 8    8wwK' 8b  d8        d8 8    8b      8    8  8b  d8 8  "8
 8   8 8888 8  Yb `Y88P'    `Y88P' 8888 `Y88P   8   888 `Y88P' 8   8
 */
-var onHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+const onHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
 
 if (onHomePage) {
   // Hero section scaling
-  var heroSection = document.getElementById('hero');
-  var menuHeight = document.querySelector('#navbar').offsetHeight + document.querySelector('.navbar-gradient').offsetHeight;
-  heroSection.style.height = "".concat(window.innerHeight - menuHeight, "px");
-  window.addEventListener('resize', function (e) {
-    heroSection.style.height = "".concat(window.innerHeight - menuHeight, "px");
+  const heroSection = document.getElementById('hero');
+  const menuHeight = document.querySelector('#navbar').offsetHeight + document.querySelector('.navbar-gradient').offsetHeight;
+  heroSection.style.height = `${window.innerHeight - menuHeight}px`;
+  window.addEventListener('resize', e => {
+    heroSection.style.height = `${window.innerHeight - menuHeight}px`;
   });
 }
 /*
@@ -7168,55 +7160,39 @@ if (onHomePage) {
 
 aos.init(); // Page transitions
 
-var pageTransitions = new _swup.default({
+const pageTransitions = new _swup.default({
   plugins: [new _preloadPlugin.default()]
 }); // Mobile navigation
 
-var mobileMenuToggle = document.getElementById('hamburger-toggle');
-var mobileMenu = document.getElementById('mobile-menu');
-window.addEventListener('resize', function (e) {
-  return mobileMenu.style.height = window.innerHeight;
-});
-document.body.addEventListener('touchmove', function (e) {
+const mobileMenuToggle = document.getElementById('hamburger-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+window.addEventListener('resize', e => mobileMenu.style.height = window.innerHeight);
+document.body.addEventListener('touchmove', e => {
   if (mobileMenuToggle.checked) e.preventDefault();
 }, {
   passive: false
 });
-mobileMenuToggle.addEventListener("change", function (e) {
+mobileMenuToggle.addEventListener("change", e => {
   e.target.style.pointerEvents = 'none';
-  setTimeout(function () {
+  setTimeout(() => {
     e.target.style.pointerEvents = '';
   }, 300);
   mobileMenuToggle.checked ? mobileMenu.classList.add("on") : mobileMenu.classList.remove("on");
   mobileMenuToggle.checked ? document.body.classList.add('noscroll') : document.body.classList.remove('noscroll');
 }); // Smooth scrolling on anchors
 
-var scroll = new _smoothScroll.default('a[href*="#"]', {
+const scroll = new _smoothScroll.default('a[href*="#"]', {
   easing: 'easeInOutQuad',
   speed: 500,
   speedAsDuration: true
 }); // Prevent hashes on anchor links
 
-var hashLinks = document.querySelectorAll('a[href*="#"]');
+const hashLinks = document.querySelectorAll('a[href*="#"]');
 
-var _iterator = _createForOfIteratorHelper(hashLinks),
-    _step;
-
-try {
-  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-    var link = _step.value;
-    link.onclick = removeHash;
-  }
-} catch (err) {
-  _iterator.e(err);
-} finally {
-  _iterator.f();
-}
+for (const link of hashLinks) link.onclick = removeHash;
 
 function removeHash() {
-  setTimeout(function () {
-    return history.replaceState({}, document.title, ".");
-  }, 10);
+  setTimeout(() => history.replaceState({}, document.title, "."), 10);
 } // ? Dynamic Favicon
 // ? FEATURE CURRENTLY WITHDRAWN [TO BE REVISED]
 // const node = document.getElementById('favicon-svg');
@@ -7256,7 +7232,7 @@ function removeHash() {
 */
 
 
-var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 /*
 Yb        dP .d88b. 888b. 8  dP
 Yb  db  dP  8P  Y8 8  .8 8wdP
