@@ -36,9 +36,7 @@ if (onHomePage) {
 aos.init();
 
 // Page transitions
-const pageTransitions = new Swup({
-  plugins: [new SwupPreloadPlugin()]
-});
+const pageTransitions = new Swup()
 
 // Back to top
 const observerBackToTop = new IntersectionObserver(entries => {

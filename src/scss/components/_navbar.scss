@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 #navbar {
   background: $black;
   width: 100%;
@@ -215,7 +217,7 @@ $mobile-menu-offset: 1rem;
   @media screen and (max-width: $tablet-max) {
     display: flex;
     @for $i from 1 to 10 {
-      li:nth-of-type(#{$i}) .navbar-item { transition-delay: 0.01s + ($i / 10); }
+      li:nth-of-type(#{$i}) .navbar-item { transition-delay: 0.01s + math.div($i, 10); }
     }
   }
 
@@ -261,7 +263,7 @@ $mobile-menu-offset: 1rem;
 
   @for $i from 1 to 20 {
     #mobile-menu-social-icon:nth-of-type(#{$i}) {
-      transition-delay: 0.2s + ($i / 10)
+      transition-delay: 0.2s + math.div($i, 10)
     }
   } 
 }

@@ -2,7 +2,7 @@
 @use 'base/_reset';
 @use 'base/_layout';
 @import 'base/typography';
-@import '_transitions';
+@import 'base/_transitions';
 
 // Utility
 @import 'utility/_variables';

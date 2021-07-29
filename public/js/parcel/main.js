@@ -7000,9 +7000,7 @@ if (onHomePage) {
 
 aos.init(); // Page transitions
 
-const pageTransitions = new _swup.default({
-  plugins: [new _preloadPlugin.default()]
-}); // Back to top
+const pageTransitions = new _swup.default(); // Back to top
 
 const observerBackToTop = new IntersectionObserver(entries => {
   const entry = entries[0];

@@ -9,14 +9,14 @@ html(lang="en")
     +head-data("Project Arcanist - About Us")
 
   body
+    +navbar({
+      activeItem: "About",
+      color1: undefined,
+      color2: undefined,
+      activeColor: undefined,
+      repeat: undefined 
+    })
     main#swup.transition-fade
-      +navbar({
-        activeItem: "About",
-        color1: undefined,
-        color2: undefined,
-        activeColor: undefined,
-        repeat: undefined 
-      })
       .whitespace
 
       include components/_footer

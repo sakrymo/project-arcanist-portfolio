@@ -198,6 +198,15 @@ p, .hero-text, .navbar-item {
   line-height: 1.69;
 }
 
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
 .preloader {
   display: flex;
   justify-content: center;
