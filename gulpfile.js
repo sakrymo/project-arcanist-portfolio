@@ -101,6 +101,7 @@ function js () {
       "src/js/dom-to-image.min.js",
       "src/js/main.js",
       "src/js/smooth-scroll.js",
+      "src/js/transitions.js"
     ])
     .pipe(concat("main.js"))
     .pipe(gulp.dest("public/js"))
