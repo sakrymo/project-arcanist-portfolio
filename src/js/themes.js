@@ -11,9 +11,9 @@ if (storage.getItem('lightTheme') === null) {
 }
 
 [themeToggle, themeToggleMobile].forEach((element) => {
-  const isLight = storage.getItem("lightTheme") == "true";
 
   element.addEventListener("click", (e) => {
+    const isLight = storage.getItem("lightTheme") == "true";
     storage.setItem("lightTheme", !isLight);
     setTheme();
   });
