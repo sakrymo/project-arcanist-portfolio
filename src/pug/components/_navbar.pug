@@ -33,7 +33,19 @@ mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeCo
                   a.navbar-item(href=domain + pageURLs[index]) #{val}
               else
                   a.navbar-item.active(href=domain + pageURLs[index]) #{val}
-          #mobile-menu-social-icons
+          #mobile-menu-social-icons-container
+            #mobile-menu-social-icon
+              a.fab.fa-instagram
+            #mobile-menu-social-icon
+              a.fab.fa-behance
+            #mobile-menu-social-icon
+              a.far.fa-envelope
+            #mobile-menu-social-icon
+            #mobile-menu-social-icon  
+            #mobile-menu-social-icon  
+            #mobile-menu-social-icon
+          i.fas.fa-adjust#mobile-theme-toggle
+
 
       //- Mobile menu
       #hamburger
