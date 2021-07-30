@@ -48,3 +48,6 @@ mixin picture({ src = 'placeholder.jpg', xsCustom = '', smCustom = '', mdCustom 
       source(media='(min-width: 0px)' srcset=(( xsCustom ? (imgPath + xsCustom) : (autoImgPath + name + '-xs')) + '.png') type='image/png')
 
       img(src=(( lgCustom ? (imgPath + lgCustom) : (autoImgPath + name + '-lg')) + '.png'))
+
+mixin thumbnail()
+  

@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@popperjs/core": "^2.9.2",
     "@swup/preload-plugin": "^1.0.3",
     "aos": "^2.3.4",
     "babelify": "^10.0.0",
@@ -56,5 +57,7 @@
     "vinyl-source-stream": "^2.0.0",
     "webpack-stream": "^6.1.2"
   },
-  "browserslist": [ "last 2 Chrome versions" ]
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
 }

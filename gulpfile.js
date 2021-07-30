@@ -8,12 +8,9 @@ const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 // js -> js-min
-const browserify = require('browserify')
-const source = require('vinyl-source-stream')
 const terser = require('gulp-terser')
 const concat = require('gulp-concat')
 const webpack = require('webpack-stream');
-const babelify = require('babelify')
 
 // img -> png/jpg/ -> webp/png/jpg
 const sharpResponsive = require('gulp-sharp-responsive')
