@@ -79,7 +79,7 @@ $temp-bg-2: #262626;
   padding: 10px;
   opacity: 0;
   animation:  scroll-indicator 1s ease infinite alternate,
-              fade-scroll-indicator 1s 5s ease forwards;
+              fade-scroll-indicator 1s 3s ease forwards;
 
   & * { transition: opacity 0.2s ease-in; }
   &:hover * { opacity: 0.5; }
