@@ -1,15 +1,41 @@
 @use 'sass:math';
 
+#navbar-fixed-wrapper {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
 #navbar {
   background: $black;
   width: 100%;
-  height: auto;
+  max-height: 105px;
+  overflow: hidden;
   display: flex;
   margin: auto;
 
   &.light {
     background: $white;
   }
+
+  &.minimized {
+    max-height: 70px;
+    font-size: 1.4rem;
+    height: auto;
+  }
+
+  &.minimized #navbar-content {
+    max-height: 70px;
+    height: auto;
+  }
+
+  &.hidden {
+    max-height: 1px;
+    height: auto;
+  }
+
+
+  transition: max-height .5s ease;
 }
 
 #navbar-content {
@@ -20,6 +46,14 @@
   justify-content: space-between;
   flex-flow: row;
   align-items: center;
+  max-height: 105px;
+  transition-property: max-height, font-size;
+  transition: 0.5s ease, opacity 0.1s ease;
+
+  &.hidden {
+    max-height: 0;
+    height: auto;
+  }
 }
 
 #navbar-items {
@@ -93,6 +127,7 @@
 #navbar-logo {
   width: 240px;
   height: 72px;
+  display: flex;
   background: transparent;
   margin: 16px;
   cursor: pointer;
@@ -112,6 +147,33 @@
   }
 }
 
+.navbar-logo-symbol {
+  width: 44%;
+  transition: transform .2s ease;
+}
+
+.navbar-logo-text {
+  padding-left: 4%;
+  transform-origin: left;
+  transition-property: opacity, transform;
+  transition: .2s ease-out;
+  opacity: 1;
+}
+
+#navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-symbol {
+  transform: scale(0.85);
+  width: 70%;
+  transform: left;
+}
+
+#navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-text {
+  opacity: 0;
+}
+
+#navbar.hidden #navbar-wrapper > #navbar-logo .navbar-logo-text {
+  opacity: 0;
+}
+
 .cls-1.light:not(.logo-circle) {
   fill: #222;
 }
@@ -120,6 +182,31 @@
   width: 100%;
   height: 5px;
   background: gray linear-gradient(90deg, red, yellow);
+}
+
+.navbar-gradient-overlay {
+  width: 100%;
+  height: 5px;
+  background: transparent;
+  position: relative;
+  bottom: 5px;
+  transition: opacity .5s ease;
+}
+
+#navbar-progress {
+  width: 100%;
+  height: 5px;
+  position: relative;
+  bottom: 10px;
+  background: $white;
+  transform-origin: left;
+  transition: transform 0.1s ease, opacity 0.3s ease-out;
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+#navbar.hidden ~ #navbar-progress {
+  opacity: 1;
 }
 
 // Mobile menu

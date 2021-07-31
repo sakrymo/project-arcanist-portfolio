@@ -5704,9 +5704,9 @@ if (onHomePage) {
   // Hero section scaling
   const heroSection = document.getElementById('hero');
   const menuHeight = document.querySelector('#navbar').offsetHeight + document.querySelector('.navbar-gradient').offsetHeight;
-  heroSection.style.height = `${window.innerHeight - menuHeight}px`;
+  heroSection.style.height = `${window.innerHeight}px`;
   window.addEventListener('resize', e => {
-    heroSection.style.height = `${window.innerHeight - menuHeight}px`;
+    heroSection.style.height = `${window.innerHeight}px`;
   });
 }
 /*
@@ -5743,6 +5743,31 @@ mobileMenuToggle.addEventListener("change", e => {
   }, 300);
   mobileMenuToggle.checked ? mobileMenu.classList.add("on") : mobileMenu.classList.remove("on");
   mobileMenuToggle.checked ? document.body.classList.add('noscroll') : document.body.classList.remove('noscroll');
+}); // Sticky navigation
+
+let lastScroll = scrollY;
+const pageHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+window.addEventListener('scroll', e => {
+  const targets = document.querySelectorAll('#navbar', '#navbar-content');
+  const scrollingUp = lastScroll > scrollY;
+
+  if (scrollY < 300) {
+    targets.forEach(element => element.classList = '');
+  } else {
+    if (scrollingUp) {
+      targets.forEach(element => element.classList.add('minimized'));
+      targets.forEach(element => element.classList.remove('hidden'));
+    } else {
+      targets.forEach(element => element.classList.remove('minimized'));
+      targets.forEach(element => element.classList.add('hidden'));
+    }
+  }
+
+  lastScroll = scrollY;
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = winScroll / height;
+  document.querySelector('#navbar-progress').style.transform = `scaleX(${scrolled})`;
 }); // Prevent hashes on anchor links
 
 const hashLinks = document.querySelectorAll('a[href*="#"]');
