@@ -73,18 +73,18 @@ const pageHeight = Math.max( document.body.scrollHeight, document.body.offsetHei
 
 window.addEventListener('scroll', e => {
 
-  const targets = document.querySelectorAll('#navbar', '#navbar-content')
+  const navbar = document.getElementById('navbar')
   const scrollingUp = (lastScroll > scrollY)
   
   if(scrollY < 300) {
-    targets.forEach(element => element.classList = '')
+    navbar.classList = localStorage.getItem('lightTheme') == 'true' ? 'light' : '';
   } else {
     if (scrollingUp) {
-      targets.forEach(element => element.classList.add('minimized'))
-      targets.forEach(element => element.classList.remove('hidden'))
+      navbar.classList.add('minimized')
+      navbar.classList.remove('hidden')
     } else {
-      targets.forEach(element => element.classList.remove('minimized'))
-      targets.forEach(element => element.classList.add('hidden'))
+      navbar.classList.remove('minimized')
+      navbar.classList.add('hidden')
     }
   }
 

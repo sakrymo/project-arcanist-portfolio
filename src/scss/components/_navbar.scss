@@ -2,31 +2,28 @@
 
 #navbar-fixed-wrapper {
   position: fixed;
-  width: 100%;
   z-index: 100;
 }
 
 #navbar {
   background: $black;
-  width: 100%;
   max-height: 105px;
   overflow: hidden;
   display: flex;
-  margin: auto;
 
-  &.light {
-    background: $white;
-  }
+  &.light { background: $white; }
 
   &.minimized {
     max-height: 70px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     height: auto;
   }
 
   &.minimized #navbar-content {
     max-height: 70px;
     height: auto;
+
+    li .navbar-item { padding: 8px 13px; }
   }
 
   &.hidden {
@@ -34,8 +31,19 @@
     height: auto;
   }
 
-
   transition: max-height .5s ease;
+}
+
+#navbar.minimized #navbar-wrapper #navbar-logo {
+  cursor: initial;
+}
+
+#navbar.minimized #navbar-wrapper #navbar-logo .navbar-logo-symbol:hover {
+  &:hover { opacity: 0.8; cursor: pointer; }
+}
+
+#navbar:not(.minimized) #navbar-wrapper:hover #navbar-logo {
+  opacity: 0.9;
 }
 
 #navbar-content {
@@ -43,16 +51,18 @@
   width: 100%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
-  flex-flow: row;
   align-items: center;
+  justify-content: space-between;
+
   max-height: 105px;
-  transition-property: max-height, font-size;
-  transition: 0.5s ease, opacity 0.1s ease;
+  transition: max-height .5s ease,
+              font-size .5s ease,
+              opacity .1s ease;
 
   &.hidden {
     max-height: 0;
     height: auto;
+    font-size: 0;
   }
 }
 
@@ -62,18 +72,17 @@
   list-style-type: none;
   margin-right: 2ch;
 
-  @include for-phone {
-   display: none; 
-  }
+  @include for-phone { display: none; }
 }
 
 .navbar-item {
   @extend p;
   padding: 10px 15px;
   position: relative;
-  display: block;
   transition: 0.5s;
-  transition: transform 0.2s, opacity 0.2s;
+  transition: transform 0.2s,
+              opacity 0.2s,
+              padding 0.5s ease;
 
   &::after {
     background: gray;
@@ -84,8 +93,8 @@
     left: 20%;
     content: "";
     transition: transform 0.5s ease;
-    transform: scaleX(0);
     transform-origin: right;
+    transform: scaleX(0);
   }
 
   &:hover::after {
@@ -107,7 +116,7 @@
 .nav-icon {
   font-size: 2rem;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   transform: scale(1);
   margin-left: 40px;
   @include flex-center;
@@ -128,42 +137,45 @@
   width: 240px;
   height: 72px;
   display: flex;
-  background: transparent;
   margin: 16px;
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 1;
   transition: opacity 0.15s, transform 0.2s;
 
   @include for-phone {
-    .logo-svg-text { display: none; }
+    width: 72px;
+    .navbar-logo-text { display: none; }
+    .navbar-logo-symbol { width: 72px; }
   }
-
-  &::hover {
-    opacity: 1;
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
+  
+  &:active { transform: scale(0.95); }
 }
 
+#navbar.minimized #navbar-content #navbar-wrapper #navbar-logo .navbar-logo-symbol {
+  @include for-phone {
+    transform: scale(1);
+    width: 85%;
+  }
+}
 .navbar-logo-symbol {
   width: 44%;
-  transition: transform .2s ease;
+  transition: all .2s ease;
+  transform-origin: left;
 }
 
 .navbar-logo-text {
   padding-left: 4%;
   transform-origin: left;
   transition-property: opacity, transform;
-  transition: .2s ease-out;
+  transition: .2s ease;
   opacity: 1;
 }
+
+.logo-text-fill.light { fill: $black; }
 
 #navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-symbol {
   transform: scale(0.85);
   width: 70%;
-  transform: left;
 }
 
 #navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-text {

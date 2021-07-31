@@ -241,17 +241,14 @@ html.is-animating .transition-fade {
 }
 #navbar-fixed-wrapper {
   position: fixed;
-  width: 100%;
   z-index: 100;
 }
 
 #navbar {
   background: #111;
-  width: 100%;
   max-height: 105px;
   overflow: hidden;
   display: flex;
-  margin: auto;
   transition: max-height 0.5s ease;
 }
 #navbar.light {
@@ -259,16 +256,32 @@ html.is-animating .transition-fade {
 }
 #navbar.minimized {
   max-height: 70px;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   height: auto;
 }
 #navbar.minimized #navbar-content {
   max-height: 70px;
   height: auto;
 }
+#navbar.minimized #navbar-content li .navbar-item {
+  padding: 8px 13px;
+}
 #navbar.hidden {
   max-height: 1px;
   height: auto;
+}
+
+#navbar.minimized #navbar-wrapper #navbar-logo {
+  cursor: initial;
+}
+
+#navbar.minimized #navbar-wrapper #navbar-logo .navbar-logo-symbol:hover:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#navbar:not(.minimized) #navbar-wrapper:hover #navbar-logo {
+  opacity: 0.9;
 }
 
 #navbar-content {
@@ -276,16 +289,15 @@ html.is-animating .transition-fade {
   width: 100%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
-  flex-flow: row;
   align-items: center;
+  justify-content: space-between;
   max-height: 105px;
-  transition-property: max-height, font-size;
-  transition: 0.5s ease, opacity 0.1s ease;
+  transition: max-height 0.5s ease, font-size 0.5s ease, opacity 0.1s ease;
 }
 #navbar-content.hidden {
   max-height: 0;
   height: auto;
+  font-size: 0;
 }
 
 #navbar-items {
@@ -303,9 +315,8 @@ html.is-animating .transition-fade {
 .navbar-item {
   padding: 10px 15px;
   position: relative;
-  display: block;
   transition: 0.5s;
-  transition: transform 0.2s, opacity 0.2s;
+  transition: transform 0.2s, opacity 0.2s, padding 0.5s ease;
 }
 .navbar-item::after {
   background: gray;
@@ -316,8 +327,8 @@ html.is-animating .transition-fade {
   left: 20%;
   content: "";
   transition: transform 0.5s ease;
-  transform: scaleX(0);
   transform-origin: right;
+  transform: scaleX(0);
 }
 .navbar-item:hover::after {
   transform: scaleX(1);
@@ -335,7 +346,7 @@ html.is-animating .transition-fade {
 .nav-icon {
   font-size: 2rem;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   transform: scale(1);
   margin-left: 40px;
   display: flex;
@@ -364,41 +375,54 @@ html.is-animating .transition-fade {
   width: 240px;
   height: 72px;
   display: flex;
-  background: transparent;
   margin: 16px;
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 1;
   transition: opacity 0.15s, transform 0.2s;
 }
 @media (max-width: 768px) {
-  #navbar-logo .logo-svg-text {
+  #navbar-logo {
+    width: 72px;
+  }
+  #navbar-logo .navbar-logo-text {
     display: none;
   }
-}
-#navbar-logo::hover {
-  opacity: 1;
+  #navbar-logo .navbar-logo-symbol {
+    width: 72px;
+  }
 }
 #navbar-logo:active {
   transform: scale(0.95);
 }
 
+@media (max-width: 768px) {
+  #navbar.minimized #navbar-content #navbar-wrapper #navbar-logo .navbar-logo-symbol {
+    transform: scale(1);
+    width: 85%;
+  }
+}
+
 .navbar-logo-symbol {
   width: 44%;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease;
+  transform-origin: left;
 }
 
 .navbar-logo-text {
   padding-left: 4%;
   transform-origin: left;
   transition-property: opacity, transform;
-  transition: 0.2s ease-out;
+  transition: 0.2s ease;
   opacity: 1;
+}
+
+.logo-text-fill.light {
+  fill: #111;
 }
 
 #navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-symbol {
   transform: scale(0.85);
   width: 70%;
-  transform: left;
 }
 
 #navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-text {
