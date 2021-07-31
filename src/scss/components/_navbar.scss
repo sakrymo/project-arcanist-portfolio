@@ -34,6 +34,57 @@
   transition: max-height .5s ease;
 }
 
+// Navbar logo
+#navbar-logo {
+  width: 240px;
+  height: 72px;
+  display: flex;
+  margin: 16px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.15s, transform 0.2s;
+
+  @include for-phone {
+    width: 72px;
+    .navbar-logo-text { display: none; }
+    .navbar-logo-symbol { width: 72px; }
+  }
+  
+  &:active { transform: scale(0.95); }
+}
+
+#navbar.minimized #navbar-content #navbar-wrapper #navbar-logo .navbar-logo-symbol {
+  @include for-phone {
+    transform: scale(1);
+    width: 85%;
+  }
+}
+.navbar-logo-symbol {
+  width: 44%;
+  transition: all .3s ease;
+  transform-origin: left;
+}
+
+.navbar-logo-text {
+  padding-left: 4%;
+  transform-origin: left;
+  transition-property: opacity, transform;
+  transition: .2s ease;
+  opacity: 1;
+}
+
+.logo-text-fill.light { fill: $black; }
+
+#navbar.hidden #navbar-wrapper > #navbar-logo .navbar-logo-text,
+#navbar.hidden #navbar-wrapper > #navbar-logo .navbar-logo-symbol {
+  opacity: 0;
+}
+
+.cls-1.light:not(.logo-circle) {
+  fill: #222;
+}
+
+// Minimized logo
 #navbar.minimized #navbar-wrapper #navbar-logo {
   cursor: initial;
 }
@@ -42,10 +93,20 @@
   &:hover { opacity: 0.8; cursor: pointer; }
 }
 
+#navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-symbol {
+  transform: scale(0.85);
+  width: 70%;
+}
+
+#navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-text {
+  opacity: 0;
+}
+
 #navbar:not(.minimized) #navbar-wrapper:hover #navbar-logo {
   opacity: 0.9;
 }
 
+// Navbar links
 #navbar-content {
   max-width: 1200px;
   width: 100%;
@@ -133,63 +194,7 @@
   @include for-phone { width: 120px;  }
 }
 
-#navbar-logo {
-  width: 240px;
-  height: 72px;
-  display: flex;
-  margin: 16px;
-  cursor: pointer;
-  opacity: 1;
-  transition: opacity 0.15s, transform 0.2s;
-
-  @include for-phone {
-    width: 72px;
-    .navbar-logo-text { display: none; }
-    .navbar-logo-symbol { width: 72px; }
-  }
-  
-  &:active { transform: scale(0.95); }
-}
-
-#navbar.minimized #navbar-content #navbar-wrapper #navbar-logo .navbar-logo-symbol {
-  @include for-phone {
-    transform: scale(1);
-    width: 85%;
-  }
-}
-.navbar-logo-symbol {
-  width: 44%;
-  transition: all .2s ease;
-  transform-origin: left;
-}
-
-.navbar-logo-text {
-  padding-left: 4%;
-  transform-origin: left;
-  transition-property: opacity, transform;
-  transition: .2s ease;
-  opacity: 1;
-}
-
-.logo-text-fill.light { fill: $black; }
-
-#navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-symbol {
-  transform: scale(0.85);
-  width: 70%;
-}
-
-#navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-text {
-  opacity: 0;
-}
-
-#navbar.hidden #navbar-wrapper > #navbar-logo .navbar-logo-text {
-  opacity: 0;
-}
-
-.cls-1.light:not(.logo-circle) {
-  fill: #222;
-}
-
+// Gradients
 .navbar-gradient {
   width: 100%;
   height: 5px;

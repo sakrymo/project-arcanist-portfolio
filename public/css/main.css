@@ -271,6 +271,64 @@ html.is-animating .transition-fade {
   height: auto;
 }
 
+#navbar-logo {
+  width: 240px;
+  height: 72px;
+  display: flex;
+  margin: 16px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.15s, transform 0.2s;
+}
+@media (max-width: 768px) {
+  #navbar-logo {
+    width: 72px;
+  }
+  #navbar-logo .navbar-logo-text {
+    display: none;
+  }
+  #navbar-logo .navbar-logo-symbol {
+    width: 72px;
+  }
+}
+#navbar-logo:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  #navbar.minimized #navbar-content #navbar-wrapper #navbar-logo .navbar-logo-symbol {
+    transform: scale(1);
+    width: 85%;
+  }
+}
+
+.navbar-logo-symbol {
+  width: 44%;
+  transition: all 0.3s ease;
+  transform-origin: left;
+}
+
+.navbar-logo-text {
+  padding-left: 4%;
+  transform-origin: left;
+  transition-property: opacity, transform;
+  transition: 0.2s ease;
+  opacity: 1;
+}
+
+.logo-text-fill.light {
+  fill: #111;
+}
+
+#navbar.hidden #navbar-wrapper > #navbar-logo .navbar-logo-text,
+#navbar.hidden #navbar-wrapper > #navbar-logo .navbar-logo-symbol {
+  opacity: 0;
+}
+
+.cls-1.light:not(.logo-circle) {
+  fill: #222;
+}
+
 #navbar.minimized #navbar-wrapper #navbar-logo {
   cursor: initial;
 }
@@ -278,6 +336,15 @@ html.is-animating .transition-fade {
 #navbar.minimized #navbar-wrapper #navbar-logo .navbar-logo-symbol:hover:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+#navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-symbol {
+  transform: scale(0.85);
+  width: 70%;
+}
+
+#navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-text {
+  opacity: 0;
 }
 
 #navbar:not(.minimized) #navbar-wrapper:hover #navbar-logo {
@@ -369,72 +436,6 @@ html.is-animating .transition-fade {
   #navbar-wrapper {
     width: 120px;
   }
-}
-
-#navbar-logo {
-  width: 240px;
-  height: 72px;
-  display: flex;
-  margin: 16px;
-  cursor: pointer;
-  opacity: 1;
-  transition: opacity 0.15s, transform 0.2s;
-}
-@media (max-width: 768px) {
-  #navbar-logo {
-    width: 72px;
-  }
-  #navbar-logo .navbar-logo-text {
-    display: none;
-  }
-  #navbar-logo .navbar-logo-symbol {
-    width: 72px;
-  }
-}
-#navbar-logo:active {
-  transform: scale(0.95);
-}
-
-@media (max-width: 768px) {
-  #navbar.minimized #navbar-content #navbar-wrapper #navbar-logo .navbar-logo-symbol {
-    transform: scale(1);
-    width: 85%;
-  }
-}
-
-.navbar-logo-symbol {
-  width: 44%;
-  transition: all 0.2s ease;
-  transform-origin: left;
-}
-
-.navbar-logo-text {
-  padding-left: 4%;
-  transform-origin: left;
-  transition-property: opacity, transform;
-  transition: 0.2s ease;
-  opacity: 1;
-}
-
-.logo-text-fill.light {
-  fill: #111;
-}
-
-#navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-symbol {
-  transform: scale(0.85);
-  width: 70%;
-}
-
-#navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-text {
-  opacity: 0;
-}
-
-#navbar.hidden #navbar-wrapper > #navbar-logo .navbar-logo-text {
-  opacity: 0;
-}
-
-.cls-1.light:not(.logo-circle) {
-  fill: #222;
 }
 
 .navbar-gradient {

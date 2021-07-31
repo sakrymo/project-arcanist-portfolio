@@ -1,4 +1,3 @@
-const tippy = require('tippy.js')
 const aos = require('aos')
 
 /*
@@ -51,6 +50,7 @@ const mobileMenuToggle = document.getElementById('hamburger-toggle');
 const mobileMenu       = document.getElementById('mobile-menu')
 
 window.addEventListener('resize', e => mobileMenu.style.height = window.innerHeight)
+
 document.body.addEventListener('touchmove', e => { if (mobileMenuToggle.checked) e.preventDefault() }, { passive: false })
 
 mobileMenuToggle.addEventListener("change", e => {
@@ -58,8 +58,8 @@ mobileMenuToggle.addEventListener("change", e => {
   setTimeout(() => { e.target.style.pointerEvents = ''; }, 300);
 
   mobileMenuToggle.checked
-  ? mobileMenu.classList.add("on")
-  : mobileMenu.classList.remove("on");
+    ? mobileMenu.classList.add("on")
+    : mobileMenu.classList.remove("on");
 
   mobileMenuToggle.checked
     ? document.body.classList.add('noscroll')
@@ -69,34 +69,42 @@ mobileMenuToggle.addEventListener("change", e => {
 // Sticky navigation
 let lastScroll = scrollY
 
-const pageHeight = Math.max( document.body.scrollHeight, document.body.offsetHeight,  document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
+window.addEventListener("scroll", (e) => {
+  const navbar = document.getElementById("navbar");
+  const scrollingUp = lastScroll > scrollY;
+  const navbarShouldHide = navbar.getAttribute("hide") === "true";
+  const isLightTheme = localStorage.getItem("lightTheme") === "true";
 
-window.addEventListener('scroll', e => {
-
-  const navbar = document.getElementById('navbar')
-  const scrollingUp = (lastScroll > scrollY)
-  
-  if(scrollY < 300) {
-    navbar.classList = localStorage.getItem('lightTheme') == 'true' ? 'light' : '';
-  } else {
+  if (scrollY < 300) {
+    navbar.classList = isLightTheme ? "light" : "";
+  } else if (navbarShouldHide) {
     if (scrollingUp) {
-      navbar.classList.add('minimized')
-      navbar.classList.remove('hidden')
+      navbar.classList.add("minimized");
+      navbar.classList.remove("hidden");
     } else {
-      navbar.classList.remove('minimized')
-      navbar.classList.add('hidden')
+      navbar.classList.remove("minimized");
+      navbar.classList.add("hidden");
     }
+  } else {
+    navbar.classList.add("minimized");
   }
 
-  lastScroll = scrollY
+  lastScroll = scrollY;
 
-  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  
-  const scrolled = (winScroll / height);
+  if (document.querySelector("#navbar-progress")) {
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
 
-  document.querySelector('#navbar-progress').style.transform = `scaleX(${scrolled})`
-})
+    const scrolled = winScroll / height;
+
+    document.querySelector(
+      "#navbar-progress"
+    ).style.transform = `scaleX(${scrolled})`;
+  }
+});
 
 // Prevent hashes on anchor links
 const hashLinks = document.querySelectorAll('a[href*="#"]'); 

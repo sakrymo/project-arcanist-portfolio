@@ -1,11 +1,11 @@
-mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeColor = color2, repeat = 'false', progressbar='false' })
+mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeColor = color2, repeat = false, progressBar = false, hide = false})
   
   include _navbar-logo
   include _favicon
   include _page-links
 
   #navbar-fixed-wrapper.fullwidth
-    nav#navbar
+    nav#navbar(hide = hide.toString())
       #navbar-content
         
         //- Logo
@@ -57,5 +57,6 @@ mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeCo
 
     .navbar-gradient(style="background: linear-gradient(90deg," + color1 + "," + color2 + ");")
     .navbar-gradient-overlay
-    #navbar-progress
+    if progressBar
+      #navbar-progress
   style .navbar-item.active::after { background-color: #{activeColor}; }
