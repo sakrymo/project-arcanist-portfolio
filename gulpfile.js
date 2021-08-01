@@ -10,7 +10,6 @@ const cssnano = require('cssnano')
 // js -> js-min
 const terser = require('gulp-terser')
 const concat = require('gulp-concat')
-const webpack = require('webpack-stream');
 
 // img -> png/jpg/ -> webp/png/jpg
 const sharpResponsive = require('gulp-sharp-responsive')
@@ -39,9 +38,13 @@ function watch () {
   gulp.watch('src/scss/**/*.scss', css)
   gulp.watch('src/pug/**/*.pug', html)
   gulp.watch('src/js/**/*.js', js)
-  gulp.watch(['src/img/**/*', '!src/img/sharp/**/*', '!src/img/sharp'], otherImages)
+  gulp.watch(
+    ['src/img/**/*', '!src/img/sharp/**/*', '!src/img/sharp'],
+    otherImages
+  )
   gulp.watch('src/img/sharp/**/*.jpg', jpg)
   gulp.watch('src/img/sharp/**/*.png', png)
+  gulp.watch('public/js/parcel/*.js', browserSync.reload)
 }
 
 /*
@@ -66,7 +69,11 @@ function css () {
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('public/css'))
     .pipe(postcss(plugins))
-    .pipe(rename(path => { path.extname = '.min.css' }))
+    .pipe(
+      rename(path => {
+        path.extname = '.min.css'
+      })
+    )
     .pipe(gulp.dest('public/css'))
     .pipe(browserSync.stream())
 }
@@ -93,26 +100,28 @@ w  8   dPwwYb    YbdP    dPwwYb      d8 8b    8wwK'  8  8wwP'   8
 `Yw"  dP    Yb    YP    dP    Yb `Y88P' `Y88P 8  Yb 888 8       8
 */
 
-function js(cb) {
-  const exec = require('child_process').exec;
-  exec('parcel build src/js/*.js -d public/js/parcel --no-source-maps --no-minify', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    cb(err);
-    
-    return gulp
-      .src([
-        'public/js/parcel/themes.js',
-        'public/js/parcel/main.js'
-      ])
-      .pipe(concat('bundle.js'))
-      .pipe(gulp.dest('public/js/parcel'))
-      .pipe(terser({ format: { comments: false } }))
-      .pipe(
-        rename((path) => { path.extname = ".min.js"; })
-      )
-      .pipe(gulp.dest('public/js/parcel'))
-  })
+function js (cb) {
+  const exec = require('child_process').exec
+  exec(
+    'parcel build src/js/*.js -d public/js/parcel --no-source-maps --no-minify',
+    function (err, stdout, stderr) {
+      console.log(stdout)
+      console.log(stderr)
+      cb(err)
+
+      return gulp
+        .src(['public/js/parcel/themes.js', 'public/js/parcel/main.js'])
+        .pipe(concat('bundle.js'))
+        .pipe(gulp.dest('public/js/parcel'))
+        .pipe(terser({ format: { comments: false } }))
+        .pipe(
+          rename(path => {
+            path.extname = '.min.js'
+          })
+        )
+        .pipe(gulp.dest('public/js/parcel'))
+    }
+  )
 }
 /*
 888 8b   d8    db    .d88b  8888 .d88b.
@@ -130,7 +139,7 @@ const md = 1200
 const lg = 1800
 
 const calcWidth = (metadata, size) => {
-  return (metadata.width >= metadata.height) ? size : Math.round(size / 1.5)
+  return metadata.width >= metadata.height ? size : Math.round(size / 1.5)
 }
 
 /*
@@ -145,60 +154,62 @@ const webpConfig = { reductionEffort: 6, quality: 80, smartSubsample: true }
 function jpg () {
   return gulp
     .src(imgSrc + '*.{jpg,jpeg}')
-    .pipe(sharpResponsive({
-      formats: [
-        // jpg -> webp
-        {
-          width: metadata => calcWidth(metadata, xs),
-          format: 'webp',
-          rename: { suffix: '-xs' },
-          webpOptions: webpConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, sm),
-          format: 'webp',
-          rename: { suffix: '-sm' },
-          webpOptions: webpConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, md),
-          format: 'webp',
-          rename: { suffix: '-md' },
-          webpOptions: webpConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, lg),
-          format: 'webp',
-          rename: { suffix: '-lg' },
-          webpOptions: webpConfig
-        },
-        // jpg -> jpg
-        {
-          width: metadata => calcWidth(metadata, xs),
-          format: 'jpeg',
-          rename: { suffix: '-xs' },
-          jpegOptions: jpgConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, sm),
-          format: 'jpeg',
-          rename: { suffix: '-sm' },
-          jpegOptions: jpgConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, md),
-          format: 'jpeg',
-          rename: { suffix: '-md' },
-          jpegOptions: jpgConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, lg),
-          format: 'jpeg',
-          rename: { suffix: '-lg' },
-          jpegOptions: jpgConfig
-        }
-      ]
-    }))
+    .pipe(
+      sharpResponsive({
+        formats: [
+          // jpg -> webp
+          {
+            width: metadata => calcWidth(metadata, xs),
+            format: 'webp',
+            rename: { suffix: '-xs' },
+            webpOptions: webpConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, sm),
+            format: 'webp',
+            rename: { suffix: '-sm' },
+            webpOptions: webpConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, md),
+            format: 'webp',
+            rename: { suffix: '-md' },
+            webpOptions: webpConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, lg),
+            format: 'webp',
+            rename: { suffix: '-lg' },
+            webpOptions: webpConfig
+          },
+          // jpg -> jpg
+          {
+            width: metadata => calcWidth(metadata, xs),
+            format: 'jpeg',
+            rename: { suffix: '-xs' },
+            jpegOptions: jpgConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, sm),
+            format: 'jpeg',
+            rename: { suffix: '-sm' },
+            jpegOptions: jpgConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, md),
+            format: 'jpeg',
+            rename: { suffix: '-md' },
+            jpegOptions: jpgConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, lg),
+            format: 'jpeg',
+            rename: { suffix: '-lg' },
+            jpegOptions: jpgConfig
+          }
+        ]
+      })
+    )
     .pipe(gulp.dest('public/img/auto'))
 }
 
@@ -213,60 +224,62 @@ const webpLosslessConfig = { lossless: true, quality: 70 }
 function png () {
   return gulp
     .src(imgSrc + '*.png')
-    .pipe(sharpResponsive({
-      formats: [
-        // png -> webp
-        {
-          width: metadata => calcWidth(metadata, xs),
-          format: 'webp',
-          rename: { suffix: '-xs' },
-          webpOptions: webpLosslessConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, sm),
-          format: 'webp',
-          rename: { suffix: '-sm' },
-          webpOptions: webpLosslessConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, md),
-          format: 'webp',
-          rename: { suffix: '-md' },
-          webpOptions: webpLosslessConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, lg),
-          format: 'webp',
-          rename: { suffix: '-lg' },
-          webpOptions: webpLosslessConfig
-        },
-        // png -> png
-        {
-          width: metadata => calcWidth(metadata, xs),
-          format: 'png',
-          rename: { suffix: '-xs' },
-          pngOptions: pngConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, sm),
-          format: 'png',
-          rename: { suffix: '-sm' },
-          pngOptions: pngConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, md),
-          format: 'png',
-          rename: { suffix: '-md' },
-          pngOptions: pngConfig
-        },
-        {
-          width: metadata => calcWidth(metadata, lg),
-          format: 'png',
-          rename: { suffix: '-lg' },
-          pngOptions: pngConfig
-        }
-      ]
-    }))
+    .pipe(
+      sharpResponsive({
+        formats: [
+          // png -> webp
+          {
+            width: metadata => calcWidth(metadata, xs),
+            format: 'webp',
+            rename: { suffix: '-xs' },
+            webpOptions: webpLosslessConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, sm),
+            format: 'webp',
+            rename: { suffix: '-sm' },
+            webpOptions: webpLosslessConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, md),
+            format: 'webp',
+            rename: { suffix: '-md' },
+            webpOptions: webpLosslessConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, lg),
+            format: 'webp',
+            rename: { suffix: '-lg' },
+            webpOptions: webpLosslessConfig
+          },
+          // png -> png
+          {
+            width: metadata => calcWidth(metadata, xs),
+            format: 'png',
+            rename: { suffix: '-xs' },
+            pngOptions: pngConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, sm),
+            format: 'png',
+            rename: { suffix: '-sm' },
+            pngOptions: pngConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, md),
+            format: 'png',
+            rename: { suffix: '-md' },
+            pngOptions: pngConfig
+          },
+          {
+            width: metadata => calcWidth(metadata, lg),
+            format: 'png',
+            rename: { suffix: '-lg' },
+            pngOptions: pngConfig
+          }
+        ]
+      })
+    )
     .pipe(gulp.dest('public/img/auto'))
 }
 
@@ -277,7 +290,9 @@ function otherImages () {
     .pipe(gulp.dest('public/img/'))
 }
 
-function img () { gulp.parallel([jpg, png]) }
+function img () {
+  gulp.parallel([jpg, png])
+}
 
 exports.css = css
 exports.html = html
@@ -289,4 +304,12 @@ exports.img = img
 exports.otherImg = otherImages
 exports.watch = gulp.parallel([browsersyncServe, watch])
 
-exports.default = gulp.parallel([browsersyncServe, css, html, js, png, jpg, otherImages])
+exports.default = gulp.parallel([
+  browsersyncServe,
+  css,
+  html,
+  js,
+  png,
+  jpg,
+  otherImages
+])

@@ -56,7 +56,8 @@ mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeCo
           .hamburger-line#hamburger-bot
 
     .navbar-gradient(style="background: linear-gradient(90deg," + color1 + "," + color2 + ");")
-    .navbar-gradient-overlay
+    .navbar-gradient-overlay#navbar-gradient-overlay-1
+    .navbar-gradient-overlay#navbar-gradient-overlay-2
     if progressBar
       #navbar-progress
   style .navbar-item.active::after { background-color: #{activeColor}; }
