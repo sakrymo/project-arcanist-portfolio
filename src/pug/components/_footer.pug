@@ -7,9 +7,23 @@ a.back-to-top.hidden(href="#navbar")
 footer
   include _page-links
   .container
-    ul
-      each val, index in pageNames
-        li= val 
+    #footer-grid
+      #footer-logo
+        img#footer-logo-img(src="img/logo-vertical-text.svg", alt="")
+      ul#footer-page-links
+        li
+          span.footer-label Navigation
+        each val, index in pageNames
+          li= val
+      #footer-posts
+        span.footer-label Recent posts
+      #footer-social
+        a social
+      #footer-email
+        a email
+      #footer-legal
+        a Privacy Policy
+        a &copy Copyright 2021
 
 script(src='js/parcel/bundle.js')
 script(src='https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js')

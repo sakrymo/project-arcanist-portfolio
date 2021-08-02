@@ -897,6 +897,66 @@ footer.light {
   background: white;
 }
 
+#footer-grid {
+  display: grid;
+  grid-template-areas: "footer-logo footer-links footer-posts footer-social" "footer-logo footer-links footer-posts footer-email" "footer-legal footer-legal footer-legal footer-legal";
+}
+
+#footer-logo {
+  grid-area: footer-logo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer-logo-img {
+  padding: 15%;
+  max-height: 220px;
+}
+
+#footer-page-links {
+  grid-area: footer-links;
+  padding-top: 15%;
+}
+
+#footer-posts {
+  grid-area: footer-posts;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+#footer-legal {
+  grid-area: footer-legal;
+  justify-content: center;
+  text-align: center;
+  background: red;
+  padding: 2rem;
+}
+#footer-legal * {
+  padding: 2rem;
+}
+
+#footer-social {
+  grid-area: footer-social;
+}
+
+#footer-email {
+  grid-area: footer-email;
+}
+
+.footer-label {
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 0.4;
+  font-size: 0.8em;
+  letter-spacing: 0.1ch;
+}
+
+#footer-page-links > li:first-of-type {
+  margin-bottom: 0.5ch;
+}
+
 .btn {
   background: #eee;
   color: #171717;
