@@ -10,16 +10,22 @@
   margin: 1rem .5rem;
   padding: 15px 30px;
   transition-property: background-color, color;
-  transition: 0.3s ease;
+  transition: 0.3s ;
   display: inline-block;
+  border-radius: 100vh !important;
+  min-width: 150px;
+  text-align: center;
 
   &:hover {
     background: darken($white, 20);
+    // background: $arcanist-blue;
     color: black;
   }
 
   &.outline:hover {
     background: transparentize($white, 0.9);
+    // border-color: lighten($arcanist-blue, 20);
+    // color: lighten($arcanist-blue, 20);
   }
 
   &:active {
@@ -79,6 +85,7 @@ $back-to-top-size: 64px;
   background: $black;
   border-radius: 50%;
   opacity: 0.75;
+  border: 2px gray solid;
   
   position: fixed;
   bottom: 2vh;
@@ -93,6 +100,7 @@ $back-to-top-size: 64px;
     background: $white;
     color: $dark-gray;
     opacity: 1;
+    border-color: white;
     // border-radius: 0;
   }
 
@@ -121,12 +129,12 @@ $back-to-top-size: 64px;
   right: 2vw;
   background: white;
   transform: scale(1);
-  transition: transform 1s ease;
+  transition: transform 1s ;
   transform-origin: right;
   
   &.hidden {
     transform:scaleX(0);
-    transition: transform 1s ease;
+    transition: transform 1s ;
   }
 }
 
@@ -140,4 +148,10 @@ $back-to-top-size: 64px;
 
 #back-to-top-breakpoint.breakpoint {
   top: 100vh;
+}
+
+#cta-home {
+  @extend .btn;
+  @extend .lg;
+  min-width: 300px;
 }

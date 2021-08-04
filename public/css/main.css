@@ -242,6 +242,7 @@ html.is-animating .transition-fade {
 #navbar-fixed-wrapper {
   position: fixed;
   z-index: 100;
+  top: 0;
 }
 
 #navbar {
@@ -339,7 +340,7 @@ html.is-animating .transition-fade {
 }
 
 #navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-symbol {
-  transform: scale(0.85);
+  transform: scale(0.85) translateX(-10px);
   width: 70%;
 }
 
@@ -352,7 +353,7 @@ html.is-animating .transition-fade {
 }
 
 #navbar-content {
-  max-width: 1200px;
+  max-width: 1600px;
   width: 100%;
   margin: auto;
   display: flex;
@@ -880,7 +881,7 @@ html.is-animating .transition-fade {
   margin-top: 50px;
 }
 
-.cta .btn {
+.cta .btn, .cta #cta-home {
   width: 250px;
   margin: 0 10px;
 }
@@ -930,7 +931,6 @@ footer.light {
   grid-area: footer-legal;
   justify-content: center;
   text-align: center;
-  background: red;
   padding: 2rem;
 }
 #footer-legal * {
@@ -957,7 +957,7 @@ footer.light {
   margin-bottom: 0.5ch;
 }
 
-.btn {
+.btn, #cta-home {
   background: #eee;
   color: #171717;
   cursor: pointer;
@@ -969,51 +969,54 @@ footer.light {
   margin: 1rem 0.5rem;
   padding: 15px 30px;
   transition-property: background-color, color;
-  transition: 0.3s ease;
+  transition: 0.3s;
   display: inline-block;
+  border-radius: 100vh !important;
+  min-width: 150px;
+  text-align: center;
 }
-.btn:hover {
+.btn:hover, #cta-home:hover {
   background: #bbbbbb;
   color: black;
 }
-.btn.outline:hover {
+.btn.outline:hover, .outline#cta-home:hover {
   background: rgba(238, 238, 238, 0.1);
 }
-.btn:active {
+.btn:active, #cta-home:active {
   background: white;
   color: gray;
   box-shadow: inset 0 0 20px #000000;
   transform: translate(2px, 2px);
 }
-.btn.light {
+.btn.light, .light#cta-home {
   background: #292929;
   color: #eee;
 }
-.btn.light:hover {
+.btn.light:hover, .light#cta-home:hover {
   background: #434343;
   color: white;
 }
-.btn.sm {
+.btn.sm, .sm#cta-home {
   padding: 10px 20px;
   font-size: 1rem;
 }
-.btn.lg {
+.btn.lg, #cta-home {
   padding: 20px 30px;
   font-size: 1.4rem;
 }
-.btn.outline {
+.btn.outline, .outline#cta-home {
   background: transparent;
   color: #eee;
   border: 1px solid #eee;
 }
-.btn.outline.light {
+.btn.outline.light, .outline.light#cta-home {
   color: #111;
   border-color: #292929;
 }
-.btn.outline.light:hover {
+.btn.outline.light:hover, .outline.light#cta-home:hover {
   background: rgba(41, 41, 41, 0.05);
 }
-.btn.inactive {
+.btn.inactive, .inactive#cta-home {
   opacity: 0.5;
 }
 
@@ -1026,6 +1029,7 @@ footer.light {
   background: #111;
   border-radius: 50%;
   opacity: 0.75;
+  border: 2px gray solid;
   position: fixed;
   bottom: 2vh;
   right: 2vw;
@@ -1037,6 +1041,7 @@ footer.light {
   background: #eee;
   color: #171717;
   opacity: 1;
+  border-color: white;
 }
 .back-to-top.light {
   background: lightgray;
@@ -1060,12 +1065,12 @@ footer.light {
   right: 2vw;
   background: white;
   transform: scale(1);
-  transition: transform 1s ease;
+  transition: transform 1s;
   transform-origin: right;
 }
 .back-to-top-label.hidden {
   transform: scaleX(0);
-  transition: transform 1s ease;
+  transition: transform 1s;
 }
 
 .breakpoint {
@@ -1078,6 +1083,10 @@ footer.light {
 
 #back-to-top-breakpoint.breakpoint {
   top: 100vh;
+}
+
+#cta-home {
+  min-width: 300px;
 }
 
 #contact-form {

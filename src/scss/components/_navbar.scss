@@ -4,6 +4,7 @@
 #navbar-fixed-wrapper {
   position: fixed;
   z-index: 100;
+  top: 0;
 }
 
 #navbar {
@@ -96,7 +97,7 @@
 }
 
 #navbar.minimized #navbar-wrapper > #navbar-logo .navbar-logo-symbol {
-  transform: scale(0.85);
+  transform: scale(0.85) translateX(-10px);
   width: 70%;
 }
 
@@ -110,7 +111,7 @@
 
 // Navbar links
 #navbar-content {
-  max-width: 1200px;
+  max-width: 1600px;
   width: 100%;
   margin: auto;
   display: flex;
