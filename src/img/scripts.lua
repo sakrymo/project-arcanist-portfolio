@@ -16,6 +16,8 @@ img_lg_export.Clip = "Dest:\\" .. fname.Filename .. "-lg.jpg"
 img_md_export.Clip = "Dest:\\" .. fname.Filename .. "-md.jpg"
 img_sm_export.Clip = "Dest:\\" .. fname.Filename .. "-sm.jpg"
 img_xs_export.Clip = "Dest:\\" .. fname.Filename .. "-xs.jpg"
+
+-- "Dest:" pathmap leads to src/img/gallery
 -- Set filename for gallery animated thumbnail
 img_lg_export.Clip = "Dest:\\" .. fname.Filename .. "-lg.mp4"
 img_md_export.Clip = "Dest:\\" .. fname.Filename .. "-md.mp4"

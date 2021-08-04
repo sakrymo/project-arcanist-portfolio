@@ -332,6 +332,7 @@ Composition {
 			ViewInfo = OperatorInfo { Pos = { 770, 247.5 } },
 		},
 		resize_sq = BetterResize {
+			CtrlWZoom = false,
 			NameSet = true,
 			Inputs = {
 				Width = Input { Value = 128, },
@@ -387,7 +388,6 @@ Composition {
 			ViewInfo = PipeRouterInfo { Pos = { 495, 247.5 } },
 		},
 		img_lg_export = Saver {
-			CtrlWZoom = false,
 			NameSet = true,
 			Inputs = {
 				["JpegFormat.ChromaSubsampling"] = Input { Value = 1, },
@@ -448,7 +448,7 @@ Composition {
 						Direction = "Horizontal",
 						PipeStyle = "Direct",
 						Scale = 1.41421,
-						Offset = { -44.2053, -97.5311 }
+						Offset = { -74.6109, -126.522 }
 					},
 					Timeline = TimelineView {
 						TreeControlState = {

@@ -1,8 +1,8 @@
 Composition {
 	CurrentTime = 0,
-	RenderRange = { 0, 0 },
-	GlobalRange = { 0, 100 },
-	CurrentID = 201,
+	RenderRange = { 0, 149 },
+	GlobalRange = { 0, 149 },
+	CurrentID = 493,
 	PlaybackUpdateMode = 0,
 	Version = "Fusion 9.0.2 build 15",
 	SavedOutputs = 1,
@@ -12,23 +12,22 @@ Composition {
 	AudioOffset = 0,
 	Resumable = true,
 	OutputClips = {
-		"Dest:\\testing-md.png",
-		"Dest:\\testing-xs.png",
-		"Dest:\\testing-sq.png",
-		"Dest:\\testing-sm.png",
-		"Dest:\\testing-lg.png"
+		"Dest:\\again-lg.mp4",
+		"Dest:\\again-md.mp4",
+		"Dest:\\again-xs.mp4",
+		"Dest:\\again-sm.mp4"
 	},
 	Tools = {
-		image_file = Loader {
+		video_file = Loader {
 			Clips = {
 				Clip {
 					ID = "Clip1",
-					Filename = "Comp:\\sharp\\placeholder.jpg",
-					FormatID = "JpegFormat",
-					StartFrame = -1,
-					LengthSetManually = true,
+					Filename = "Comp:\\video-example.mp4",
+					FormatID = "QuickTimeMovies",
+					Length = 151,
+					Multiframe = true,
 					TrimIn = 0,
-					TrimOut = 0,
+					TrimOut = 150,
 					ExtendFirst = 0,
 					ExtendLast = 0,
 					Loop = 0,
@@ -36,7 +35,7 @@ Composition {
 					Depth = 0,
 					TimeCode = 0,
 					GlobalStart = 0,
-					GlobalEnd = 0
+					GlobalEnd = 150
 				}
 			},
 			NameSet = true,
@@ -50,72 +49,76 @@ Composition {
 				PostMultiplyByAlpha = Input { Value = 1, },
 				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 283.485, 313.5 } },
-		},
-		PipeRouter3 = PipeRouter {
-			Inputs = {
-				Input = Input {
-					SourceOp = "crop_to_aspect_ratio",
-					Source = "Output",
-				},
-			},
-			ViewInfo = PipeRouterInfo { Pos = { 495, 214.5 } },
+			ViewInfo = OperatorInfo { Pos = { 404.587, 241.079 } },
 		},
 		aspect_ratio = Background {
 			NameSet = true,
 			Inputs = {
-				GlobalOut = Input { Value = 100, },
+				GlobalOut = Input { Value = 149, },
 				Width = Input {
-					Value = 1920,
-					Expression = "image_file.Output.Height + (7/9 * image_file.Output.Height)",
+					Value = 1382,
+					Expression = "video_file.Output.Height * 1.28",
 				},
 				Height = Input {
 					Value = 1080,
-					Expression = "image_file.Output.Height",
+					Expression = "video_file.Output.Height",
 				},
 				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
 				TopLeftRed = Input { Value = 1, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 165, 181.5 } },
+			ViewInfo = OperatorInfo { Pos = { 239.587, 175.079 } },
 		},
-		PipeRouter4 = PipeRouter {
-			Inputs = {
-				Input = Input {
-					SourceOp = "crop_to_aspect_ratio",
-					Source = "Output",
-				},
-			},
-			ViewInfo = PipeRouterInfo { Pos = { 495, 181.5 } },
-		},
-		resize_xs = BetterResize {
+		img_lg_export = Saver {
 			NameSet = true,
 			Inputs = {
-				Width = Input { Value = 768, },
-				Height = Input { Value = 432, },
-				KeepAspect = Input { Value = 1, },
-				PixelAspect = Input { Value = { 1, 1 }, },
+				["JpegFormat.ChromaSubsampling"] = Input { Value = 1, },
+				["JpegFormat.Quality"] = Input { Value = 100, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "Dest:\\again-lg.mp4",
+						FormatID = "QuickTimeMovies",
+						Length = 0,
+						Saving = true,
+						AspectMode = 0,
+						Depth = 0,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = -2000000000
+					},
+				},
+				OutputFormat = Input { Value = FuID { "QuickTimeMovies" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
 				Input = Input {
-					SourceOp = "PipeRouter1",
+					SourceOp = "Crop1",
 					Source = "Output",
 				},
+				StartEndRenderScripts = Input { Value = 1, },
+				["QuickTimeMovies.Compression"] = Input { Value = FuID { "H.264_avc1" }, },
+				["QuickTimeMovies.Quality"] = Input { Value = 50, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 660, 280.5 } },
+			ViewInfo = OperatorInfo { Pos = { 818.587, 148.138 } },
 		},
 		SetFilename = Fuse.Null {
+			CtrlWZoom = false,
 			NameSet = true,
-			ViewInfo = OperatorInfo { Pos = { 912.53, 225.366 } },
+			ViewInfo = OperatorInfo { Pos = { 951.424, 176.079 } },
 			Colors = {
-				TileColor = { R = 0.329411764705882, G = 1, B = 0.498039215686275 },
+				TileColor = { R = 0.298039215686275, G = 1, B = 0.498039215686275 },
 				TextColor = { R = 0, G = 0, B = 0 },
 			},
 			UserControls = ordered() {
 				SetFilename = {
-					ICD_Width = 1,
+					INP_MaxAllowed = 1000000,
 					INP_Integer = false,
-					LINKID_DataType = "Number",
-					BTNCS_Execute = "fname = composition:AskUser(\"Set filename\", {\n  {\"Filename\", \"Text\", Name = \"Filename:\"}\n} )\n\nimg_lg_export.Clip = \"Dest:\\\\\" .. fname.Filename .. \"-lg.png\"\nimg_md_export.Clip = \"Dest:\\\\\" .. fname.Filename .. \"-md.png\"\nimg_sm_export.Clip = \"Dest:\\\\\" .. fname.Filename .. \"-sm.png\"\nimg_xs_export.Clip = \"Dest:\\\\\" .. fname.Filename .. \"-xs.png\"\nimg_sq_export.Clip = \"Dest:\\\\\" .. fname.Filename .. \"-sq.png\"",
-					ICS_ControlPage = "Controls",
 					INPID_InputControl = "ButtonControl",
+					BTNCS_Execute = "fname = composition:AskUser(\"Set filename\", {\n  {\"Filename\", \"Text\", Name = \"Filename:\"}\n})\nimg_lg_export.Clip = \"Dest:\\\\\" .. fname.Filename .. \"-lg.mp4\"\nimg_md_export.Clip = \"Dest:\\\\\" .. fname.Filename .. \"-md.mp4\"\nimg_sm_export.Clip = \"Dest:\\\\\" .. fname.Filename .. \"-sm.mp4\"\nimg_xs_export.Clip = \"Dest:\\\\\" .. fname.Filename .. \"-xs.mp4\"",
+					INP_MaxScale = 1,
+					INP_MinScale = 0,
+					INP_MinAllowed = -1000000,
+					LINKID_DataType = "Number",
+					ICS_ControlPage = "Controls",
+					ICD_Width = 1,
 					LINKS_Name = "Set Filename"
 				},
 				ScriptEdit = {
@@ -156,32 +159,39 @@ Composition {
 				ProcessWhenBlendIs00 = Input { Value = 0, },
 				Clip = Input {
 					Value = Clip {
-						Filename = "Dest:\\testing-md.png",
-						FormatID = "PNGFormat",
+						Filename = "Dest:\\again-md.mp4",
+						FormatID = "QuickTimeMovies",
 						Length = 0,
 						Saving = true,
-						LengthSetManually = true,
 						AspectMode = 0,
 						Depth = 0,
+						TimeCode = 0,
 						GlobalStart = -2000000000,
 						GlobalEnd = -2000000000
 					},
 				},
-				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
+				OutputFormat = Input { Value = FuID { "QuickTimeMovies" }, },
 				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				["QuickTimeMovies.Compression"] = Input { Value = FuID { "H.264_avc1" }, },
+				["QuickTimeMovies.Quality"] = Input { Value = 50, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 816.466, 176.079 } },
+		},
+		Crop2_1_1 = Crop {
+			Inputs = {
+				XSize = Input { Value = 323, },
+				YSize = Input { Value = 252, },
 				Input = Input {
-					SourceOp = "resize_md",
+					SourceOp = "resize_img_size_xs",
 					Source = "Output",
 				},
-				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
-				["PNGFormat.CompressionLevel"] = Input { Value = 9, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 770, 214.5 } },
+			ViewInfo = OperatorInfo { Pos = { 676.11, 242.139 } },
 		},
 		Set_Filename = Underlay {
 			NameSet = true,
 			ViewInfo = UnderlayInfo {
-				Pos = { 913.692, 182.314 },
+				Pos = { 951.951, 139.369 },
 				Size = { 114.017, 92.882 }
 			},
 			Colors = {
@@ -189,14 +199,21 @@ Composition {
 				TextColor = { R = 1, G = 1, B = 1 },
 			}
 		},
-		PipeRouter1 = PipeRouter {
+		resize_img_size_md = BetterResize {
+			NameSet = true,
 			Inputs = {
+				UseOpenCL = Input { Value = 2, },
+				Width = Input { Value = 646, },
+				Height = Input { Value = 505, },
+				KeepAspect = Input { Value = 1, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				FilterMethod = Input { Value = 8, },
 				Input = Input {
 					SourceOp = "crop_to_aspect_ratio",
 					Source = "Output",
 				},
 			},
-			ViewInfo = PipeRouterInfo { Pos = { 495, 280.5 } },
+			ViewInfo = OperatorInfo { Pos = { 571.001, 175.079 } },
 		},
 		img_xs_export = Saver {
 			NameSet = true,
@@ -206,100 +223,66 @@ Composition {
 				ProcessWhenBlendIs00 = Input { Value = 0, },
 				Clip = Input {
 					Value = Clip {
-						Filename = "Dest:\\testing-xs.png",
-						FormatID = "PNGFormat",
+						Filename = "Dest:\\again-xs.mp4",
+						FormatID = "QuickTimeMovies",
 						Length = 0,
 						Saving = true,
-						LengthSetManually = true,
 						AspectMode = 0,
 						Depth = 0,
+						TimeCode = 0,
 						GlobalStart = -2000000000,
 						GlobalEnd = -2000000000
 					},
 				},
-				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
+				OutputFormat = Input { Value = FuID { "QuickTimeMovies" }, },
 				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
-				Input = Input {
-					SourceOp = "resize_xs",
-					Source = "Output",
-				},
-				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
-				["PNGFormat.CompressionLevel"] = Input { Value = 9, },
+				["QuickTimeMovies.Compression"] = Input { Value = FuID { "H.264_avc1" }, },
+				["QuickTimeMovies.Quality"] = Input { Value = 50, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 770, 280.5 } },
+			ViewInfo = OperatorInfo { Pos = { 820.001, 242.079 } },
 		},
-		crop_sq = Crop {
-			NameSet = true,
+		Crop2_1 = Crop {
 			Inputs = {
-				XOffset = Input { Value = 1707, },
-				YOffset = Input { Value = 960, },
-				XSize = Input { Value = 1080, },
-				YSize = Input { Value = 1080, },
-				KeepCentered = Input { Value = 1, },
+				XSize = Input { Value = 517, },
+				YSize = Input { Value = 404, },
 				Input = Input {
-					SourceOp = "image_file",
+					SourceOp = "resize_img_size_sm",
 					Source = "Output",
 				},
 			},
-			ViewInfo = OperatorInfo { Pos = { 550, 313.5 } },
+			ViewInfo = OperatorInfo { Pos = { 682.11, 208.139 } },
 		},
-		resize_md = BetterResize {
+		resize_img_size_sm = BetterResize {
 			NameSet = true,
 			Inputs = {
-				Width = Input { Value = 1200, },
-				Height = Input { Value = 675, },
+				UseOpenCL = Input { Value = 2, },
+				Width = Input { Value = 517, },
+				Height = Input { Value = 404, },
 				KeepAspect = Input { Value = 1, },
 				PixelAspect = Input { Value = { 1, 1 }, },
+				FilterMethod = Input { Value = 8, },
 				Input = Input {
-					SourceOp = "PipeRouter3",
+					SourceOp = "crop_to_aspect_ratio",
 					Source = "Output",
 				},
 			},
-			ViewInfo = OperatorInfo { Pos = { 660, 214.5 } },
+			ViewInfo = OperatorInfo { Pos = { 569.587, 208.079 } },
 		},
-		resize_lg = BetterResize {
+		resize_img_size_lg = BetterResize {
 			NameSet = true,
 			Inputs = {
-				Width = Input { Value = 1400, },
-				Height = Input { Value = 788, },
+				UseOpenCL = Input { Value = 2, },
+				Width = Input { Value = 808, },
+				Height = Input { Value = 631, },
 				KeepAspect = Input { Value = 1, },
 				PixelAspect = Input { Value = { 1, 1 }, },
+				FilterMethod = Input { Value = 8, },
 				Input = Input {
-					SourceOp = "PipeRouter4",
+					SourceOp = "crop_to_aspect_ratio",
 					Source = "Output",
 				},
 			},
-			ViewInfo = OperatorInfo { Pos = { 660, 181.5 } },
-		},
-		img_sq_export = Saver {
-			NameSet = true,
-			Inputs = {
-				["JpegFormat.ChromaSubsampling"] = Input { Value = 1, },
-				["JpegFormat.Quality"] = Input { Value = 100, },
-				ProcessWhenBlendIs00 = Input { Value = 0, },
-				Clip = Input {
-					Value = Clip {
-						Filename = "Dest:\\testing-sq.png",
-						FormatID = "PNGFormat",
-						Length = 0,
-						Saving = true,
-						LengthSetManually = true,
-						AspectMode = 0,
-						Depth = 0,
-						GlobalStart = -2000000000,
-						GlobalEnd = -2000000000
-					},
-				},
-				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
-				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
-				Input = Input {
-					SourceOp = "resize_sq",
-					Source = "Output",
-				},
-				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
-				["PNGFormat.CompressionLevel"] = Input { Value = 9, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 770, 313.5 } },
+			ViewInfo = OperatorInfo { Pos = { 569.587, 142.079 } },
 		},
 		img_sm_export = Saver {
 			NameSet = true,
@@ -309,54 +292,40 @@ Composition {
 				ProcessWhenBlendIs00 = Input { Value = 0, },
 				Clip = Input {
 					Value = Clip {
-						Filename = "Dest:\\testing-sm.png",
-						FormatID = "PNGFormat",
+						Filename = "Dest:\\again-sm.mp4",
+						FormatID = "QuickTimeMovies",
 						Length = 0,
 						Saving = true,
-						LengthSetManually = true,
 						AspectMode = 0,
 						Depth = 0,
+						TimeCode = 0,
 						GlobalStart = -2000000000,
 						GlobalEnd = -2000000000
 					},
 				},
-				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
+				OutputFormat = Input { Value = FuID { "QuickTimeMovies" }, },
 				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
-				Input = Input {
-					SourceOp = "resize_sm",
-					Source = "Output",
-				},
-				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
-				["PNGFormat.CompressionLevel"] = Input { Value = 9, },
+				["QuickTimeMovies.Compression"] = Input { Value = FuID { "H.264_avc1" }, },
+				["QuickTimeMovies.Quality"] = Input { Value = 50, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 770, 247.5 } },
+			ViewInfo = OperatorInfo { Pos = { 820.85, 208.711 } },
 		},
-		resize_sq = BetterResize {
+		resize_img_size_xs = BetterResize {
+			CtrlWZoom = false,
 			NameSet = true,
 			Inputs = {
-				Width = Input { Value = 128, },
-				Height = Input { Value = 128, },
-				PixelAspect = Input { Value = { 1, 1 }, },
-				Input = Input {
-					SourceOp = "crop_sq",
-					Source = "Output",
-				},
-			},
-			ViewInfo = OperatorInfo { Pos = { 660, 313.5 } },
-		},
-		resize_sm = BetterResize {
-			NameSet = true,
-			Inputs = {
-				Width = Input { Value = 1024, },
-				Height = Input { Value = 576, },
+				UseOpenCL = Input { Value = 2, },
+				Width = Input { Value = 323, },
+				Height = Input { Value = 252, },
 				KeepAspect = Input { Value = 1, },
 				PixelAspect = Input { Value = { 1, 1 }, },
+				FilterMethod = Input { Value = 8, },
 				Input = Input {
-					SourceOp = "PipeRouter2",
+					SourceOp = "crop_to_aspect_ratio",
 					Source = "Output",
 				},
 			},
-			ViewInfo = OperatorInfo { Pos = { 660, 247.5 } },
+			ViewInfo = OperatorInfo { Pos = { 569.587, 241.079 } },
 		},
 		crop_to_aspect_ratio = Merge {
 			NameSet = true,
@@ -366,56 +335,34 @@ Composition {
 					Source = "Output",
 				},
 				Foreground = Input {
-					SourceOp = "image_file",
+					SourceOp = "video_file",
 					Source = "Output",
 				},
-				Size = Input { Expression = "1 + (aspect_ratio.Width - image_file.Output.Width) / image_file.Output.Width", },
 				PerformDepthMerge = Input { Value = 0, },
-				ReferenceSize = Input { Value = 1, },
-				Width = Input { Value = 1920, },
-				Height = Input { Value = 1080, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 330, 181.5 } },
+			ViewInfo = OperatorInfo { Pos = { 395.549, 176.493 } },
 		},
-		PipeRouter2 = PipeRouter {
+		Crop2 = Crop {
 			Inputs = {
+				XSize = Input { Value = 646, },
+				YSize = Input { Value = 505, },
 				Input = Input {
-					SourceOp = "crop_to_aspect_ratio",
+					SourceOp = "resize_img_size_md",
 					Source = "Output",
 				},
 			},
-			ViewInfo = PipeRouterInfo { Pos = { 495, 247.5 } },
+			ViewInfo = OperatorInfo { Pos = { 682.61, 173.139 } },
 		},
-		img_lg_export = Saver {
-			CtrlWZoom = false,
-			NameSet = true,
+		Crop1 = Crop {
 			Inputs = {
-				["JpegFormat.ChromaSubsampling"] = Input { Value = 1, },
-				["JpegFormat.Quality"] = Input { Value = 100, },
-				ProcessWhenBlendIs00 = Input { Value = 0, },
-				Clip = Input {
-					Value = Clip {
-						Filename = "Dest:\\testing-lg.png",
-						FormatID = "PNGFormat",
-						Length = 0,
-						Saving = true,
-						LengthSetManually = true,
-						AspectMode = 0,
-						Depth = 0,
-						GlobalStart = -2000000000,
-						GlobalEnd = -2000000000
-					},
-				},
-				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
-				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				XSize = Input { Value = 808, },
+				YSize = Input { Value = 631, },
 				Input = Input {
-					SourceOp = "resize_lg",
+					SourceOp = "resize_img_size_lg",
 					Source = "Output",
 				},
-				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
-				["PNGFormat.CompressionLevel"] = Input { Value = 9, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 768.586, 181.5 } },
+			ViewInfo = OperatorInfo { Pos = { 679.587, 142.079 } },
 		}
 	},
 	Views = {
@@ -440,6 +387,7 @@ Composition {
 					},
 					Flow = FlowView {
 						Flags = {
+							Navigator = true,
 							AutoHideNavigator = true,
 							AutoSnap = true,
 							RemoveRouters = true
@@ -447,8 +395,8 @@ Composition {
 						NavigatorSize = { 200, 140 },
 						Direction = "Horizontal",
 						PipeStyle = "Direct",
-						Scale = 1.41421,
-						Offset = { -44.2053, -97.5311 }
+						Scale = 1.99999,
+						Offset = { -491.61, -82.6383 }
 					},
 					Timeline = TimelineView {
 						TreeControlState = {
@@ -461,14 +409,14 @@ Composition {
 						ShowEditBoxes = false,
 						KeyFrameView = {
 							Position = { Left = 150, Bottom = 951 },
-							ScaleX = 0.214424951267057,
-							OffsetX = -5.14619883040936,
+							ScaleX = 0.319493177387914,
+							OffsetX = -7.66783625730994,
 							OffsetY = 0,
 							AutoScaling = "scroll",
 							AutoSnapTo = "frame",
 							AutoSnapToGuidelines = false,
 							GuidelinesGrabEnabled = true,
-							GuidelinesSnapTo = "none"
+							GuidelinesSnapTo = "frame"
 						},
 						Spreadsheet = { LeftPos = 150, Visible = false }
 					},
@@ -510,14 +458,14 @@ Composition {
 				RatioY = 1,
 				{
 					Rows = 3,
-					RatioX = 0.766579634464752,
+					RatioX = 0.736814621409922,
 					RatioY = 103,
 					{
 						Columns = 2,
 						RatioX = 1,
 						RatioY = 0.5390625,
-						{ ID = "Left", RatioX = 0.500341296928328, RatioY = 97, Pop = true },
-						{ ID = "Right", RatioX = 0.499658703071672, Pop = true },
+						{ ID = "Left", RatioX = 0.5, RatioY = 92, Pop = true },
+						{ ID = "Right", RatioX = 0.5, Pop = true },
 						Pop = true
 					},
 					{ ID = "Main", RatioY = 0.404296875, Pop = true },
@@ -525,7 +473,7 @@ Composition {
 				},
 				{
 					Rows = 2,
-					PixelX = 445,
+					PixelX = 502,
 					{ ID = "Controls", RatioX = 1, RatioY = 1 },
 					{ ID = "Transport", FixedY = -2 }
 				}
@@ -535,13 +483,16 @@ Composition {
 	Prefs = {
 		Comp = {
 			Memory = {
-				FramesAtOnce = 10,
+				FramesAtOnce = 1,
+				Render = {
+					SimultaneousBranching = true
+				},
 			},
 			Views = {
 				Right = {
 					Viewer = {
 						ScaleMode = 1,
-						CheckerUnderlay = true,
+						CheckerUnderlay = true
 					},
 					SideB = {
 						PrevCtrlInactiveColor = 4278255360,
@@ -604,11 +555,12 @@ Composition {
 				},
 			},
 			FrameFormat = {
+				Name = "HD 1080",
 				GuideRatio = 1.77777777777778,
 			},
 			LastFile = "D:\\-design\\D-2021\\ag-post-audio\\spectrum-po0000.png",
 			Unsorted = {
-				GlobalEnd = 100,
+				GlobalEnd = 149,
 				RenderSettings = {
 					Configs = {
 						Preview = {
@@ -653,10 +605,12 @@ Composition {
 			Paths = {
 				EnableReverseMapping = true,
 				Map = {
-					["Dest:"] = "Comp:\\posts"
+					["Dest:"] = "Comp:\\gallery\\",
 				}
 			},
 			QuickTime = {
+				DataCheck = true,
+				Quality = 55,
 			},
 		}
 	}
