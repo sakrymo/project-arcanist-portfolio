@@ -1,0 +1,33 @@
+ffmpeg -i input.mp4 -r 30 output.mp4
+
+
+-i -> input
+-r 30 -> 30 fps
+c:v h264 -> h264 encoding
+an -> no audio
+-vf scale=1920x1080:flags=lanczos
+"scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720"
+-vcodec libx265 -> niby lepszy codec niz 264
+-crf 28 -> compression factor? czy cos w tym stylu
+
+ffmpeg -i input.mp4 -t 5 -c:v libx265 -crf 30 -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-eight.mp4
+
+ffmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fourteen.mp4
+
+const filename = something
+ffmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf
+  scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 ${filename}-lg.mp4
+  scale=646x505:flags=lanczos:force_original_aspect_ratio=increase,crop=646:505 ${filename}-md.mp4
+  scale=517x404:flags=lanczos:force_original_aspect_ratio=increase,crop=517:404 ${filename}-sm.mp4
+  scale=323x253:flags=lanczos:force_original_aspect_ratio=increase,crop=323:253 ${filename}-xs.mp4
+
+  -t 5 -c:v libvpx-vp9 -b:v 0 -crf 30 -deadline best -r 30 -an -vf
+  scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 ${filename}-lg.webm
+  scale=646x505:flags=lanczos:force_original_aspect_ratio=increase,crop=646:505 ${filename}-md.webm
+  scale=517x404:flags=lanczos:force_original_aspect_ratio=increase,crop=517:404 ${filename}-sm.webm
+  scale=323x253:flags=lanczos:force_original_aspect_ratio=increase,crop=323:253 ${filename}-xs.webm
+
+
+
+
+ffmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-test-lg.mp4

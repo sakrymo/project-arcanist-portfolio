@@ -1,0 +1,1 @@
+ffmpeg -i %1.%2 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 %1-lg.mp4

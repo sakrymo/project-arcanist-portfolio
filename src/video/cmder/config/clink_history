@@ -1,0 +1,44 @@
+|CTAG_1628180923_71061093_31184_0
+|s
+cmder
+|d ..
+cd ..
+|s
+ls
+|s 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+ -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+|s 
+|fmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+ls 
+ffmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-fifteen.mp4 
+ffmpeg -i test.mp4 -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 test-lg.mp4 -vf scale=646x506:flags=lanczos:force_original_aspect_ratio=increase,crop=646:506 test-md.mp4 -vf scale=517x404:flags=lanczos:force_original_aspect_ratio=increase,crop=517:404 test-sm.mp4 -vf scale=323x253:flags=lanczos:force_original_aspect_ratio=increase,crop=323:253 test-xs.mp4 
+-i input.mp4 -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 input-lg.mp4 -vf scale=646x506:flags=lanczos:force_original_aspect_ratio=increase,crop=646:506 input-md.mp4 -vf scale=517x404:flags=lanczos:force_original_aspect_ratio=increase,crop=517:404 input-sm.mp4 -vf scale=323x253:flags=lanczos:force_original_aspect_ratio=increase,crop=323:253 input-xs.mp4 
+ffmpeg -i input.mp4 -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 input-lg.mp4 -vf scale=646x506:flags=lanczos:force_original_aspect_ratio=increase,crop=646:506 input-md.mp4 -vf scale=517x404:flags=lanczos:force_original_aspect_ratio=increase,crop=517:404 input-sm.mp4 -vf scale=323x253:flags=lanczos:force_original_aspect_ratio=increase,crop=323:253 input-xs.mp4 
+ffmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 input-lg.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf scale=646x506:flags=lanczos:force_original_aspect_ratio=increase,crop=646:506 input-md.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf scale=517x404:flags=lanczos:force_original_aspect_ratio=increase,crop=517:404 input-sm.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf scale=323x253:flags=lanczos:force_original_aspect_ratio=increase,crop=323:253 input-xs.mp4 
