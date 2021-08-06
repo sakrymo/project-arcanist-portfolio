@@ -31,3 +31,17 @@ ffmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf
 
 
 ffmpeg -i input.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 output-test-lg.mp4
+
+ffmpeg -i ../input.mp4 -c:v libvpx-vp9 -b:v 0 -crf 30 -pass 1 -an -f null /dev/null && \
+ffmpeg -i ../input.mp4 -c:v libvpx-vp9 -b:v 0 -crf 30 -pass 2 -c:a libopus output.webm
+
+ffmpeg -i input.mp4 -t 5 -c:v libvpx-vp9 -b:v 0 -crf 30 -pass 1 -an -f null /dev/null && \
+ffmpeg -i input.mp4 -t 5 -c:v libvpx-vp9 -b:v 0 -crf 30 -pass 2 -c:a libopus output.webm
+
+ffmpeg -i input.mp4 -c:v libvpx-vp9 -b:v 0 -crf 30 -pass 1 -an -f null /NUL && ^
+ffmpeg -i input.mp4 -c:v libvpx-vp9 -b:v 0 -crf 30 -pass 2 -c:a libopus output.webm
+
+ffmpeg -i input.mp4 -t 5 -c:v libvpx-vp9 -b:v 0 -crf 30 -deadline best -r 40 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 -pass 1 -f null /dev/null && \
+ffmpeg -i input.mp4 -t 5 -c:v libvpx-vp9 -b:v 0 -crf 30 -deadline best -r 40 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 -pass 2 output-four.webm
+
+ffmpeg -i example.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf scale=808x632:flags=lanczos:force_original_aspect_ratio=increase,crop=808:632 example-lg.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf scale=646x506:flags=lanczos:force_original_aspect_ratio=increase,crop=646:506 example-md.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf scale=517x404:flags=lanczos:force_original_aspect_ratio=increase,crop=517:404 example-sm.mp4 -t 5 -c:v libx265 -preset veryslow -crf 32 -r 30 -an -vf scale=323x253:flags=lanczos:force_original_aspect_ratio=increase,crop=323:253 example-xs.mp4

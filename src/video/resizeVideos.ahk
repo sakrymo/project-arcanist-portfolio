@@ -26,9 +26,9 @@ ffFps               := "-r 30" A_Space
 ffAudioNone         :=  "-an" A_Space
 ffOutputDest        := "./"
 
-ffMp4Codec          := "-c:v " "libx265" A_Space
+ffMp4Codec          := "-c:v " "libx264" A_Space
 ffMp4CodecSpeed     := "-preset veryslow" A_Space
-ffMp4Crf            := "-crf 32" A_Space
+ffMp4Crf            := "-crf 35" A_Space
 
 ; DIMENSIONS
 dlg := [808, 632, "-lg"]
@@ -52,7 +52,6 @@ ffMp4(d)
 If not ErrorLevel and inputFile and (fnameArr.maxIndex() > 1)
 {
   task := ffInput ffMp4(dlg) ffMp4(dmd) ffMp4(dsm) ffMp4(dxs)
-  Clipboard := task
   Run "cmder/Cmder.exe"
   Sleep 1000
   Send %task%

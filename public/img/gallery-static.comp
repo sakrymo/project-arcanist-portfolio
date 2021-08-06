@@ -2,7 +2,7 @@ Composition {
 	CurrentTime = 0,
 	RenderRange = { 0, 0 },
 	GlobalRange = { 0, 100 },
-	CurrentID = 66,
+	CurrentID = 79,
 	PlaybackUpdateMode = 0,
 	Version = "Fusion 9.0.2 build 15",
 	SavedOutputs = 1,
@@ -156,7 +156,7 @@ Composition {
 			NameSet = true,
 			ViewInfo = OperatorInfo { Pos = { 907.423, 214.5 } },
 			Colors = {
-				TileColor = { R = 0.32156862745098, G = 1, B = 0.498039215686275 },
+				TileColor = { R = 0.317647058823529, G = 1, B = 0.498039215686275 },
 				TextColor = { R = 0, G = 0, B = 0 },
 			},
 			UserControls = ordered() {
@@ -182,9 +182,9 @@ Composition {
 					INP_MinScale = 0,
 					INP_MinAllowed = -1000000,
 					LINKID_DataType = "Number",
-					INP_External = false,
-					INP_Passive = true,
 					ICD_Width = 0,
+					INP_Passive = true,
+					INP_External = false,
 					LINKS_Name = "Edit"
 				},
 				ScriptReload = {
@@ -196,9 +196,9 @@ Composition {
 					INP_MinScale = 0,
 					INP_MinAllowed = -1000000,
 					LINKID_DataType = "Number",
-					INP_External = false,
-					INP_Passive = true,
 					ICD_Width = 0,
+					INP_Passive = true,
+					INP_External = false,
 					LINKS_Name = "Reload"
 				}
 			}
@@ -368,7 +368,7 @@ Composition {
 							AutoSnapTo = "frame",
 							AutoSnapToGuidelines = false,
 							GuidelinesGrabEnabled = true,
-							GuidelinesSnapTo = "none"
+							GuidelinesSnapTo = "frame"
 						},
 						Spreadsheet = { LeftPos = 150, Visible = false }
 					},
@@ -411,12 +411,12 @@ Composition {
 				{
 					Rows = 3,
 					RatioX = 0.820365535248042,
-					RatioY = 103,
+					RatioY = 0.00970873786407767,
 					{
 						Columns = 2,
 						RatioX = 1,
 						RatioY = 0.4716796875,
-						{ ID = "Left", RatioX = 0.5, RatioY = 96.600414078675, Pop = true },
+						{ ID = "Left", RatioX = 0.5, RatioY = 0.010351966873706, Pop = true },
 						{ ID = "Right", RatioX = 0.5, Pop = true },
 						Pop = true
 					},
@@ -450,11 +450,11 @@ Composition {
 						Viewer = {
 							EnableLUTs = false,
 							LUTPlugin = "FusionViewLUT",
-							FitMarginY = 0,
+							NearZ = 0,
 							FitMarginX = 0,
 							FitMarginType = 0,
 							FarZ = -1000,
-							NearZ = 0
+							FitMarginY = 0
 						}
 					},
 				},
@@ -470,18 +470,21 @@ Composition {
 						Viewer = {
 							EnableLUTs = false,
 							LUTPlugin = "FusionViewLUT",
-							FitMarginY = 0,
+							NearZ = 0,
 							FitMarginX = 0,
 							FitMarginType = 0,
 							FarZ = -1000,
-							NearZ = 0
+							FitMarginY = 0
 						}
 					},
 				},
 				View1 = {
 					PrevCtrlInactiveColor = 0,
 					FullScreen = false,
+					PickW = 1,
 					PickH = 1,
+					AlwaysOnTop = true,
+					PrevCtrlActiveColor = 0,
 					SideB = {
 						PrevCtrlInactiveColor = 4278255360,
 						PickW = 1,
@@ -490,16 +493,13 @@ Composition {
 						Viewer = {
 							EnableLUTs = false,
 							LUTPlugin = "FusionViewLUT",
-							FitMarginY = 0,
+							NearZ = 0,
 							FitMarginX = 0,
 							FitMarginType = 0,
 							FarZ = -1000,
-							NearZ = 0
+							FitMarginY = 0
 						}
-					},
-					PrevCtrlActiveColor = 0,
-					AlwaysOnTop = true,
-					PickW = 1
+					}
 				},
 			},
 			FrameFormat = {
@@ -510,33 +510,33 @@ Composition {
 				GlobalEnd = 100,
 				RenderSettings = {
 					Configs = {
-						Final = {
-							StepRender = false,
-							PriorityClasses = "local",
-							SizeType = 1,
-							MotionBlur = true,
-							CustomAspect = true,
-							CustomHeight = 160,
-							ShowSlaves = false,
-							CustomWidth = 200,
-							StepSize = 5,
-							UpdateMode = "Some",
-							UseNetwork = false,
-							Quality = true
-						},
 						Preview = {
 							StepRender = false,
 							PriorityClasses = "local",
-							SizeType = 1,
-							MotionBlur = true,
 							CustomAspect = true,
+							StepSize = 5,
+							SizeType = 1,
 							CustomHeight = 160,
 							ShowSlaves = false,
 							CustomWidth = 200,
-							StepSize = 5,
+							MotionBlur = true,
 							UpdateMode = "Some",
 							UseNetwork = false,
 							Quality = false
+						},
+						Final = {
+							StepRender = false,
+							PriorityClasses = "local",
+							CustomAspect = true,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							ShowSlaves = false,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
 						}
 					},
 					PreviewConfig = "Preview",

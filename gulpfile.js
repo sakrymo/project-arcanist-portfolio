@@ -33,6 +33,13 @@ function browsersyncServe (cb) {
   cb()
 }
 
+/*
+Yb        dP    db    88888 .d88b 8   8
+ Yb  db  dP    dPYb     8   8P    8www8
+  YbdPYbdP    dPwwYb    8   8b    8   8
+   YP  YP    dP    Yb   8   `Y88P 8   8
+*/
+
 function watch () {
   gulp.watch('public/*.html', browserSync.reload)
   gulp.watch('src/scss/**/*.scss', css)
@@ -45,6 +52,7 @@ function watch () {
   gulp.watch('src/img/sharp/**/*.jpg', jpg)
   gulp.watch('src/img/sharp/**/*.png', png)
   gulp.watch('public/js/parcel/*.js', browserSync.reload)
+  gulp.watch('src/img/posts/thumbnail/out/**/*.png', postsThumbnails)
 }
 
 /*
@@ -285,13 +293,38 @@ function png () {
 
 function otherImages () {
   return gulp
-    .src(['src/img/**/*', '!src/img/sharp/**/*', '!src/img/sharp'])
+    .src(['src/img/*'])
     .pipe(imagemin())
     .pipe(gulp.dest('public/img/'))
 }
 
 function img () {
   gulp.parallel([jpg, png])
+}
+
+/*
+888b. .d88b. .d88b. 88888 .d88b.    88888 8   8 8    8 8b   d8 888b. 8b  8    db    888 8    .d88b.
+8  .8 8P  Y8 YPwww.   8   YPwww.      8   8www8 8    8 8YbmdP8 8wwwP 8Ybm8   dPYb    8  8    YPwww.
+8wwP' 8b  d8     d8   8       d8      8   8   8 8b..d8 8  "  8 8   b 8  "8  dPwwYb   8  8        d8
+8     `Y88P' `Y88P'   8   `Y88P'      8   8   8 `Y88P' 8     8 888P' 8   8 dP    Yb 888 8888 `Y88P'
+*/
+
+function postsThumbnails () {
+  return gulp
+    .src('src/img/posts/thumbnail/out/**/*.png')
+    .pipe(sharpResponsive({
+      formats: [
+        {
+          format: 'webp',
+          webpOptions: webpConfig
+        },
+        {
+          format: 'jpeg',
+          webpOptions: jpgConfig
+        }
+      ]
+    }))
+    .pipe(gulp.dest('public/img/posts/thumbnail'))
 }
 
 exports.css = css
