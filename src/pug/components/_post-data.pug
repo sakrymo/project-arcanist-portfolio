@@ -1,9 +1,31 @@
 -
-  const posts = {
-    examplePost: {
-      title: 'Lorem ipsum dolor sit amet',
-      author: 'Author Name',
-      thumbnail: 'placeholder',
-      tags: 'example, testing'
-    }
-  }
+  const posts = new Map()
+  const authors = ['Chris "Sakrymo" Moskal','Claudius "Cloudy" Freliszka', "Lorem Ipsum"]
+
+  posts.set('First Example Post', {
+    title: 'Placeholder post',
+    author: authors[2],
+    tags: ['example','something'],
+    image: 'placeholder'
+  })
+
+  posts.set('placeholder2', {
+    title: 'Example Two',
+    author: authors[2],
+    tags: ['example','something'],
+    image: 'placeholder'
+  })
+
+  posts.set('placeholder3', {
+    title: 'Third Placeholder',
+    author: authors[2],
+    tags: ['example','something'],
+    image: 'placeholder'
+  })
+
+  const postsArr = Array.from(posts.values())
+
+//- Return last 3 images
+//- for (let i = postsArr.length - 1, j = 0; j < 3; j++) {
+//- console.log(postsArr[i-j].image)
+//- }

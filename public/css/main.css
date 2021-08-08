@@ -901,6 +901,14 @@ footer.light {
 #footer-grid {
   display: grid;
   grid-template-areas: "footer-logo footer-links footer-posts footer-social" "footer-logo footer-links footer-posts footer-email" "footer-legal footer-legal footer-legal footer-legal";
+  grid-auto-columns: min-content;
+}
+#footer-grid ul {
+  display: inline-flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: left;
+  padding-top: 30px;
 }
 
 #footer-logo {
@@ -908,6 +916,7 @@ footer.light {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 200px;
 }
 
 #footer-logo-img {
@@ -917,14 +926,16 @@ footer.light {
 
 #footer-page-links {
   grid-area: footer-links;
-  padding-top: 15%;
+  display: block;
+  width: 200px;
+  justify-self: left;
+  align-self: flex-start;
+  max-width: 200px;
 }
 
 #footer-posts {
   grid-area: footer-posts;
-  display: flex;
-  align-items: center;
-  justify-content: left;
+  width: 20ch;
 }
 
 #footer-legal {

@@ -6,6 +6,7 @@ a.back-to-top.hidden(href="#navbar")
 
 footer
   include _page-links
+  include _post-data
   .container
     #footer-grid
       #footer-logo
@@ -15,9 +16,13 @@ footer
           span.footer-label Navigation
         each val, index in pageNames
           li= val
-      #footer-posts
-        span.footer-label Recent posts
-          #footer-posts-list
+      ul#footer-posts
+        li
+          span.footer-label Recent posts
+        #footer-posts-list
+          - for (let i = postsArr.length, j = 1; j<=3; j++)
+            li #{postsArr[i-j].image + '-sq.jpeg'}
+            li #{postsArr[i-j].title}
           
       #footer-social
         span.footer-label Follow us
