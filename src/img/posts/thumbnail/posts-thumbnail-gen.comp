@@ -2,7 +2,7 @@ Composition {
 	CurrentTime = 0,
 	RenderRange = { 0, 0 },
 	GlobalRange = { 0, 100 },
-	CurrentID = 281,
+	CurrentID = 362,
 	PlaybackUpdateMode = 0,
 	Version = "Fusion 9.0.2 build 15",
 	SavedOutputs = 1,
@@ -12,18 +12,18 @@ Composition {
 	AudioOffset = 0,
 	Resumable = true,
 	OutputClips = {
-		"Dest:\\placeholder-md.png",
-		"Dest:\\placeholder-xs.png",
-		"Dest:\\placeholder-sq.png",
-		"Dest:\\placeholder-sm.png",
-		"Dest:\\placeholder-lg.png"
+		"Dest:\\butterflies-in-chest-md.png",
+		"Dest:\\butterflies-in-chest-xs.png",
+		"Dest:\\butterflies-in-chest-sq.png",
+		"Dest:\\butterflies-in-chest-sm.png",
+		"Dest:\\butterflies-in-chest-lg.png"
 	},
 	Tools = {
 		image_file = Loader {
 			Clips = {
 				Clip {
 					ID = "Clip1",
-					Filename = "Comp:\\placeholder.jpg",
+					Filename = "Comp:\\butterflies-in-chest.jpg",
 					FormatID = "JpegFormat",
 					StartFrame = -1,
 					LengthSetManually = true,
@@ -39,6 +39,7 @@ Composition {
 					GlobalEnd = 0
 				}
 			},
+			CtrlWZoom = false,
 			NameSet = true,
 			Inputs = {
 				["Clip1.PSDFormat.Layer"] = Input { Value = 1, },
@@ -66,11 +67,11 @@ Composition {
 			Inputs = {
 				GlobalOut = Input { Value = 100, },
 				Width = Input {
-					Value = 1920,
+					Value = 1474,
 					Expression = "image_file.Output.Height + (7/9 * image_file.Output.Height)",
 				},
 				Height = Input {
-					Value = 1080,
+					Value = 829,
 					Expression = "image_file.Output.Height",
 				},
 				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
@@ -105,7 +106,7 @@ Composition {
 			NameSet = true,
 			ViewInfo = OperatorInfo { Pos = { 912.53, 225.366 } },
 			Colors = {
-				TileColor = { R = 0.313725490196078, G = 1, B = 0.498039215686275 },
+				TileColor = { R = 0.298039215686275, G = 1, B = 0.498039215686275 },
 				TextColor = { R = 0, G = 0, B = 0 },
 			},
 			UserControls = ordered() {
@@ -156,17 +157,20 @@ Composition {
 				ProcessWhenBlendIs00 = Input { Value = 0, },
 				Clip = Input {
 					Value = Clip {
-						Filename = "Dest:\\placeholder-md.png",
+						Filename = "Dest:\\butterflies-in-chest-md.png",
 						FormatID = "PNGFormat",
-						StartFrame = -1,
-						Length = 0,
 						Saving = true,
 						LengthSetManually = true,
+						TrimIn = 0,
+						TrimOut = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 0,
 						AspectMode = 0,
 						Depth = 0,
 						TimeCode = 0,
-						GlobalStart = -2000000000,
-						GlobalEnd = -2000000000
+						GlobalStart = 0,
+						GlobalEnd = 0
 					},
 				},
 				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
@@ -175,9 +179,9 @@ Composition {
 					SourceOp = "resize_md",
 					Source = "Output",
 				},
+				FrameSavedScript = Input { Value = "path, name = string.match(filename, \"^(.+[/\\\\])(.+)\")\nname, extension = string.match(name, \"^(.+)(%..+)$\")\nbarename, sequence = string.match(name, \"^(.-)(%d+)$\")\nprint(\"bare:\"..barename..extension)\nos.remove(path..barename..extension)\nos.rename(filename, path..barename..extension)\nos.remove(filename)", },
 				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
 				["PNGFormat.CompressionLevel"] = Input { Value = 9, },
-				FrameSavedScript = Input { Value = "path, name = string.match(filename, \"^(.+[/\\\\])(.+)\")\nname, extension = string.match(name, \"^(.+)(%..+)$\")\nbarename, sequence = string.match(name, \"^(.-)(%d+)$\")\nprint(\"bare:\"..barename..extension)\nos.remove(path..barename..extension)\nos.rename(filename, path..barename..extension)\nos.remove(filename)", }
 			},
 			ViewInfo = OperatorInfo { Pos = { 770, 214.5 } },
 		},
@@ -209,17 +213,20 @@ Composition {
 				ProcessWhenBlendIs00 = Input { Value = 0, },
 				Clip = Input {
 					Value = Clip {
-						Filename = "Dest:\\placeholder-xs.png",
+						Filename = "Dest:\\butterflies-in-chest-xs.png",
 						FormatID = "PNGFormat",
-						StartFrame = -1,
-						Length = 0,
 						Saving = true,
 						LengthSetManually = true,
+						TrimIn = 0,
+						TrimOut = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 0,
 						AspectMode = 0,
 						Depth = 0,
 						TimeCode = 0,
-						GlobalStart = -2000000000,
-						GlobalEnd = -2000000000
+						GlobalStart = 0,
+						GlobalEnd = 0
 					},
 				},
 				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
@@ -228,19 +235,24 @@ Composition {
 					SourceOp = "resize_xs",
 					Source = "Output",
 				},
+				FrameSavedScript = Input { Value = "path, name = string.match(filename, \"^(.+[/\\\\])(.+)\")\nname, extension = string.match(name, \"^(.+)(%..+)$\")\nbarename, sequence = string.match(name, \"^(.-)(%d+)$\")\nprint(\"bare:\"..barename..extension)\nos.remove(path..barename..extension)\nos.rename(filename, path..barename..extension)\nos.remove(filename)", },
 				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
 				["PNGFormat.CompressionLevel"] = Input { Value = 9, },
-				FrameSavedScript = Input { Value = "path, name = string.match(filename, \"^(.+[/\\\\])(.+)\")\nname, extension = string.match(name, \"^(.+)(%..+)$\")\nbarename, sequence = string.match(name, \"^(.-)(%d+)$\")\nprint(\"bare:\"..barename..extension)\nos.remove(path..barename..extension)\nos.rename(filename, path..barename..extension)\nos.remove(filename)", }
 			},
 			ViewInfo = OperatorInfo { Pos = { 770, 280.5 } },
 		},
 		crop_sq = Crop {
 			NameSet = true,
 			Inputs = {
-				XOffset = Input { Value = 1707, },
-				YOffset = Input { Value = 960, },
-				XSize = Input { Value = 1080, },
-				YSize = Input { Value = 1080, },
+				YOffset = Input { Value = 95, },
+				XSize = Input {
+					Value = 640,
+					Expression = "(self.Input.Height < self.Input.Width) and self.Input.Height or self.Input.Width",
+				},
+				YSize = Input {
+					Value = 640,
+					Expression = "(self.Input.Height < self.Input.Width) and self.Input.Height or self.Input.Width",
+				},
 				KeepCentered = Input { Value = 1, },
 				Input = Input {
 					SourceOp = "image_file",
@@ -286,17 +298,20 @@ Composition {
 				ProcessWhenBlendIs00 = Input { Value = 0, },
 				Clip = Input {
 					Value = Clip {
-						Filename = "Dest:\\placeholder-sq.png",
+						Filename = "Dest:\\butterflies-in-chest-sq.png",
 						FormatID = "PNGFormat",
-						StartFrame = -1,
-						Length = 0,
 						Saving = true,
 						LengthSetManually = true,
+						TrimIn = 0,
+						TrimOut = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 0,
 						AspectMode = 0,
 						Depth = 0,
 						TimeCode = 0,
-						GlobalStart = -2000000000,
-						GlobalEnd = -2000000000
+						GlobalStart = 0,
+						GlobalEnd = 0
 					},
 				},
 				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
@@ -305,9 +320,9 @@ Composition {
 					SourceOp = "resize_sq",
 					Source = "Output",
 				},
+				FrameSavedScript = Input { Value = "path, name = string.match(filename, \"^(.+[/\\\\])(.+)\")\nname, extension = string.match(name, \"^(.+)(%..+)$\")\nbarename, sequence = string.match(name, \"^(.-)(%d+)$\")\nprint(\"bare:\"..barename..extension)\nos.remove(path..barename..extension)\nos.rename(filename, path..barename..extension)\nos.remove(filename)", },
 				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
 				["PNGFormat.CompressionLevel"] = Input { Value = 9, },
-				FrameSavedScript = Input { Value = "path, name = string.match(filename, \"^(.+[/\\\\])(.+)\")\nname, extension = string.match(name, \"^(.+)(%..+)$\")\nbarename, sequence = string.match(name, \"^(.-)(%d+)$\")\nprint(\"bare:\"..barename..extension)\nos.remove(path..barename..extension)\nos.rename(filename, path..barename..extension)\nos.remove(filename)", }
 			},
 			ViewInfo = OperatorInfo { Pos = { 770, 313.5 } },
 		},
@@ -319,17 +334,20 @@ Composition {
 				ProcessWhenBlendIs00 = Input { Value = 0, },
 				Clip = Input {
 					Value = Clip {
-						Filename = "Dest:\\placeholder-sm.png",
+						Filename = "Dest:\\butterflies-in-chest-sm.png",
 						FormatID = "PNGFormat",
-						StartFrame = -1,
-						Length = 0,
 						Saving = true,
 						LengthSetManually = true,
+						TrimIn = 0,
+						TrimOut = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 0,
 						AspectMode = 0,
 						Depth = 0,
 						TimeCode = 0,
-						GlobalStart = -2000000000,
-						GlobalEnd = -2000000000
+						GlobalStart = 0,
+						GlobalEnd = 0
 					},
 				},
 				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
@@ -338,14 +356,13 @@ Composition {
 					SourceOp = "resize_sm",
 					Source = "Output",
 				},
+				FrameSavedScript = Input { Value = "path, name = string.match(filename, \"^(.+[/\\\\])(.+)\")\nname, extension = string.match(name, \"^(.+)(%..+)$\")\nbarename, sequence = string.match(name, \"^(.-)(%d+)$\")\nprint(\"bare:\"..barename..extension)\nos.remove(path..barename..extension)\nos.rename(filename, path..barename..extension)\nos.remove(filename)", },
 				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
 				["PNGFormat.CompressionLevel"] = Input { Value = 9, },
-				FrameSavedScript = Input { Value = "path, name = string.match(filename, \"^(.+[/\\\\])(.+)\")\nname, extension = string.match(name, \"^(.+)(%..+)$\")\nbarename, sequence = string.match(name, \"^(.-)(%d+)$\")\nprint(\"bare:\"..barename..extension)\nos.remove(path..barename..extension)\nos.rename(filename, path..barename..extension)\nos.remove(filename)", }
 			},
 			ViewInfo = OperatorInfo { Pos = { 770, 247.5 } },
 		},
 		resize_sq = BetterResize {
-			CtrlWZoom = false,
 			NameSet = true,
 			Inputs = {
 				Width = Input { Value = 128, },
@@ -408,17 +425,20 @@ Composition {
 				ProcessWhenBlendIs00 = Input { Value = 0, },
 				Clip = Input {
 					Value = Clip {
-						Filename = "Dest:\\placeholder-lg.png",
+						Filename = "Dest:\\butterflies-in-chest-lg.png",
 						FormatID = "PNGFormat",
-						StartFrame = -1,
-						Length = 0,
 						Saving = true,
 						LengthSetManually = true,
+						TrimIn = 0,
+						TrimOut = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 0,
 						AspectMode = 0,
 						Depth = 0,
 						TimeCode = 0,
-						GlobalStart = -2000000000,
-						GlobalEnd = -2000000000
+						GlobalStart = 0,
+						GlobalEnd = 0
 					},
 				},
 				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
@@ -427,9 +447,9 @@ Composition {
 					SourceOp = "resize_lg",
 					Source = "Output",
 				},
+				FrameSavedScript = Input { Value = "path, name = string.match(filename, \"^(.+[/\\\\])(.+)\")\nname, extension = string.match(name, \"^(.+)(%..+)$\")\nbarename, sequence = string.match(name, \"^(.-)(%d+)$\")\nprint(\"bare:\"..barename..extension)\nos.remove(path..barename..extension)\nos.rename(filename, path..barename..extension)\nos.remove(filename)", },
 				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
 				["PNGFormat.CompressionLevel"] = Input { Value = 9, },
-				FrameSavedScript = Input { Value = "path, name = string.match(filename, \"^(.+[/\\\\])(.+)\")\nname, extension = string.match(name, \"^(.+)(%..+)$\")\nbarename, sequence = string.match(name, \"^(.-)(%d+)$\")\nprint(\"bare:\"..barename..extension)\nos.remove(path..barename..extension)\nos.rename(filename, path..barename..extension)\nos.remove(filename)", }
 			},
 			ViewInfo = OperatorInfo { Pos = { 768.586, 181.5 } },
 		}
@@ -557,7 +577,7 @@ Composition {
 				Right = {
 					Viewer = {
 						ScaleMode = 1,
-						CheckerUnderlay = true
+						CheckerUnderlay = true,
 					},
 					SideB = {
 						PrevCtrlInactiveColor = 4278255360,

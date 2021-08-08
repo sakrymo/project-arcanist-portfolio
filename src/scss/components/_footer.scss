@@ -26,37 +26,59 @@ footer {
 
 #footer-logo {
   grid-area: footer-logo;
-  @include flex-center;
-  min-width: 200px;
+  margin-right: 3%;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 #footer-logo-img {
-  padding: 15%;
-  max-height: 220px;
+  min-width: 128px;
+  margin-top: 30px;
+  margin: 30px;
 }
 
 #footer-page-links {
-  grid-area: footer-links;
-  display: block;
-  width: 200px;
-  justify-self: left;
-  align-self: flex-start;
-  max-width: 200px;
+  padding: 20px;
+  margin-right: 2%;
+
+  li {
+    margin-bottom: 5px;
+  }
 }
 
 #footer-posts {
   grid-area: footer-posts;
-  width: 20ch;
+  padding: 20px;
+}
+
+.footer-recent-post {
+  display: flex;
+  border-bottom: $gray 1px solid;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 0.82em;
+  cursor: pointer;
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+
+  picture {
+    margin-right: 1.5ch;
+  }
 }
 
 #footer-legal {
-  grid-area: footer-legal;
+  display: flex;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding-bottom: 1rem;
+  border-top: $gray 1px solid;
   
   & * {
     padding: 2rem;
+    padding-bottom: 1rem;
   }
 }
 
@@ -76,6 +98,36 @@ footer {
   letter-spacing: 0.1ch;
 }
 
-#footer-page-links > li:first-of-type {
-  margin-bottom: 0.5ch;
+// #footer-page-links > li:first-of-type {
+//   margin-bottom: 0.5ch;
+// }
+
+#footer-wrapper {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: left;
+
+  ul {
+    padding-top: 30px;
+
+    li:first-of-type {
+      margin-bottom: 1ch
+    }
+  }
+}
+
+#footer-posts li:nth-of-type(2) {
+  margin-bottom: 1.5ch;
+}
+
+#footer-contact {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-end;
+  flex-grow: 1;
+  padding: 20px;
+  height: 100%;
+  min-width: 30%;
 }

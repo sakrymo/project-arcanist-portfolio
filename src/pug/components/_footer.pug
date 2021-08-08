@@ -8,7 +8,8 @@ footer
   include _page-links
   include _post-data
   .container
-    #footer-grid
+    
+    #footer-wrapper
       #footer-logo
         img#footer-logo-img(src="img/logo-vertical-text.svg", alt="")
       ul#footer-page-links
@@ -19,18 +20,20 @@ footer
       ul#footer-posts
         li
           span.footer-label Recent posts
-        #footer-posts-list
+        li#footer-posts-list
           - for (let i = postsArr.length, j = 1; j<=3; j++)
-            li #{postsArr[i-j].image + '-sq.jpeg'}
-            li #{postsArr[i-j].title}
-          
-      #footer-social
-        span.footer-label Follow us
-      #footer-email
-        span.footer-label Email
-      #footer-legal
-        a Privacy Policy
-        a &copy Copyright 2021
+            li.footer-recent-post
+              +footer-recent-post-img(postsArr[i-j].image)
+              x #{postsArr[i-j].title}
+      #footer-contact    
+        #footer-social
+          span.footer-label Follow us
+        #footer-email
+          span.footer-label Email
+    
+    #footer-legal
+      a Privacy Policy
+      a &copy Copyright 2021
 
 script(src='js/parcel/bundle.min.js')
 script(src='https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js')

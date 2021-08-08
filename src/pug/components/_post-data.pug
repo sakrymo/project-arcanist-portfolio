@@ -3,28 +3,34 @@
   const authors = ['Chris "Sakrymo" Moskal','Claudius "Cloudy" Freliszka', "Lorem Ipsum"]
 
   posts.set('First Example Post', {
-    title: 'Placeholder post',
+    title: 'White Silence by TK from 凛として時雨',
     author: authors[2],
     tags: ['example','something'],
-    image: 'placeholder'
+    image: 'white-silence'
   })
 
   posts.set('placeholder2', {
-    title: 'Example Two',
+    title: 'The Weight Of The World English Version',
     author: authors[2],
     tags: ['example','something'],
-    image: 'placeholder'
+    image: 'weight-of-the-world'
   })
 
   posts.set('placeholder3', {
-    title: 'Third Placeholder',
+    title: 'One Day The Only Butterflies Left Will Be In Your Chest As You March Towards Your Death',
     author: authors[2],
     tags: ['example','something'],
-    image: 'placeholder'
+    image: 'butterflies-in-chest'
   })
 
   const postsArr = Array.from(posts.values())
 
+mixin footer-recent-post-img(filename)
+  - const dir = 'img/posts/thumbnail/' 
+  picture
+    source(srcset=dir + filename + '-sq.webp', type="image/webp" width="64px")
+    source(srcset=dir + filename + '-sq.jpeg', type="image/jpeg")
+    img(src=dir + filename + '-sq.jpeg')
 //- Return last 3 images
 //- for (let i = postsArr.length - 1, j = 0; j < 3; j++) {
 //- console.log(postsArr[i-j].image)
