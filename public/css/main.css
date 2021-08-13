@@ -897,6 +897,11 @@ footer {
 footer.light {
   background: #fdf7f7;
 }
+@media (max-width: 768px) {
+  footer {
+    overflow-x: hidden;
+  }
+}
 
 #footer-logo-anchor {
   display: inline-block;
@@ -1032,6 +1037,11 @@ footer.light {
 }
 #footer-wrapper ul li:first-of-type {
   margin-bottom: 1ch;
+}
+@media (max-width: 768px) {
+  #footer-wrapper {
+    flex-flow: column;
+  }
 }
 
 #footer-posts li:nth-of-type(2) {
