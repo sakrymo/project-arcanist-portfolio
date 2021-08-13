@@ -157,7 +157,7 @@ footer {
     }
   }
   @include for-phone {
-    flex-flow: column;
+    flex-wrap: wrap;
   }
 }
 
