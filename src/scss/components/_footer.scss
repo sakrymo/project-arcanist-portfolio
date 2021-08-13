@@ -7,25 +7,15 @@ footer {
   }
 }
 
-#footer-grid {
-  display: grid;
-  grid-template-areas: 
-  'footer-logo footer-links footer-posts footer-social'
-  'footer-logo footer-links footer-posts footer-email'
-  'footer-legal footer-legal footer-legal footer-legal';
-  grid-auto-columns: min-content;
-
-  ul {
-    display: inline-flex;
-    flex-flow: column;
-    align-items: flex-start;
-    justify-content: left;
-    padding-top: 30px;
+#footer-logo-anchor {
+  display: inline-block;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 0.7;
   }
 }
 
 #footer-logo {
-  grid-area: footer-logo;
   margin-right: 3%;
   justify-content: center;
   align-items: flex-start;
@@ -40,14 +30,36 @@ footer {
 #footer-page-links {
   padding: 20px;
   margin-right: 2%;
+}
 
-  li {
-    margin-bottom: 5px;
+.footer-page-link {
+  margin-bottom: 0 !important;
+  padding-bottom: 10px;
+  span {
+    position: relative;
   }
+  span:after {
+    content: " ";
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    width: 120%;
+    height: 2px;
+    background: gray;
+    transition: transform 0.3s ease;
+    transform-origin: right;
+    transform: scaleX(0);
+  }
+
+  &:hover span:after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  
 }
 
 #footer-posts {
-  grid-area: footer-posts;
   padding: 20px;
 }
 
@@ -101,18 +113,17 @@ footer {
   display: flex;
   @include flex-center;
   margin-left: 0.5rem;
-  transition: all .3s;
   margin-top: 20px;
   margin-bottom: 10px;
+  border: none;
+  background: #222;
+  padding: 1.5rem;
+  cursor: pointer;
 
   &:hover {
-    background: $white;
-    color: $black;
+    background: linear-gradient(45deg, $arcanist-red 5%, $arcanist-blue 95%);
+    color: $white;
   }
-}
-
-#footer-email {
-  grid-area: footer-email;
 }
 
 .footer-label {
@@ -122,10 +133,6 @@ footer {
   font-size: 0.8em;
   letter-spacing: 0.1ch;
 }
-
-// #footer-page-links > li:first-of-type {
-//   margin-bottom: 0.5ch;
-// }
 
 #footer-wrapper {
   display: flex;
@@ -176,6 +183,11 @@ footer {
 #footer-email-text:hover + #footer-email-underline {
   transform: scaleY(2);
 }
+
+#footer-email-text:hover + #footer-email-underline:after {
+  opacity: 1;
+}
+
 #footer-email-underline {
   background: transparent linear-gradient(to right, $arcanist-blue, $arcanist-red);
   width: 100%;
@@ -183,4 +195,17 @@ footer {
   margin-top: 1rem;
   transform-origin: top;
   transition: transform .2s;
+  position: relative;
+
+  &:after {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to left, $arcanist-blue, $arcanist-red);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .5s ease-out;
+  }
 }

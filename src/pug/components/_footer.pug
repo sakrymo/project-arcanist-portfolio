@@ -11,12 +11,15 @@ footer
     
     #footer-wrapper
       #footer-logo
-        img#footer-logo-img(src="img/logo-vertical-text.svg", alt="")
+        a#footer-logo-anchor(href='/')
+          img#footer-logo-img(src="img/logo-vertical-text.svg", alt="")
       ul#footer-page-links
         li
           span.footer-label Navigation
         each val, index in pageNames
-          li= val
+          a(href='/' + pageURLs[index])
+            li.footer-page-link
+              span #{val}
       ul#footer-posts
         li
           span.footer-label Recent posts
