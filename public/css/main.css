@@ -951,6 +951,7 @@ footer.light {
 
 #footer-posts {
   padding: 20px;
+  padding-top: 10px !important;
 }
 
 .footer-recent-post {
@@ -984,12 +985,25 @@ footer.light {
   padding: 2rem;
   padding-bottom: 1rem;
 }
+@media (max-width: 768px) {
+  #footer-legal {
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-start;
+  }
+}
 
 #footer-social {
   display: flex;
   flex-flow: column;
   align-items: flex-end;
   margin-bottom: 3.2rem;
+}
+@media (max-width: 768px) {
+  #footer-social {
+    align-items: flex-start;
+    margin-bottom: 2.3rem;
+  }
 }
 
 #footer-social-icons {
@@ -1058,11 +1072,22 @@ footer.light {
   height: 100%;
   min-width: 30%;
 }
+@media (max-width: 768px) {
+  #footer-contact {
+    align-items: flex-start;
+    padding-top: 5px;
+  }
+}
 
 #footer-email {
   display: flex;
   flex-flow: column;
   text-align: right;
+}
+@media (max-width: 768px) {
+  #footer-email {
+    text-align: left;
+  }
 }
 #footer-email .footer-label {
   margin-bottom: 10px;

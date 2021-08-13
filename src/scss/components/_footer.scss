@@ -59,12 +59,12 @@ footer {
     transform: scaleX(1);
     transform-origin: left;
   }
-
   
 }
 
 #footer-posts {
   padding: 20px;
+  padding-top: 10px !important;
 }
 
 .footer-recent-post {
@@ -101,6 +101,7 @@ footer {
     padding: 2rem;
     padding-bottom: 1rem;
   }
+  @include for-phone { align-items: flex-start; text-align: left; justify-content: flex-start;}
 }
 
 #footer-social {
@@ -108,6 +109,7 @@ footer {
   flex-flow: column;
   align-items: flex-end;
   margin-bottom: 3.2rem;
+  @include for-phone { align-items: flex-start; margin-bottom: 2.3rem; }
 }
 
 #footer-social-icons {
@@ -156,6 +158,7 @@ footer {
       margin-bottom: 1ch
     }
   }
+
   @include for-phone {
     flex-wrap: wrap;
   }
@@ -174,12 +177,18 @@ footer {
   padding: 30px 20px;
   height: 100%;
   min-width: 30%;
+
+  @include for-phone {
+    align-items: flex-start;
+    padding-top: 5px;
+  }
 }
 
 #footer-email {
   display: flex;
   flex-flow: column;
   text-align: right;
+  @include for-phone { text-align: left; }
 
   .footer-label {
     margin-bottom: 10px;
