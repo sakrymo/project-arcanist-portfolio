@@ -902,9 +902,6 @@ footer.light {
   display: inline-block;
   transition: opacity 0.3s ease;
 }
-#footer-logo-anchor:hover {
-  opacity: 0.7;
-}
 
 #footer-logo {
   margin-right: 3%;
@@ -959,12 +956,16 @@ footer.light {
   font-weight: bold;
   font-size: 0.82em;
   cursor: pointer;
+  transition: background-color 0.7s ease;
 }
 .footer-recent-post:last-of-type {
   border-bottom: 0;
 }
 .footer-recent-post picture {
   margin-right: 1.5ch;
+}
+.footer-recent-post:hover {
+  background: #292929;
 }
 
 #footer-legal {

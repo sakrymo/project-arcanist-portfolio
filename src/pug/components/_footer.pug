@@ -27,7 +27,7 @@ footer
           - for (let i = postsArr.length, j = 1; j<=3; j++)
             li.footer-recent-post
               +footer-recent-post-img(postsArr[i-j].image)
-              x #{postsArr[i-j].title}
+              span #{postsArr[i-j].title}
       #footer-contact    
         #footer-social
           span.footer-label Follow us
@@ -39,14 +39,14 @@ footer
             .footer-social-icon
               i.fab.fa-behance
             .footer-social-icon
-              i.fab.fa-artstation
+              i.fab.fa-twitter
         #footer-email
           span.footer-label Email
           a#footer-email-text project.arcanist@gmail.com
           #footer-email-underline
     
     #footer-legal
-      a Privacy Policy
+      a(href='/privacypolicy') Privacy Policy
       a &copy Copyright 2021
 
 script(src='js/parcel/bundle.min.js')

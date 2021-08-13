@@ -10,9 +10,9 @@ footer {
 #footer-logo-anchor {
   display: inline-block;
   transition: opacity 0.3s ease;
-  &:hover {
-    opacity: 0.7;
-  }
+  // &:hover {
+  //   opacity: 0.7;
+  // }
 }
 
 #footer-logo {
@@ -71,6 +71,7 @@ footer {
   font-weight: bold;
   font-size: 0.82em;
   cursor: pointer;
+  transition: background-color .7s ease;
 
   &:last-of-type {
     border-bottom: 0;
@@ -78,6 +79,10 @@ footer {
 
   picture {
     margin-right: 1.5ch;
+  }
+
+  &:hover {
+    background: $gray;
   }
 }
 
