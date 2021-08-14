@@ -183,7 +183,7 @@ window.addEventListener('scroll', e => {
   const navbarShouldHide = navbar.getAttribute('hide') === 'true';
   const isLightTheme = window.localStorage.getItem('lightTheme') === 'true';
 
-  if (window.scrollY < 300) {
+  if (window.scrollY < 30) {
     navbar.classList = isLightTheme ? 'light' : '';
   } else if (navbarShouldHide) {
     if (scrollingUp) {
