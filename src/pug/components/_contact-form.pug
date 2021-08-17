@@ -1,14 +1,17 @@
 -var formspreeURL = 'https://formspree.io/f/myyldeon'
-form#contact-form(action=formspreeURL method='POST' autocomplete="off")
+form#contact-form(name="something" action=formspreeURL method='POST' autocomplete="off")
   h1.form-heading Let's have a chat
 
-  label.contact-form-label Name
-  input(type='text', name='name', autocomplete="off")
+  .form-row
+    label.contact-form-label Name
+    input(type='text', name='name', autocomplete="off")
   
-  label.contact-form-label Email
-  input(type='email', name='_replyto', autocomplete="off")
+  .form-row
+    label.contact-form-label Email
+    input(type='email', name='_replyto', autocomplete="off")
 
-  label.contact-form-label How can we help you?
+  #contact-category-select-wrapper
+    label.contact-form-label How can we help you?
     .custom-select
       select#contact-category-select
         option 
@@ -16,8 +19,7 @@ form#contact-form(action=formspreeURL method='POST' autocomplete="off")
         option Option 2
         option Option 3
         option Option 4
-  
-  label.contact-form-label Message:
-    textarea#contact-message(name='message', autocomplete="off")
+
+  textarea#contact-message(name='message', autocomplete="off", placeholder="Your message")
   
   button.btn#contact-submit(type='submit') Submit
