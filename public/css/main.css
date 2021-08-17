@@ -973,6 +973,28 @@ footer.light {
   transform-origin: left;
 }
 
+.footer-recent-post.mobile,
+.footer-recent-post.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 960px) {
+  #footer-posts {
+    display: none;
+  }
+
+  .footer-recent-post {
+    font-size: 1.3rem;
+  }
+  .footer-recent-post img {
+    max-height: 48px;
+    max-width: 48px;
+  }
+
+  .footer-recent-post.mobile {
+    display: initial;
+  }
+}
 #footer-posts {
   padding: 20px;
   padding-top: 30px !important;
@@ -980,7 +1002,20 @@ footer.light {
 @media (max-width: 768px) {
   #footer-posts {
     padding-top: 0px !important;
-    max-width: 90%;
+    max-width: 95%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;
+  }
+  #footer-posts .footer-recent-post {
+    border-bottom: none;
+    margin-right: 1rem;
+  }
+  #footer-posts .footer-recent-post picture {
+    margin-top: 3px;
+  }
+  #footer-posts .footer-recent-post span {
+    margin-bottom: 1ch;
   }
 }
 

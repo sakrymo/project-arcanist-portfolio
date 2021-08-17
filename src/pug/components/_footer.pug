@@ -27,10 +27,15 @@ footer
         li
           span.footer-label Recent posts
         li#footer-posts-list
-          - for (let i = postsArr.length, j = 1; j<=3; j++)
-            li.footer-recent-post
-              +footer-recent-post-img(postsArr[i-j].image)
-              span #{postsArr[i-j].title}
+          - for (let i = postsArr.length, j = 1; j<=4; j++)
+            unless j==4
+              li.footer-recent-post
+                  +footer-recent-post-img(postsArr[i-j].image)
+                  span #{postsArr[i-j].title}
+            else
+              li.footer-recent-post
+                +footer-recent-post-img(postsArr[i-j].image)
+                span #{postsArr[i-j].title}
       #footer-contact    
         #footer-social
           span.footer-label Follow us
