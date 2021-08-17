@@ -1,10 +1,14 @@
 #contact-form {
   background: $gray;
+  display: flex;
+  flex-flow: column;
   width: 600px;
   height: 800px;
   margin: 50px auto;
-  @include flex-center-col;
   border-radius: 2rem;
+  padding: 4rem;
+  align-items: flex-start;
+  margin-top: 200px;
 
   &.light {
     background: $white;
@@ -12,11 +16,25 @@
   }
 }
 
-#contact-form-submit {
+#contact-submit {
   width: 60%;
   align-self: center;
 }
 
 .contact-form-label {
-  display: block;
+  display: inline-block;
+}
+
+
+input {
+  display: inline-block;
+  border-radius: 100vh;
+  outline: none;
+  flex: none;
+}
+
+.form-heading {
+  font-family: brother-1816, sans-serif;
+  font-size: 3.2rem;
+  font-weight: bold;
 }

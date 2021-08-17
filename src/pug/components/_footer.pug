@@ -16,6 +16,9 @@ footer
       ul#footer-page-links
         li
           span.footer-label Navigation
+        a(href='/')
+          li.footer-page-link
+            span Home
         each val, index in pageNames
           a(href='/' + pageURLs[index])
             li.footer-page-link

@@ -435,3 +435,22 @@ $mobile-menu-offset: 1rem;
 #theme-toggle {
   display: none;
 }
+
+#navbar-social-logos {
+  display: none !important;
+  padding-left: 3rem;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+
+  @include for-laptop {
+    display: flex;
+  }
+}
+
+#navbar-social-logos-divider {
+  background: white;
+  height: 100%;
+  width: 1px;
+  margin-right: 2rem;
+}

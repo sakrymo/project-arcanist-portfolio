@@ -21,6 +21,12 @@ mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeCo
                   a.navbar-item(href='/' + pageURLs[index]) #{val}
               else
                   a.navbar-item.active(href='/' + pageURLs[index]) #{val}
+          li#navbar-social-logos
+              #navbar-social-logos-divider
+              a.fab.fa-youtube
+              a.fab.fa-instagram
+              a.fab.fa-behance
+              a.fab.fa-twitter
           
           //- Theme toggle
           li.nav-icon#theme-toggle
@@ -34,15 +40,14 @@ mixin navbar({ activeItem = '', color1 = '#db0027', color2 = '#15b8fc', activeCo
                     a.navbar-item(href='/' + pageURLs[index]) #{val}
                 else
                     a.navbar-item.active(href='/' + pageURLs[index]) #{val}
-            #mobile-menu-social-icons-container
+              #mobile-menu-social-icon
+                a.fab.fa-youtube
               #mobile-menu-social-icon
                 a.fab.fa-instagram
               #mobile-menu-social-icon
                 a.fab.fa-behance
               #mobile-menu-social-icon
                 a.fab.fa-twitter
-              #mobile-menu-social-icon
-                a.fab.fa-youtube
               #mobile-menu-social-icon  
               #mobile-menu-social-icon
             i.fas.fa-adjust#mobile-theme-toggle
