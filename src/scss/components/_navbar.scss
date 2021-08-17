@@ -400,7 +400,7 @@ $mobile-menu-offset: 1rem;
   } 
 }
 
-#mobile-menu-social-icon {
+.mobile-menu-social-icon {
   width: 6rem;
   height: 6rem;
   margin-right: 1.5rem;
@@ -416,7 +416,7 @@ $mobile-menu-offset: 1rem;
   cursor: pointer;
 }
 
-#mobile-menu.on #mobile-menu-social-icons-container #mobile-menu-social-icon {
+#mobile-menu.on #mobile-menu-social-icons-container .mobile-menu-social-icon {
   transform: scale(1)
 }
 
@@ -425,7 +425,7 @@ $mobile-menu-offset: 1rem;
   bottom: 5%;
   font-size: 2.4rem;
   cursor: pointer;
-  // display: none;
+  display: none;
 }
 
 #gradient stop {

@@ -119,7 +119,7 @@ footer {
   cursor: pointer;
   transition: background-color .7s ease;
 
-  &:last-of-type {
+  &:nth-of-type(5) {
     border-bottom: 0;
     padding-bottom: 0;
     margin-bottom: 0;
