@@ -171,7 +171,7 @@ mobileMenuToggle.addEventListener('change', e => {
   e.target.style.pointerEvents = 'none';
   setTimeout(() => {
     e.target.style.pointerEvents = '';
-  }, 300);
+  }, 500);
   mobileMenuToggle.checked ? mobileMenu.classList.add('on') : mobileMenu.classList.remove('on');
   mobileMenuToggle.checked ? document.body.classList.add('noscroll') : document.body.classList.remove('noscroll');
 }); // Sticky navigation

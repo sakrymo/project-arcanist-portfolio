@@ -66,7 +66,7 @@ mobileMenuToggle.addEventListener('change', e => {
   e.target.style.pointerEvents = 'none'
   setTimeout(() => {
     e.target.style.pointerEvents = ''
-  }, 300)
+  }, 500)
 
   mobileMenuToggle.checked
     ? mobileMenu.classList.add('on')
