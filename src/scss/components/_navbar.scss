@@ -265,9 +265,11 @@ $mobile-menu-offset: 1rem;
   @media screen and (max-width: $tablet-max) {
     font-size: 2.8rem;
     &::after { display: none; }
-    transition: opacity 0.1s ease, transform 0.2s ease;
+    transition: opacity 0.1s ease, transform 0.2s ease !important;
     opacity: 0;
-    transform: translateY(3rem)
+    transform: translateY(3rem);
+    padding: 0;
+    margin: 0;
   }
 }
 
@@ -333,35 +335,36 @@ $mobile-menu-offset: 1rem;
   display: none;
   position: fixed;
   top: 0;
-  right:0;
+  right: 0;
   width: 100%;
   height: 100%;
   justify-content: center;
   align-items: center;
-  // background: $black;
   background: $black;
   z-index: 500;
   overflow: hidden;
   clip-path: circle(0% at 94% 0%);
   transition: clip-path .4s cubic-bezier(0.95, 0.05, 0.795, 0.035), opacity .4s;
   opacity: 0;
-  
+
   @media screen and (max-width: $tablet-max) {
     display: flex;
+
     @for $i from 1 to 10 {
-      li:nth-of-type(#{$i}) .navbar-item { transition-delay: 0.01s + math.div($i, 10); }
+      #mobile-menu-items li:nth-of-type(#{$i}) .navbar-item {
+        transition-delay: 0.05s + math.div($i, 10)!important;
+        transition: translateY(2);
+      }
     }
-  }
 
-  .navbar-item { margin-left: -10px; }
+    .active {
+      font-size: 2.9rem;
+    }
 
-  .active {
-    font-size: 2.9rem;
-  }
-
-  &.light {
-    background-color: $white;
-    color: $black;
+    &.light {
+      background-color: $white;
+      color: $black;
+    }
   }
 }
 
@@ -374,14 +377,9 @@ $mobile-menu-offset: 1rem;
   transition: clip-path .3s ease-in;
   opacity: 1;
 
-  .navbar-item {
+  #mobile-menu-items .navbar-item {
     opacity: 1;
-    transition-duration: 0;
-    transform: translateY(0)
-  }
-
-  @for $i from 1 to 10 {
-    li:nth-of-type(#{$i}) .navbar-item { transition-delay: 0; }
+    transform: translateY(0);
   }
 }
 
@@ -394,8 +392,8 @@ $mobile-menu-offset: 1rem;
   flex-wrap: wrap;
 
   @for $i from 1 to 20 {
-    #mobile-menu-social-icon:nth-of-type(#{$i}) {
-      transition-delay: 0.2s + math.div($i, 10)
+    .mobile-menu-social-icon:nth-of-type(#{$i}) {
+      transition-delay: 0.2s + math.div($i, 10);
     }
   } 
 }
@@ -417,7 +415,7 @@ $mobile-menu-offset: 1rem;
 }
 
 #mobile-menu.on #mobile-menu-social-icons-container .mobile-menu-social-icon {
-  transform: scale(1)
+  transform: scale(1);
 }
 
 #mobile-theme-toggle {
