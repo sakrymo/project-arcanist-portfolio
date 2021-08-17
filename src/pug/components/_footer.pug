@@ -30,10 +30,10 @@ footer
           - for (let i = postsArr.length, j = 1; j<=4; j++)
             unless j==4
               li.footer-recent-post
-                  +footer-recent-post-img(postsArr[i-j].image)
-                  span #{postsArr[i-j].title}
+                +footer-recent-post-img(postsArr[i-j].image)
+                span #{postsArr[i-j].title}
             else
-              li.footer-recent-post
+              li.footer-recent-post.mobile
                 +footer-recent-post-img(postsArr[i-j].image)
                 span #{postsArr[i-j].title}
       #footer-contact    
