@@ -4,11 +4,11 @@ form#contact-form(name="something" action=formspreeURL method='POST' autocomplet
 
   .form-row
     label.contact-form-label Name
-    input(type='text', name='name', autocomplete="off")
-  
+    input#contact-name(type='text' name='NAME' autocomplete="chrome-off")
+
   .form-row
     label.contact-form-label Email
-    input(type='email', name='_replyto', autocomplete="off")
+    input#contact-email(type='email', name='_replyto', autocomplete="chrome-off")
 
   #contact-category-select-wrapper
     label.contact-form-label How can we help you?
@@ -20,6 +20,6 @@ form#contact-form(name="something" action=formspreeURL method='POST' autocomplet
         option Option 3
         option Option 4
 
-  textarea#contact-message(name='message', autocomplete="off", placeholder="Your message")
+  textarea#contact-message(name='MESSAGE', autocomplete="off", placeholder="Your message")
   
   button.btn#contact-submit(type='submit') Submit

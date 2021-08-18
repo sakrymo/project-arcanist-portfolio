@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-html, body, div, span, object, iframe, figure, h1, .hero-heading, h2, h3, .screensize:after, h4, h5, h6, p, .navbar-item, .hero-text, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video, button {
+html, body, div, span, object, iframe, figure, h1, .hero-heading, h2, h3, .screensize:after, h4, h5, h6, p, input, .navbar-item, .hero-text, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video, button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -194,7 +194,12 @@ body {
   line-height: 1.37;
 }
 
-p, .hero-text, .navbar-item {
+input {
+  font-size: 1.33rem;
+  font-weight: 500;
+}
+
+p, .hero-text, .navbar-item, input {
   line-height: 1.69;
 }
 
@@ -1334,8 +1339,6 @@ footer.light {
   border-radius: 2rem;
   padding: 4rem;
   align-items: flex-start;
-  margin-top: 200px;
-  margin-right: 0;
 }
 #contact-form.light {
   background: #eee;
@@ -1365,6 +1368,7 @@ input {
   font-size: 3.2rem;
   font-weight: bold;
   margin-bottom: 5.5rem;
+  min-width: 17ch;
 }
 
 .form-row {
@@ -1419,22 +1423,38 @@ textarea {
   font-family: brother-1816, sans-serif;
 }
 
+input, textarea, select {
+  border: transparent 2px solid;
+  box-sizing: border-box;
+}
 input:focus, textarea:focus, select:focus {
   outline: none !important;
   border: #15b8fc 2px solid;
 }
 
-#contac-wrapper {
+#contact-wrapper {
   display: flex;
   flex-flow: row;
+  margin-top: 200px;
+  align-items: center;
+}
+
+#contact-name {
+  background: white url("/img/form-user.svg") left 15px center/30px no-repeat !important;
+  padding-left: 56px;
+}
+
+#contact-email {
+  background: white url("/img/form-email.svg") left 15px center/30px no-repeat !important;
+  padding-left: 56px;
 }
 
 #pricing-table {
   display: inline-block;
-  height: 600px;
+  height: 700px;
   background: red;
-  min-width: 200px;
-  flex-basis: auto;
+  width: 80%;
+  flex-basis: 1;
 }
 
 #home-gallery {
