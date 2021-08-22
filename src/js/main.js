@@ -218,6 +218,72 @@ function removeHash () {
 8b    8b  d8 8  "8   8    dPwwYb  8b      8
 `Y88P `Y88P' 8   8   8   dP    Yb `Y88P   8
 */
+const onContact = window.location.pathname === '/contact' || window.location.pathname === '/contact.html'
+if (onContact) {
+  // Prevent autofill
+  const rowInputs = document.querySelectorAll('.form-row input')
+  const chars = Array.from('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+  const randomStringLength = 6
+
+  const randomChar = () => chars[Math.floor(Math.random() * chars.length)]
+  const randomizeName = element => {
+    let randomString = ''
+    for (let i = 0; i < randomStringLength; i++) { randomString += randomChar() }
+    element.setAttribute('name', randomString)
+  }
+
+  rowInputs.forEach(element => {
+    element.addEventListener('focus', e => randomizeName(element))
+
+    element.addEventListener('focusout', e => {
+      element.value = element.value.trim()
+      element.setAttribute('name', e.target.getAttribute('fs-name'))
+    })
+  })
+
+  // Dropdown
+  const categorySelect = document.querySelectorAll('.dropdown-wrapper')[0]
+
+  const openDropdown = dropdown => {
+    dropdown.classList.add('on')
+    dropdown.childNodes.forEach(element => element.classList.add('on'))
+  }
+
+  const closeDropdown = dropdown => {
+    dropdown.classList.remove('on')
+    dropdown.childNodes.forEach(element => element.classList.remove('on'))
+  }
+
+  const getDropdownOptionIndex = str => {
+    let i = 0
+    for (const element of categorySelect.childNodes) {
+      if (element.classList.contains('dropdown-option')) {
+        i += 1
+        if (element.textContent === str) { return i - 1 }
+      }
+    }
+  }
+
+  categorySelect.addEventListener('click', e => {
+    categorySelect.classList.contains('on')
+      ? closeDropdown(categorySelect)
+      : openDropdown(categorySelect)
+
+    const isDropdownOption = e.target.classList.contains('dropdown-option')
+
+    if (isDropdownOption) {
+      const dropdownOptionIndex = getDropdownOptionIndex(e.target.textContent)
+      const select = document.querySelectorAll('.dropdown-select')[0]
+
+      select.selectedIndex = dropdownOptionIndex.toString()
+      categorySelect.firstChild.textContent = e.target.textContent
+    }
+  })
+
+  categorySelect.addEventListener('focusout', e => setTimeout(() => {
+    closeDropdown(categorySelect)
+  }, 100))
+}
 
 // const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 

@@ -4,21 +4,41 @@ form#contact-form(name="something" action=formspreeURL method='POST' autocomplet
 
   .form-row
     label.contact-form-label Name
-    input#contact-name(type='text' name='NAME' autocomplete="chrome-off")
+    input#contact-name(type='text' name='name' fs-name='name' autocomplete="chrome-off" required)
 
   .form-row
     label.contact-form-label Email
-    input#contact-email(type='email', name='_replyto', autocomplete="chrome-off")
+    input#contact-email(type='email', name='email' fs-name='email' autocomplete="chrome-off" required)
 
   #contact-category-select-wrapper
     label.contact-form-label How can we help you?
-    .custom-select
-      select#contact-category-select
-        option 
-        option Option 1
-        option Option 2
-        option Option 3
-        option Option 4
+    //- .custom-select(tabindex="0")
+    //-   .dropdown-arrow
+    //-   select#contact-category-select(name="category" required tabindex="-1")
+    //-     option 
+    //-     option Option 1
+    //-     option Option 2
+    //-     option Option 3
+    //-     option Option 4
+    //-   #custom-option-shadow
+    //-   .custom-option Option 1
+    //-   .custom-option Option 2
+    //-   .custom-option Option 3
+    //-   .custom-option Option 4
+
+    .dropdown-wrapper
+      .dropdown(tabindex='0')
+      .dropdown-arrow
+      select.dropdown-select(required)
+        option I want to order a design
+        option I have a business offer
+        option I have a question
+        option Something else
+      .dropdown-option-padding
+      .dropdown-option I want to order a design
+      .dropdown-option I have a business offer
+      .dropdown-option I have a question
+      .dropdown-option Something else
 
   textarea#contact-message(name='MESSAGE', autocomplete="off", placeholder="Your message")
   
