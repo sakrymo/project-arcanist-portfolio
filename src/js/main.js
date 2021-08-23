@@ -220,7 +220,7 @@ function removeHash () {
 */
 const onContact = window.location.pathname === '/contact' || window.location.pathname === '/contact.html'
 if (onContact) {
-  // Prevent autofill
+  // * Prevent autofill
   const rowInputs = document.querySelectorAll('.form-row input')
   const chars = Array.from('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
   const randomStringLength = 6
@@ -244,7 +244,7 @@ if (onContact) {
     })
   })
 
-  // Dropdown
+  // * Dropdown
   const categorySelect = document.querySelectorAll('.dropdown-wrapper')[0]
   const dropdownOptions = categorySelect.querySelectorAll('.dropdown-option')
 
@@ -258,14 +258,11 @@ if (onContact) {
     dropdown.childNodes.forEach(element => element.classList.remove('on'))
   }
 
-  //* THIS PART CAN BE CHANGED TO USE DROPDOWNOPTIONS CONSTANT
   const getDropdownOptionIndex = str => {
     let i = 0
-    for (const element of categorySelect.childNodes) {
-      if (element.classList.contains('dropdown-option')) {
-        i += 1
-        if (element.textContent === str) { return i - 1 }
-      }
+    for (const element of dropdownOptions) {
+      i += 1
+      if (element.textContent === str) { return i - 1 }
     }
   }
 
@@ -303,16 +300,19 @@ if (onContact) {
 
     // Enter/Spacebar behavior
     if (e.key === 'Spacebar' || e.key === 'Enter' || e.key === ' ' || e.key === 'Space' || e.keyCode === 32) {
-      categorySelect.classList.contains('on')
-        ? closeDropdown(categorySelect)
-        : openDropdown(categorySelect)
-
       const hoveredOptionIndex = getHoveredDropdownOptionIndex()
-      if (hoveredOptionIndex !== -1) {
+
+      if (hoveredOptionIndex !== -1 && categorySelect.classList.contains('on')) {
         const select = document.querySelectorAll('.dropdown-select')[0]
         select.selectedIndex = hoveredOptionIndex.toString()
         categorySelect.firstChild.textContent = dropdownOptions[hoveredOptionIndex].textContent
+
+        document.getElementById('contact-message').focus()
       }
+
+      categorySelect.classList.contains('on')
+        ? closeDropdown(categorySelect)
+        : openDropdown(categorySelect)
     }
 
     // Escape behavior
@@ -320,10 +320,7 @@ if (onContact) {
 
     // Arrow behavior
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-      categorySelect.classList.contains('on')
-        ? console.log(e.key === 'ArrowDown' ? 'down' : 'up')
-        : e.preventDefault()
-
+      if (!categorySelect.classList.contains('on')) e.preventDefault()
       // Detect which options are hovered
       const hoveredOptionIndex = getHoveredDropdownOptionIndex()
 
@@ -338,17 +335,16 @@ if (onContact) {
           ? 0 // First item
           : hoveredOptionIndex + 1 // Increment by 1
       }
+
       if (e.key === 'ArrowUp') {
         nextOptionIndex = (isFirstOption || noHoveredOptions)
           ? dropdownOptions.length - 1 // Last item
           : hoveredOptionIndex - 1 // Decrement by 1
       }
-      //
-      console.log('NEXT OPTION:')
-      console.log(dropdownOptions[nextOptionIndex])
 
       // Style the next option as hovered
       dropdownOptions.forEach(element => element.classList.remove('hover'))
+      dropdownOptions.forEach(element => element.classList.remove('hoverable'))
       dropdownOptions[nextOptionIndex].classList.add('hover')
     }
   })
@@ -356,11 +352,15 @@ if (onContact) {
   // Make sure the two ways of input don't intersect
   categorySelect.addEventListener('mouseover', e => {
     dropdownOptions.forEach(element => element.classList.remove('hover'))
+    dropdownOptions.forEach(element => element.classList.add('hoverable'))
   })
 
   categorySelect.addEventListener('focusout', e => setTimeout(() => {
     closeDropdown(categorySelect)
   }, 100))
+
+  // TODO Remember form content on refresh through localStorage
+  // TODO Hide on mobile
 }
 
 // const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/

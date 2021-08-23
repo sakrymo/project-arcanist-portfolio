@@ -1363,7 +1363,7 @@ input {
   flex: none;
 }
 
-.form-heading {
+.form-heading, #pricing-table-heading {
   font-family: brother-1816, sans-serif;
   font-size: 3.2rem;
   font-weight: bold;
@@ -1607,7 +1607,7 @@ input:focus, textarea:focus, select:focus {
 .dropdown-option.on {
   display: flex;
 }
-.dropdown-option:hover, .dropdown-option.hover {
+.dropdown-option.hoverable:hover, .dropdown-option.hover {
   background-color: #f2f2f2;
 }
 .dropdown-option:last-of-type {
@@ -1620,11 +1620,25 @@ input:focus, textarea:focus, select:focus {
 }
 
 #pricing-table {
-  display: inline-block;
-  height: 700px;
-  background: red;
-  width: 80%;
+  display: flex;
   flex-basis: 1;
+  height: 700px;
+  background: #353535;
+  width: 80%;
+  border-radius: 0 25px 25px 0;
+  flex-flow: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#pricing-table-heading {
+  background: #2b2b2b;
+  text-align: center;
+  padding: 10px 80px;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  border-radius: 0 0 20px 20px;
 }
 
 #home-gallery {
@@ -1720,6 +1734,37 @@ input:focus, textarea:focus, select:focus {
   transform: scale(1.2);
   opacity: 0.8;
   filter: brightness(1.05);
+}
+
+#work-heading {
+  margin-top: 15rem;
+  text-align: center;
+  position: relative;
+  text-shadow: 0px 0px 12px #222, 0px 0px 25px #222;
+}
+#work-heading:after {
+  content: "OUR WORK";
+  position: absolute;
+  top: -5.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  text-align: center;
+  font-size: 20rem;
+  color: #171717;
+  text-shadow: -1px 1px 0 #fff, 1px 1px 0 #fff, 1px -1px 0 #fff, -1px -1px 0 #fff;
+  z-index: -1;
+  opacity: 0.2;
+  clip-path: circle(0% at 0 100%);
+  animation: heading-after 1s forwards;
+}
+@keyframes heading-after {
+  from {
+    clip-path: circle(0% at 0 100%);
+  }
+  to {
+    clip-path: circle(142% at 0 100%);
+  }
 }
 
 body {

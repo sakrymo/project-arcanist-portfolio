@@ -1,7 +1,22 @@
 #pricing-table {
-  display: inline-block;
-  height: 700px;
-  background: red;
-  width: 80%;
+  display: flex;
   flex-basis: 1;
+  height: 700px;
+  background: #353535;
+  width: 80%;
+  border-radius: 0 25px 25px 0;
+  flex-flow: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#pricing-table-heading {
+  @extend .form-heading;
+  background: #2b2b2b;
+  text-align: center;
+  padding: 10px 80px;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  border-radius: 0 0 20px 20px;
 }

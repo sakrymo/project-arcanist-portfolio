@@ -289,7 +289,7 @@ input, textarea, select {
   display: none;
 
   &.on { display: flex }
-  &:hover, &.hover {
+  &.hoverable:hover, &.hover {
     background-color: rgb(242, 242, 242);
   }
 
