@@ -1756,7 +1756,7 @@ input:focus, textarea:focus, select:focus {
   z-index: -1;
   opacity: 0.2;
   clip-path: circle(0% at 0 100%);
-  animation: heading-after 1s forwards;
+  animation: heading-after 1s 0.1s forwards;
 }
 @keyframes heading-after {
   from {
