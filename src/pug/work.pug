@@ -1,6 +1,7 @@
 include components/_head-data
 include components/_navbar
 include components/_picture
+include components/_gallery
 
 doctype html
 html(lang="en")
@@ -17,6 +18,7 @@ html(lang="en")
       repeat: undefined 
     })
     h1#work-heading Our Work
+    +gallery()
     .whitespace
 
     include components/_footer

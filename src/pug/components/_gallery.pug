@@ -14,5 +14,49 @@
       color1: 'white',
       color2: 'red',
       getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    example1: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    example2: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    example3: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    examplea4: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    examplea5: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    examplea6: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    examplea7: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
     }
   }
+
+mixin gallery()
+  .container
+    .gallery
+      - let galleryItemDelay = 0
+      each val, key in galleryData
+        - galleryItemDelay += 100
+        .gallery-item(data-aos="fade-up" data-aos-delay=galleryItemDelay.toString() data-aos-duration="500")
+          h3 #{key} #{val}

@@ -1741,6 +1741,7 @@ input:focus, textarea:focus, select:focus {
   text-align: center;
   position: relative;
   text-shadow: 0px 0px 12px #222, 0px 0px 25px #222;
+  margin-bottom: 10rem;
 }
 #work-heading:after {
   content: "OUR WORK";
