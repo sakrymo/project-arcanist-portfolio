@@ -1665,6 +1665,9 @@ input:focus, textarea:focus, select:focus {
   grid-auto-flow: row;
   gap: 2rem;
 }
+.gallery.col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
 
 .gallery-item {
   background: #111;
