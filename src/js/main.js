@@ -236,13 +236,17 @@ if (onContact) {
     element.addEventListener('focus', e => randomizeName(element))
 
     element.addEventListener('focusout', e => {
-      element.value = element.value.trim()
+      const trimmedValue = element.value.trim()
+      element.value = ''
+      element.value = trimmedValue
+
       element.setAttribute('name', e.target.getAttribute('fs-name'))
     })
   })
 
   // Dropdown
   const categorySelect = document.querySelectorAll('.dropdown-wrapper')[0]
+  const dropdownOptions = categorySelect.querySelectorAll('.dropdown-option')
 
   const openDropdown = dropdown => {
     dropdown.classList.add('on')
@@ -254,6 +258,7 @@ if (onContact) {
     dropdown.childNodes.forEach(element => element.classList.remove('on'))
   }
 
+  //* THIS PART CAN BE CHANGED TO USE DROPDOWNOPTIONS CONSTANT
   const getDropdownOptionIndex = str => {
     let i = 0
     for (const element of categorySelect.childNodes) {
@@ -264,6 +269,17 @@ if (onContact) {
     }
   }
 
+  const getHoveredDropdownOptionIndex = () => {
+    let count = 0
+    let index = -1
+    for (const element of dropdownOptions) {
+      if (element.matches(':hover') || element.matches('.hover')) { index = count }
+      count++
+    }
+    return index
+  }
+
+  // Mouse click behavior
   categorySelect.addEventListener('click', e => {
     categorySelect.classList.contains('on')
       ? closeDropdown(categorySelect)
@@ -278,6 +294,68 @@ if (onContact) {
       select.selectedIndex = dropdownOptionIndex.toString()
       categorySelect.firstChild.textContent = e.target.textContent
     }
+  })
+
+  // Button behavior
+  categorySelect.addEventListener('keydown', e => {
+    // Don't preventDefault() only on tab
+    if (e.keyCode !== 9) e.preventDefault()
+
+    // Enter/Spacebar behavior
+    if (e.key === 'Spacebar' || e.key === 'Enter' || e.key === ' ' || e.key === 'Space' || e.keyCode === 32) {
+      categorySelect.classList.contains('on')
+        ? closeDropdown(categorySelect)
+        : openDropdown(categorySelect)
+
+      const hoveredOptionIndex = getHoveredDropdownOptionIndex()
+      if (hoveredOptionIndex !== -1) {
+        const select = document.querySelectorAll('.dropdown-select')[0]
+        select.selectedIndex = hoveredOptionIndex.toString()
+        categorySelect.firstChild.textContent = dropdownOptions[hoveredOptionIndex].textContent
+      }
+    }
+
+    // Escape behavior
+    if (e.key === 'Escape' || e.keyCode === 27) { closeDropdown(categorySelect) }
+
+    // Arrow behavior
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      categorySelect.classList.contains('on')
+        ? console.log(e.key === 'ArrowDown' ? 'down' : 'up')
+        : e.preventDefault()
+
+      // Detect which options are hovered
+      const hoveredOptionIndex = getHoveredDropdownOptionIndex()
+
+      // Get index of next option
+      const isLastOption = (hoveredOptionIndex + 1 > dropdownOptions.length - 1)
+      const isFirstOption = (hoveredOptionIndex === 0)
+      const noHoveredOptions = (hoveredOptionIndex === -1)
+      let nextOptionIndex
+
+      if (e.key === 'ArrowDown') {
+        nextOptionIndex = (isLastOption || noHoveredOptions)
+          ? 0 // First item
+          : hoveredOptionIndex + 1 // Increment by 1
+      }
+      if (e.key === 'ArrowUp') {
+        nextOptionIndex = (isFirstOption || noHoveredOptions)
+          ? dropdownOptions.length - 1 // Last item
+          : hoveredOptionIndex - 1 // Decrement by 1
+      }
+      //
+      console.log('NEXT OPTION:')
+      console.log(dropdownOptions[nextOptionIndex])
+
+      // Style the next option as hovered
+      dropdownOptions.forEach(element => element.classList.remove('hover'))
+      dropdownOptions[nextOptionIndex].classList.add('hover')
+    }
+  })
+
+  // Make sure the two ways of input don't intersect
+  categorySelect.addEventListener('mouseover', e => {
+    dropdownOptions.forEach(element => element.classList.remove('hover'))
   })
 
   categorySelect.addEventListener('focusout', e => setTimeout(() => {

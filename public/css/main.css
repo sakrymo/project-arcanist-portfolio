@@ -1607,7 +1607,7 @@ input:focus, textarea:focus, select:focus {
 .dropdown-option.on {
   display: flex;
 }
-.dropdown-option:hover {
+.dropdown-option:hover, .dropdown-option.hover {
   background-color: #f2f2f2;
 }
 .dropdown-option:last-of-type {
