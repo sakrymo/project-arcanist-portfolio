@@ -434,7 +434,7 @@ if (onContact) {
   categorySelect.addEventListener('focusout', e => setTimeout(() => {
     closeDropdown(categorySelect);
   }, 100)); // TODO Remember form content on refresh through localStorage
-  // TODO Remember form content on refresh through localStorage
+  // TODO Hide on mobile
 } // const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 /*

@@ -12,24 +12,10 @@ form#contact-form(name="something" action=formspreeURL method='POST' autocomplet
 
   #contact-category-select-wrapper
     label.contact-form-label How can we help you?
-    //- .custom-select(tabindex="0")
-    //-   .dropdown-arrow
-    //-   select#contact-category-select(name="category" required tabindex="-1")
-    //-     option 
-    //-     option Option 1
-    //-     option Option 2
-    //-     option Option 3
-    //-     option Option 4
-    //-   #custom-option-shadow
-    //-   .custom-option Option 1
-    //-   .custom-option Option 2
-    //-   .custom-option Option 3
-    //-   .custom-option Option 4
-
     .dropdown-wrapper
       .dropdown(tabindex='0')
       .dropdown-arrow
-      select.dropdown-select(required)(tabindex='-1')
+      select.dropdown-select(name='category' required tabindex='-1')
         option I want to order a design
         option I have a business offer
         option I have a question

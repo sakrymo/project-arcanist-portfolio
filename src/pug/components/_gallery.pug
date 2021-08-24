@@ -49,6 +49,31 @@
       color1: 'white',
       color2: 'red',
       getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    examplea8: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    examplea9: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    examplea10: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    examplea11: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
+    },
+    examplea12: {
+      color1: 'white',
+      color2: 'red',
+      getColors() { return `${this.color1}, ${this.color2}` }
     }
   }
 
@@ -58,7 +83,8 @@ mixin gallery()
       - let galleryItemDelay = 0
       each val, key in galleryData
         - galleryItemDelay += 100
-        .gallery-item(data-aos="fade-up" data-aos-delay=galleryItemDelay.toString() data-aos-duration="500")
+        //- .gallery-item(data-aos="fade-up" data-aos-delay=galleryItemDelay.toString() data-aos-duration="500")
+        .gallery-item
           .thumbnail-wrapper
             .thumbnail
           .gallery-item-details

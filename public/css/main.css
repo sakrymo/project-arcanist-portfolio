@@ -1664,6 +1664,8 @@ input:focus, textarea:focus, select:focus {
   grid-template-columns: repeat(4, 1fr);
   grid-auto-flow: row;
   gap: 2rem;
+  position: relative;
+  z-index: 1;
 }
 .gallery.col-3 {
   grid-template-columns: repeat(3, 1fr);
@@ -1769,6 +1771,15 @@ input:focus, textarea:focus, select:focus {
   to {
     clip-path: circle(142% at 0 100%);
   }
+}
+
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 body {
