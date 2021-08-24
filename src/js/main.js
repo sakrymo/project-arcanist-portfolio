@@ -276,6 +276,9 @@ if (onContact) {
     return index
   }
 
+  // Start with empty select input
+  document.querySelectorAll('.dropdown-select')[0].selectedIndex = '-1'
+
   // Mouse click behavior
   categorySelect.addEventListener('click', e => {
     categorySelect.classList.contains('on')
@@ -359,8 +362,66 @@ if (onContact) {
     closeDropdown(categorySelect)
   }, 100))
 
-  // TODO Remember form content on refresh through localStorage
-  // TODO Hide on mobile
+  // * Remember form content until valid submit
+  const storage = window.localStorage
+
+  const contactName = document.getElementById('contact-name')
+  const contactEmail = document.getElementById('contact-email')
+  const contactCategory = document.querySelectorAll('.dropdown-select')[0]
+  const contactMessage = document.getElementById('contact-message')
+
+  const updateFormData = () => {
+    const formData = {
+      name: contactName.value,
+      email: contactEmail.value,
+      category: contactCategory.selectedIndex,
+      message: contactMessage.value,
+      wasSubmitted: false
+    }
+    storage.setItem('contactFormData', JSON.stringify(formData))
+  }
+
+  // Update stored formdata on changes
+  for (const element of [contactName, contactEmail, contactCategory, contactMessage]) {
+    element.addEventListener('input', e => { updateFormData() })
+  }
+
+  categorySelect.firstChild.addEventListener('focusout', updateFormData)
+
+  // Populate contact form on load
+  const populateContactForm = () => {
+    const formDataFromStorage = JSON.parse(storage.getItem('contactFormData'))
+    console.log('POPULATE CONTACT FORM DATA')
+    console.log(formDataFromStorage)
+
+    /* eslint-disable */
+    contactName.value                     = formDataFromStorage.name
+    contactEmail.value                    = formDataFromStorage.email
+    contactCategory.selectedIndex         = formDataFromStorage.category
+    categorySelect.firstChild.textContent = formDataFromStorage.category === -1 ? '' : contactCategory.value
+    contactMessage.value                  = formDataFromStorage.message
+    /* eslint-enable */
+  }
+
+  populateContactForm()
+
+  // Clear data on valid submit and set wasSubmitted to true
+  const clearContactFormFromStorage = () => {
+    const formData = {
+      name: '',
+      email: '',
+      category: -1,
+      message: '',
+      wasSubmitted: true
+    }
+    storage.setItem('contactFormData', JSON.stringify(formData))
+  }
+
+  document.getElementById('contact-form').addEventListener('submit', e => {
+    e.preventDefault()
+    clearContactFormFromStorage()
+    setTimeout(() => { e.target.submit(); populateContactForm() }, 50)
+  })
 }
 
 // const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/

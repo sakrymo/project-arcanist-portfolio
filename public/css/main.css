@@ -1613,6 +1613,11 @@ input:focus, textarea:focus, select:focus {
 .dropdown-option:last-of-type {
   border-radius: 0 0 15px 15px;
 }
+@media (max-width: 768px) {
+  .dropdown-option {
+    display: none;
+  }
+}
 
 .dropdown-option-padding + .dropdown-option {
   height: calc(36px + 16px);

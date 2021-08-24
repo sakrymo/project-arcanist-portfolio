@@ -296,6 +296,9 @@ input, textarea, select {
   &:last-of-type {
     border-radius: 0 0 15px 15px;
   }
+  @include for-phone {
+    display: none;
+  }
 }
 
 .dropdown-option-padding + .dropdown-option {
