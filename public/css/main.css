@@ -1617,6 +1617,9 @@ input:focus, textarea:focus, select:focus {
   .dropdown-option {
     display: none;
   }
+  .dropdown-option.on {
+    display: none;
+  }
 }
 
 .dropdown-option-padding + .dropdown-option {

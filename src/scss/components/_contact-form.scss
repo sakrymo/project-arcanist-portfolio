@@ -298,6 +298,7 @@ input, textarea, select {
   }
   @include for-phone {
     display: none;
+    &.on { display: none }
   }
 }
 
