@@ -4,11 +4,42 @@ mixin collapsible(name, label)
     input.collapsible-hide(type="radio" name=name)
     .collapsible-arrow
     .collapsible-content
+        block
 
 
 #pricing-table
   #pricing-table-heading PRICING
   #pricing-table-content
-    +collapsible('test', 'First thing')
-    +collapsible('test', 'Second')
-    +collapsible('test', 'Third')
+    +collapsible('test', 'Logo')
+      .pricing-cards
+        .pricing-card
+          .pricing-card-price 150€
+        .pricing-card
+          .pricing-card-price 250€
+        .pricing-card
+          .pricing-card-price 300€
+    +collapsible('test', 'Leaflet')
+      .pricing-cards
+        .pricing-card
+          .pricing-card-price 350€
+        .pricing-card
+          .pricing-card-price 666€
+        .pricing-card
+          .pricing-card-price 1350€
+    +collapsible('test', 'Poster')
+      .pricing-cards
+        .pricing-card
+        .pricing-card
+        .pricing-card
+    +collapsible('test', 'Illustration')
+      .pricing-cards
+        .pricing-card
+        .pricing-card
+        .pricing-card
+    +collapsible('test', 'Website')
+      .pricing-cards
+        .pricing-card
+        .pricing-card
+        .pricing-card
+    +collapsible('test', 'Animation')
+    +collapsible('test', 'Other')

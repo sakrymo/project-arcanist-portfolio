@@ -1651,6 +1651,7 @@ input:focus, textarea:focus, select:focus {
   width: 100%;
   display: flex;
   flex-flow: column;
+  margin-top: 20px;
 }
 
 .accordion {
@@ -1737,6 +1738,9 @@ input:focus, textarea:focus, select:focus {
   display: block;
   max-height: 300px;
 }
+.collapsible-show:checked ~ .collapsible-content .pricing-card-price {
+  font-size: inherit;
+}
 .collapsible-show:checked ~ .collapsible-hide {
   display: block;
 }
@@ -1748,6 +1752,8 @@ input:focus, textarea:focus, select:focus {
   width: calc(100% + 50px);
   margin-left: -50px;
   background: transparent;
+  overflow: hidden;
+  font-weight: normal;
 }
 
 .collapsible-arrow {
@@ -1767,6 +1773,47 @@ input:focus, textarea:focus, select:focus {
 
 .collapsible-show:checked ~ .collapsible-arrow {
   transform: rotate(0deg) translateY(2px);
+}
+
+.pricing-cards {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-flow: row;
+  column-gap: 3rem;
+  margin-left: 3rem;
+  margin-top: 1rem;
+  padding-bottom: 2rem;
+  max-width: 80%;
+}
+.pricing-cards .pricing-card:nth-of-type(1) :first-child {
+  background: red;
+}
+.pricing-cards .pricing-card:nth-of-type(2) :first-child {
+  background: orange;
+}
+.pricing-cards .pricing-card:nth-of-type(3) :first-child {
+  background: green;
+}
+
+.pricing-card {
+  height: 100%;
+  width: 200px;
+  background: gray;
+  flex-grow: 1;
+  border-radius: 7px;
+  display: flex;
+  flex-flow: column;
+}
+
+.pricing-card-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  font-size: 0;
+  transition: font-size 0.3s ease;
+  border-radius: 7px 7px 0 0;
 }
 
 #home-gallery {
