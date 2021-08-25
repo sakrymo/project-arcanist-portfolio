@@ -297,7 +297,6 @@ input, textarea, select {
     border-radius: 0 0 15px 15px;
   }
   @include for-phone {
-    display: none;
     &.on { display: none }
   }
 }

@@ -1,2 +1,36 @@
+mixin collapsible(name, label)
+  .collapsible-label #{label}
+    input.collapsible-show(type="radio" name=name)
+    input.collapsible-hide(type="radio" name=name)
+    .collapsible-arrow
+    .collapsible-content
+
+
 #pricing-table
   #pricing-table-heading PRICING
+  #pricing-table-content
+    .accordion(onclick="this.classList.contains('on') ? this.classList.remove('on') : this.classList.add('on')") Logo design
+      .pricing-cards
+        .pricing-card
+          .pricing-card-price 350
+          ul.pricing-card-features
+            li.pricing-card-feature Feature 1
+            li.pricing-card-feature Feature 2
+            li.pricing-card-feature Feature 3
+            li.pricing-card-feature.new Feature 3
+      input(type="radio" ).accordion-toggle
+
+    .accordion(onclick="this.classList.contains('on') ? this.classList.remove('on') : this.classList.add('on')") Testing
+      .pricing-cards
+        .pricing-card
+          .pricing-card-price 350
+          ul.pricing-card-features
+            li.pricing-card-feature Feature 1
+            li.pricing-card-feature Feature 2
+            li.pricing-card-feature Feature 3
+            li.pricing-card-feature.new Feature 3
+
+
+    +collapsible('test', 'First thing')
+    +collapsible('test', 'Second')
+    +collapsible('test', 'Third')

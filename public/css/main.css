@@ -1614,9 +1614,6 @@ input:focus, textarea:focus, select:focus {
   border-radius: 0 0 15px 15px;
 }
 @media (max-width: 768px) {
-  .dropdown-option {
-    display: none;
-  }
   .dropdown-option.on {
     display: none;
   }
@@ -1647,6 +1644,129 @@ input:focus, textarea:focus, select:focus {
   width: auto;
   margin: 0;
   border-radius: 0 0 20px 20px;
+}
+
+#pricing-table-content {
+  text-align: left;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.accordion {
+  margin-left: 50px;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.accordion::before {
+  content: " ";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid #eee;
+  z-index: 2;
+  position: relative;
+  right: 20px;
+  top: 2px;
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease;
+  transform-origin: center;
+}
+.accordion.on:before {
+  transform: rotate(0deg) translateY(-2px);
+}
+.accordion > * {
+  font-weight: normal;
+  margin-left: -25px;
+  overflow: hidden;
+  display: none;
+}
+.accordion.on > * {
+  display: flex;
+}
+
+.accordion-toggle {
+  width: 300px;
+  height: 300px;
+  background: blue;
+}
+
+.accordion-toggle:checked {
+  background: red;
+}
+
+.collapsible-label {
+  padding-left: 50px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+.collapsible-label:hover {
+  background: #404040;
+}
+
+.collapsible-hide {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  max-height: 2em;
+  display: none;
+  cursor: pointer;
+}
+
+.collapsible-show {
+  width: 100%;
+  height: 2em;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+.collapsible-show:checked ~ .collapsible-content {
+  display: block;
+  max-height: 300px;
+}
+.collapsible-show:checked ~ .collapsible-hide {
+  display: block;
+}
+
+.collapsible-content {
+  height: 100vh;
+  max-height: 0;
+  transition: max-height 0.5s ease;
+  width: calc(100% + 50px);
+  margin-left: -50px;
+  background: transparent;
+}
+
+.collapsible-arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid #eee;
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease;
+  transform-origin: center;
+  position: absolute;
+  left: 20px;
+  top: 7px;
+}
+
+.collapsible-show:checked ~ .collapsible-arrow {
+  transform: rotate(0deg) translateY(2px);
 }
 
 #home-gallery {
