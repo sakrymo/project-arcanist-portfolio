@@ -2029,7 +2029,7 @@ input:focus, textarea:focus, select:focus {
   transform: translateX(-50%);
   width: 150%;
   height: 100%;
-  z-index: 0;
+  z-index: -2;
 }
 
 body {
