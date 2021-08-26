@@ -128,6 +128,11 @@ $collapisble-height: 300px;
     .pricing-card-price {
       font-size: inherit;
     }
+
+    .pricing-card-feature {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   &:checked ~ .collapsible-hide { display: block; }
@@ -169,29 +174,29 @@ $collapisble-height: 300px;
   height: 100%;
   width: 100%;
   flex-flow: row;
-  column-gap: 3rem;
+  column-gap: 2rem;
   margin-left: 3rem;
   margin-top: 1rem;
   padding-bottom: 2rem;
   max-width: 80%;
 
-  & .pricing-card:nth-of-type(1) :first-child {
-    background: red;
+  & > .pricing-card:nth-of-type(1) > :first-child {
+    background: #316F82;
   }
 
-  & .pricing-card:nth-of-type(2) :first-child {
-    background: orange;
+  & > .pricing-card:nth-of-type(2) > :first-child {
+    background: #538C55;
   }
 
-  & .pricing-card:nth-of-type(3) :first-child {
-    background: green;
+  & > .pricing-card:nth-of-type(3) > :first-child {
+    background: #704D80;
   }
 }
 
 .pricing-card {
   height: 100%;
   width: 200px;
-  background: gray;
+  background: $gray;
   flex-grow: 1;
   border-radius: 7px;
   display: flex;
@@ -206,4 +211,25 @@ $collapisble-height: 300px;
   font-size: 0;
   transition: font-size .3s ease;
   border-radius: 7px 7px 0 0;
+}
+
+.pricing-card-features {
+  display: flex;
+  flex-flow: column;
+  padding: 8% 10%;
+  font-size: .9em;
+  row-gap: .6rem;
+}
+
+.pricing-card-feature {
+  opacity: 0;
+  transform: translateX(-15px);
+}
+
+@for $i from 1 to 8 {
+  .pricing-card-features .pricing-card-feature:nth-of-type(#{$i}) {
+    transition-property: opacity, transform;
+    transition: .15s ease;
+    transition-delay: #{0.4 - 0.05 * $i}s;
+  }
 }
