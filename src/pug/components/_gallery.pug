@@ -5,14 +5,15 @@
     happyBee: {
       color1: 'orange',
       color2: 'fuchsia',
-      accentColor: this.color1,
+      getAccentColor() { return this.color1 },
+      getColors() { return `${this.color1}, ${this.color2}` },
       title: 'Happy Bee',
       contributors: [artists[0]],
-      tags: [].filter(e => validGalleryTags.includes(e)),
+      tags: ['branding','logo','wrong']
+            .filter(e => validGalleryTags.includes(e)),
       cover: '',
       thumbnail: '',
-      thumbnailAnimated: false,
-      getColors() { return `${this.color1}, ${this.color2}` }
+      thumbnailAnimated: false
     },
     oceanProject: {
 
@@ -87,6 +88,20 @@
     }
   }
 
+mixin gallery-item(options)
+  .gallery-item
+    .thumbnail-wrapper
+      .thumbnail-hover(style=`background-color: ${options.getAccentColor()};`)
+      .thumbnail-hover-icon
+        img(src="img/eye-icon.svg", alt="" width="100px")
+      .thumbnail-loader
+      .thumbnail
+    .gallery-item-details
+      h3.thumbnail-title #{options.title}
+      .thumbnail-tags
+        each tag in options.tags
+          .thumbnail-tag #{tag}
+
 mixin gallery()
   .container
     .gallery.col-3
@@ -94,13 +109,14 @@ mixin gallery()
       each val, key in galleryData
         - galleryItemDelay += 100
         //- .gallery-item(data-aos="fade-up" data-aos-delay=galleryItemDelay.toString() data-aos-duration="500")
-        .gallery-item
-          .thumbnail-wrapper
-            .thumbnail
-          .gallery-item-details
-            h3.thumbnail-title #{key} #{val}
-            .thumbnail-tags
-                .thumbnail-tag Logo
-                .thumbnail-tag Branding
-                .thumbnail-tag Presentation
-                .thumbnail-tag Something
+        //- .gallery-item
+        //-   .thumbnail-wrapper
+        //-     .thumbnail
+        //-   .gallery-item-details
+        //-     h3.thumbnail-title #{key} #{val}
+        //-     .thumbnail-tags
+        //-         .thumbnail-tag Logo
+        //-         .thumbnail-tag Branding
+        //-         .thumbnail-tag Presentation
+        //-         .thumbnail-tag 
+        +gallery-item(galleryData.happyBee)

@@ -20,7 +20,9 @@ html(lang="en")
     h1#work-heading Our Work
     +gallery()
     .whitespace
-  
+
+  .container(style="max-width: 400px")
+    +gallery-item(galleryData.happyBee)
   #tsparticles
   script(src="./js/parcel/gallery-particles.js") 
-    include components/_footer
+  include components/_footer

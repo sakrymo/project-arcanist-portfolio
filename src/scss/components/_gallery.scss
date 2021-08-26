@@ -38,6 +38,7 @@
   border-radius: 1rem;
   overflow: hidden;
   cursor: pointer;
+  border: #333 1px solid;
 }
 
 .thumbnail-title {
@@ -76,13 +77,13 @@
   width: 100%;
   height: 0;
   padding-top: calc(632/808 * 100%);
-  background: red url('https://via.placeholder.com/808x632') center center/cover no-repeat;
+  background: transparent url('https://via.placeholder.com/808x632') center center/cover no-repeat;
   overflow: hidden;
   position: relative;
 }
 
 .thumbnail {
-  background: red url('https://via.placeholder.com/808x632') center center/cover no-repeat;
+  background: transparent url('https://via.placeholder.com/808x632') center center/cover no-repeat;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -95,10 +96,21 @@
   background: url('../img/auto/happy-bee-lg.jpg') center center/cover no-repeat;
 }
 
-.thumbnail-wrapper:hover .thumbnail {
-  transform: scale(1.2);
-  opacity: 0.8;
-  filter: brightness(1.05)
+.thumbnail-hover-icon {
+  @include flex-center;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.gallery-item:hover {
+  .thumbnail { transform: scale(1.2); }
+  .thumbnail-hover { opacity: .3; }
+  .thumbnail-hover-icon { display: flex; }
 }
 
 #work-heading {
@@ -142,4 +154,32 @@
   width: 150%;
   height: 100%;
   z-index: -2;
+}
+
+.thumbnail-loader {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, #ebebeb, #bfbfbf, #ebebeb, #bfbfbf);
+  background-size: 300% 100%;
+  animation: loadingGradientAnimation 2s infinite ease;
+}
+
+@keyframes loadingGradientAnimation {
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
+}
+
+.thumbnail-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity .3s ease;
 }
