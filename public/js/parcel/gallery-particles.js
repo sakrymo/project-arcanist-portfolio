@@ -12979,8 +12979,8 @@ var _tsparticles = require("tsparticles");
 
 _tsparticles.tsParticles.load('tsparticles', {
   background: {
-    color: '#ff0000',
-    opacity: 0
+    color: '#111111',
+    opacity: 1
   },
   backgroundMask: {
     cover: {
@@ -12992,7 +12992,7 @@ _tsparticles.tsParticles.load('tsparticles', {
     enable: false
   },
   detectRetina: true,
-  fpsLimit: 30,
+  fpsLimit: 60,
   infection: {
     cure: false,
     delay: 0,
@@ -13077,21 +13077,21 @@ _tsparticles.tsParticles.load('tsparticles', {
       color: {
         value: '#fff'
       },
-      consent: true,
-      distance: 200,
+      consent: false,
+      distance: 100,
       enable: true,
       opacity: 0.2,
       shadow: {
-        blur: 5,
+        blur: 15,
         color: {
-          value: 'lime'
+          value: 'black'
         },
-        enable: false
+        enable: true
       },
       triangles: {
         enable: true
       },
-      width: 1,
+      width: 0,
       warp: false
     },
     move: {
@@ -13115,8 +13115,8 @@ _tsparticles.tsParticles.load('tsparticles', {
         enable: false
       },
       outMode: 'out',
-      random: true,
-      speed: 1.5,
+      random: false,
+      speed: 0.3,
       straight: true,
       trail: {
         enable: false,
@@ -13130,7 +13130,7 @@ _tsparticles.tsParticles.load('tsparticles', {
     },
     number: {
       density: {
-        enable: false,
+        enable: true,
         area: 800,
         factor: 1000
       },
@@ -13148,7 +13148,7 @@ _tsparticles.tsParticles.load('tsparticles', {
         enable: false,
         minimumValue: 1
       },
-      value: 1
+      value: 0
     },
     rotate: {
       animation: {
@@ -13161,11 +13161,11 @@ _tsparticles.tsParticles.load('tsparticles', {
       value: 0
     },
     shadow: {
-      blur: 0,
+      blur: 15,
       color: {
         value: '#000000'
       },
-      enable: false,
+      enable: true,
       offset: {
         x: 0,
         y: 0
@@ -13206,7 +13206,7 @@ _tsparticles.tsParticles.load('tsparticles', {
       particles: {
         enable: false,
         frequency: 0.05,
-        opacity: 1
+        opacity: 0
       }
     }
   },

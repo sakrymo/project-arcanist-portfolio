@@ -1,11 +1,21 @@
 -
+  const artists = ['Sakrymo','Cloudy']
+  const validGalleryTags = ['logo','branding','web','stationery','poster','motion','presentation']
   const galleryData = {
     happyBee: {
       color1: 'orange',
       color2: 'fuchsia',
+      accentColor: this.color1,
+      title: 'Happy Bee',
+      contributors: [artists[0]],
+      tags: [].filter(e => validGalleryTags.includes(e)),
+      cover: '',
+      thumbnail: '',
+      thumbnailAnimated: false,
       getColors() { return `${this.color1}, ${this.color2}` }
     },
     oceanProject: {
+
       color1: 'lime',
       color2: 'cyan',
       getColors() { return `${this.color1}, ${this.color2}` }

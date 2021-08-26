@@ -145,6 +145,21 @@ section {
   align-items: center;
 }
 
+.dim {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #111;
+  opacity: 0.8;
+  z-index: 1000;
+  pointer-events: none;
+}
+.dim.hidden {
+  display: none;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -2010,8 +2025,9 @@ input:focus, textarea:focus, select:focus {
 #tsparticles {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
   height: 100%;
   z-index: 0;
 }
