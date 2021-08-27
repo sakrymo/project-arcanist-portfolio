@@ -28,7 +28,7 @@ ffOutputDest        := "./"
 
 ffMp4Codec          := "-c:v " "libx264" A_Space
 ffMp4CodecSpeed     := "-preset veryslow" A_Space
-ffMp4Crf            := "-crf 35" A_Space
+ffMp4Crf            := "-crf 32" A_Space
 
 ; DIMENSIONS
 dlg := [808, 632, "-lg"]
