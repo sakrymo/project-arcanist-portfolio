@@ -2,6 +2,7 @@
   const artists = ['Sakrymo','Cloudy']
   const validGalleryTags = ['logo','branding','web','stationery','poster','motion','presentation']
   const galleryData = {
+    
     happyBee: {
       color1: 'orange',
       color2: 'fuchsia',
@@ -11,81 +12,25 @@
       contributors: [artists[0]],
       tags: ['branding','logo','wrong']
             .filter(e => validGalleryTags.includes(e)),
-      cover: '',
+      cover: 'happybee',
       thumbnail: '',
       thumbnailAnimated: false
     },
+    
     oceanProject: {
-
-      color1: 'lime',
+      color1: 'teal',
       color2: 'cyan',
-      getColors() { return `${this.color1}, ${this.color2}` }
+      getAccentColor() { return '#11b2b3' },
+      getColors() { return `${this.color1}, ${this.color2}` },
+      title: 'Our Ocean',
+      contributors: [artists[0]],
+      tags: ['branding','logo','kebab','pizza','poster']
+            .filter(e => validGalleryTags.includes(e)),
+      cover: 'oceanproject',
+      thumbnail: '',
+      thumbnailAnimated: true
     },
-    xinpretia: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    example1: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    example2: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    example3: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    examplea4: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    examplea5: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    examplea6: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    examplea7: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    examplea8: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    examplea9: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    examplea10: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    examplea11: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    },
-    examplea12: {
-      color1: 'white',
-      color2: 'red',
-      getColors() { return `${this.color1}, ${this.color2}` }
-    }
+
   }
 
 mixin gallery-item(options)
@@ -95,12 +40,13 @@ mixin gallery-item(options)
       .thumbnail-hover-icon
         img(src="img/eye-icon.svg", alt="" width="100px")
       .thumbnail-loader
-      .thumbnail
+      +thumbnail({src: options.thumbnail || 'placeholder', animated: options.thumbnailAnimated })
+
     .gallery-item-details
       h3.thumbnail-title #{options.title}
       .thumbnail-tags
         each tag in options.tags
-          .thumbnail-tag #{tag}
+          .thumbnail-tag(style=`color: white; border-color: ${options.getAccentColor()};`) #{tag}
 
 mixin gallery()
   .container
@@ -108,15 +54,4 @@ mixin gallery()
       - let galleryItemDelay = 0
       each val, key in galleryData
         - galleryItemDelay += 100
-        //- .gallery-item(data-aos="fade-up" data-aos-delay=galleryItemDelay.toString() data-aos-duration="500")
-        //- .gallery-item
-        //-   .thumbnail-wrapper
-        //-     .thumbnail
-        //-   .gallery-item-details
-        //-     h3.thumbnail-title #{key} #{val}
-        //-     .thumbnail-tags
-        //-         .thumbnail-tag Logo
-        //-         .thumbnail-tag Branding
-        //-         .thumbnail-tag Presentation
-        //-         .thumbnail-tag 
-        +gallery-item(galleryData.happyBee)
+        +gallery-item(val)

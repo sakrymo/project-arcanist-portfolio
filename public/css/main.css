@@ -1950,8 +1950,8 @@ input:focus, textarea:focus, select:focus {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #ffc400;
-  border: 0.1rem solid #ffc400;
+  color: gray;
+  border: 0.1rem solid gray;
   padding: 0.5rem 1.15rem;
   font-family: "letter-gothic-std";
   font-weight: bold;
@@ -1972,40 +1972,45 @@ input:focus, textarea:focus, select:focus {
 }
 
 .thumbnail {
-  background: transparent url("https://via.placeholder.com/808x632") center center/cover no-repeat;
+  background: transparent center center/cover no-repeat;
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  transform: scale(1.05);
   transition: all 0.3s ease;
 }
-
-.gallery-item:nth-of-type(1) .thumbnail-wrapper .thumbnail {
-  background: url("../img/auto/happy-bee-lg.jpg") center center/cover no-repeat;
+.thumbnail * {
+  width: 100%;
+  height: 100%;
 }
 
 .thumbnail-hover-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 5;
+  opacity: 0;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
+}
+.thumbnail-hover-icon > * {
+  transition: opacity 0.2s ease;
 }
 
 .gallery-item:hover .thumbnail {
   transform: scale(1.2);
 }
 .gallery-item:hover .thumbnail-hover {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 .gallery-item:hover .thumbnail-hover-icon {
-  display: flex;
+  opacity: 1;
 }
 
 #work-heading {

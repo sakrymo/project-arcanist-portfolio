@@ -1,6 +1,8 @@
 include _responsive-breakpoints
 -const autoImgPath = 'img/auto/'
 -const imgPath = 'img/'
+-const thumbnailImgPath = 'img/gallery/'
+-const thumbnailVideoPath = 'video/gallery/'
 
 mixin picture({ src = 'placeholder.jpg', xsCustom = '', smCustom = '', mdCustom = '', lgCustom='' } = {})
   -const extension = src.split('.').pop()
@@ -49,5 +51,35 @@ mixin picture({ src = 'placeholder.jpg', xsCustom = '', smCustom = '', mdCustom 
 
       img(src=(( lgCustom ? (imgPath + lgCustom) : (autoImgPath + name + '-lg')) + '.png'))
 
-mixin thumbnail()
+mixin thumbnail({ src = 'placeholder', animated = false, xsCustom = '', smCustom = '', mdCustom = '', lgCustom='' } = {})
+  -const lgMedia = '(min-width: ' + lgBreakpoint + 'px)'
+  -const mdMedia = '(min-width: ' + mdBreakpoint + 'px)'
+  -const smMedia = '(min-width: ' + smBreakpoint + 'px)'
+  -const xsMedia = '(min-width: ' + xsBreakpoint + 'px)'
   
+  if animated
+    video(autoplay muted loop).thumbnail
+      source(media=lgMedia src=(( lgCustom ? (thumbnailVideoPath + lgCustom) : (thumbnailVideoPath + src + '-lg')) + '.mp4') type='video/mp4')
+      source(media=mdMedia src=(( mdCustom ? (thumbnailVideoPath + mdCustom) : (thumbnailVideoPath + src + '-md')) + '.mp4') type='video/mp4')
+      source(media=smMedia src=(( smCustom ? (thumbnailVideoPath + smCustom) : (thumbnailVideoPath + src + '-sm')) + '.mp4') type='video/mp4')
+      source(media=xsMedia src=(( xsCustom ? (thumbnailVideoPath + xsCustom) : (thumbnailVideoPath + src + '-xs')) + '.mp4') type='video/mp4')
+      source(media='(min-width: 0px)' src=(( xsCustom ? (thumbnailVideoPath + xsCustom) : (thumbnailVideoPath + src + '-xs')) + '.mp4') type='video/mp4')
+  
+  else
+    picture.thumbnail
+      //- source(media=lgMedia srcset=(( lgCustom ? (thumbnailImgPath + lgCustom) : (thumbnailImgPath + src + '-lg')) + '.webp') type='image/webp')
+      source(media=lgMedia srcset=(( lgCustom ? (thumbnailImgPath + lgCustom) : (thumbnailImgPath + src + '-lg')) + '.jpg') type='image/jpg')
+
+      //- source(media=mdMedia srcset=(( mdCustom ? (thumbnailImgPath + mdCustom) : (thumbnailImgPath + src + '-md')) + '.webp') type='image/webp')
+      source(media=mdMedia srcset=(( mdCustom ? (thumbnailImgPath + mdCustom) : (thumbnailImgPath + src + '-md')) + '.jpg') type='image/jpg')
+
+      //- source(media=smMedia srcset=(( smCustom ? (thumbnailImgPath + smCustom) : (thumbnailImgPath + src + '-sm')) + '.webp') type='image/webp')
+      source(media=smMedia srcset=(( smCustom ? (thumbnailImgPath + smCustom) : (thumbnailImgPath + src + '-sm')) + '.jpg') type='image/jpg')
+
+      //- source(media=xsMedia srcset=(( xsCustom ? (thumbnailImgPath + xsCustom) : (thumbnailImgPath + src + '-xs')) + '.webp') type='image/webp')
+      source(media=xsMedia srcset=(( xsCustom ? (thumbnailImgPath + xsCustom) : (thumbnailImgPath + src + '-xs')) + '.jpg') type='image/jpg')
+
+      //- source(media='(min-width: 0px)' srcset=(( xsCustom ? (thumbnailImgPath + xsCustom) : (thumbnailImgPath + src + '-xs')) + '.webp') type='image/webp')
+      source(media='(min-width: 0px)' srcset=(( xsCustom ? (thumbnailImgPath + xsCustom) : (thumbnailImgPath + src + '-xs')) + '.jpg') type='image/jpg')
+
+      img(src=(( lgCustom ? (thumbnailImgPath + lgCustom) : (autoImgPath + src + '-lg')) + '.jpg'))
